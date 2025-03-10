@@ -3,12 +3,16 @@ import { knownLanguagesToMap } from "./ProgrammingLanguagesHelper";
 
 const ProgrammingLanguages = () => {
   return (
-    <div>
+    <div className="flex w-full flex-row">
       {knownLanguagesToMap.map((language) => {
         return (
-          <div className="logo">
-            <img src={language.logo} alt={language.alt} />
-          </div>
+          <a href="https://react.dev" target="_blank">
+            <img
+              src={language.logo}
+              alt={language.alt}
+              className={`logo ${language.additionalClassname}`}
+            />
+          </a>
         );
       })}
     </div>
