@@ -4,7 +4,7 @@ const ProgrammingLanguages = () => {
   return (
     <div className="flex flex-col h-fit">
       <div className="py-5">
-        <h1>Languages + Tools</h1>
+        <h2>Languages + Tools</h2>
       </div>
       <div className="flex w-full justify-center">
         <div className="w-[80%] flex flex-row flex-wrap gap-10">
