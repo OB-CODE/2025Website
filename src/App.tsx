@@ -1,12 +1,14 @@
 import { useState } from "react";
 import "./App.css";
 import ProgrammingLanguages from "./assets/Components/ProgrammingIcons/ProgrammingLanguages";
+import PersonalHeading from "./assets/Components/PersonalHeading/PersonalHeading";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
+      <PersonalHeading />
       <div>
         {/* <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -16,7 +18,6 @@ function App() {
         </a> */}
         <ProgrammingLanguages />
       </div>
-      <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}

@@ -57,4 +57,9 @@ export const knownLanguagesToMap: ILanguages[] = [
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg",
     alt: "C# Logo",
   },
+  {
+    language: "Vite",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg",
+    alt: "Vite Logo",
+  },
 ];
