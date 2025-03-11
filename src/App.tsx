@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import ProgrammingLanguages from "./assets/Components/ProgrammingLanguages";
+import ProgrammingLanguages from "./assets/Components/ProgrammingIcons/ProgrammingLanguages";
 
 function App() {
   const [count, setCount] = useState(0);

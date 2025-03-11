@@ -1,6 +1,3 @@
-// import viteLogo from "../../vite.svg";
-import reactLogo from "../../assets/react.svg";
-
 interface ILanguages {
   language: string;
   logo: string | undefined;
@@ -16,7 +13,7 @@ export const knownLanguagesToMap: ILanguages[] = [
   },
   {
     language: "NodeJS",
-    logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg",
     alt: "Node JS Logo",
   },
   {
@@ -26,7 +23,7 @@ export const knownLanguagesToMap: ILanguages[] = [
   },
   {
     language: "React",
-    logo: reactLogo,
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
     alt: "React Logo",
     additionalClassname: "logoRotate",
   },
@@ -52,7 +49,7 @@ export const knownLanguagesToMap: ILanguages[] = [
   },
   {
     language: "Tailwind",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original-wordmark.svg",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
     alt: "tailwind Logo",
   },
   {
