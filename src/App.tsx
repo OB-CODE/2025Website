@@ -1,21 +1,15 @@
 import { useState } from "react";
 import "./App.css";
-import ProgrammingLanguages from "./assets/Components/ProgrammingIcons/ProgrammingLanguages";
-import PersonalHeading from "./assets/Components/PersonalHeading/PersonalHeading";
+import ProgrammingLanguages from "./components/ProgrammingIcons/ProgrammingLanguages";
+import PersonalHeading from "./components/PersonalHeading/PersonalHeading";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
+    <div className="bg-[#151515] w-screen p-0 m-0 h-screen text-white text-center flex items-center flex-col justify-center">
       <PersonalHeading />
       <div>
-        {/* <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a> */}
         <ProgrammingLanguages />
       </div>
       <div className="card">
@@ -30,7 +24,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </>
+    </div>
   );
 }
 
