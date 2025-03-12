@@ -7,7 +7,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="bg-[#151515] w-screen p-0 m-0 h-screen text-white text-center flex items-center flex-col justify-center">
+    <div className="bg-[black] w-screen p-0 m-0 h-screen text-white text-center flex items-center flex-col justify-center">
       <PersonalHeading />
       <div>
         <ProgrammingLanguages />
