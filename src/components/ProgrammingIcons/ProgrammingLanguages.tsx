@@ -7,12 +7,13 @@ const ProgrammingLanguages = () => {
         <h2>Languages + Tools</h2>
       </div>
       <div className="flex w-full justify-center">
-        <div className="w-[80%] justify-center flex flex-row flex-wrap gap-10">
-          {knownLanguagesToMap.map((language) => {
+        <div className="max-w-[80%] justify-center h-fit flex flex-row flex-wrap gap-10">
+          {knownLanguagesToMap.map((language, index) => {
             return (
               <div
                 className="w-24 h-24 flx justify-center items-center logo"
-                data-testid="language-item">
+                data-testid="language-item"
+                key={index}>
                 <img
                   src={language.logo}
                   alt={language.alt}

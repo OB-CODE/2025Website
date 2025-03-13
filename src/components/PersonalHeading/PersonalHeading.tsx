@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { personalDetails } from "./personal-info";
-import { HyperText } from "../magicui/hyper-text";
 import { AuroraText } from "../magicui/aurora-text";
+import { HyperText } from "../magicui/hyper-text";
+import { personalDetails } from "./personal-info";
 
 const PersonalHeading = () => {
   const [toggleForRightBorder, setToggleForRightBorder] = useState(true);
@@ -15,21 +15,20 @@ const PersonalHeading = () => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center h-full w-full bg-[radial-gradient(ellipse_at_center,_rgba(60,60,60,0.7)_0%,_rgba(0,0,0,1)_60%)]">
+    <div className="min-h-[30rem] flex flex-col justify-center items-center h-full w-full bg-[radial-gradient(ellipse_at_center,_rgba(60,60,60,0.7)_0%,_rgba(0,0,0,1)_60%)]">
       <div className="flex flex-row w-fit justify-between items-center">
         <h1 className="text-4xl font-bold tracking-tighter md:text-5xl lg:text-7xl">
           {personalDetails.firstName}{" "}
           <AuroraText
-            speed={2}
-            // colors={[
-            //   "#ffffff",
-            //   "#e0c3fc",
-            //   "#c084fc",
-            //   "#9333ea",
-            //   "#7e22ce",
-            //   "#6b21a8",
-            // ]}
-          >
+            speed={1}
+            colors={[
+              "#ffffff",
+              "#e0c3fc",
+              "#c084fc",
+              "#9333ea",
+              "#7e22ce",
+              "#6b21a8",
+            ]}>
             {personalDetails.lastName}
           </AuroraText>
         </h1>
