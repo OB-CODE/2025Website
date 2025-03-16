@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { AuroraText } from "../magicui/aurora-text";
 import { HyperText } from "../magicui/hyper-text";
+import { MorphingText } from "../magicui/morphing-text";
 import { personalDetails } from "./personal-info";
 
 const PersonalHeading = () => {
@@ -15,23 +15,16 @@ const PersonalHeading = () => {
   }, []);
 
   return (
-    <div className="min-h-[30rem] flex flex-col justify-center items-center h-full w-full bg-[radial-gradient(ellipse_at_center,_rgba(60,60,60,0.7)_0%,_rgba(0,0,0,1)_60%)]">
-      <div className="flex flex-row w-fit justify-between items-center">
-        <div className="text-4xl font-bold tracking-tighter sm:text-6xl md:text-5xl lg:text-7xl">
-          {personalDetails.firstName}{" "}
-          <AuroraText
-            className="text-4xl font-bold tracking-tighter sm:text-6xl md:text-5xl lg:text-7xl"
-            speed={1}
-            colors={[
-              "#ffffff",
-              "#e0c3fc",
-              "#c084fc",
-              "#9333ea",
-              "#7e22ce",
-              "#6b21a8",
-            ]}>
-            {personalDetails.lastName}
-          </AuroraText>
+    <div className="min-h-[25rem] flex flex-col justify-center items-center h-full w-full bg-[radial-gradient(ellipse_at_center,_rgba(60,60,60,0.7)_0%,_rgba(0,0,0,1)_60%)]">
+      <div className="flex flex-row justify-between items-center pb-1 w-full md:w-[50vw]">
+        <div className="text-xl font-bold flex md:text-5xl lg:text-7xl flex-row w-full">
+          <MorphingText
+            className="w-full"
+            texts={[
+              personalDetails.nickname,
+              `${personalDetails.firstName} ${personalDetails.lastName}`,
+            ]}
+          />
         </div>
         <div className="w-3 pl-1 h-full flex items-center">
           <div
@@ -42,14 +35,14 @@ const PersonalHeading = () => {
       </div>
       <div
         className={`z-10 bg-[rgba(168,85,247,0.2)] w-fit h-16 flex justify-center rounded-4xl opacity px-2 items-center `}>
-        <div className="text-3xl font-bold tracking-tighter sm:text-6xl md:text-5xl lg:text-7xl bottom-1 relative">{`<`}</div>
+        <div className="text-3xl font-bold tracking-tighter md:text-5xl lg:text-7xl bottom-1 relative">{`<`}</div>
         <HyperText
-          className="text-3xl font-bold tracking-tighter sm:text-6xl md:text-5xl lg:text-7xl"
+          className="text-3xl font-bold tracking-tighter md:text-5xl lg:text-7xl"
           duration={300}
           characterSet={["0", "1"]}>
           {personalDetails.jobTitle}
         </HyperText>
-        <div className="text-3xl font-bold tracking-tighter sm:text-6xl md:text-5xl lg:text-7xl bottom-1 relative pl-2">{`/>`}</div>
+        <div className="text-3xl font-bold tracking-tighter md:text-5xl lg:text-7xl bottom-1 relative pl-2">{`/>`}</div>
       </div>
     </div>
   );

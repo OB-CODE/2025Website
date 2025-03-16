@@ -13,7 +13,7 @@ function App() {
     <div className="bg-[black] w-full p-0 m-0 min-h-screen text-white text-center flex items-center flex-col justify-center">
       <ParticlesBackgroundDisplay />
       <PersonalHeading />
-      <div className="max-w-[calc(100vw-40px)] overflow-hidden flex flex-col gap-4">
+      <div className="max-w-[calc(100vw)] md: overflow-hidden flex flex-col gap-4">
         <CardsIndexLeftScroll />
         <CardsIndexRightScroll />
       </div>

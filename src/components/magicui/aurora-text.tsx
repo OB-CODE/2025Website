@@ -128,7 +128,7 @@ export function AuroraText({
           0,
           x,
           y,
-          canvas.width * 0.4,
+          canvas.width * 0.4
         );
 
         gradient.addColorStop(0, `${color}99`);
@@ -147,14 +147,15 @@ export function AuroraText({
   return (
     <span
       ref={containerRef}
-      className={`relative inline-block align-middle ${className}`}
+      className={`relative inline-block align-middle ${className} text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter`}
       style={{
         width: dimensions.width || "auto",
         height: dimensions.height || "auto",
-      }}
-    >
+      }}>
       {/* Hidden text for SEO */}
-      <span className="sr-only">{children}</span>
+      <span className="sr-only text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter">
+        {children}
+      </span>
 
       {/* Visual placeholder while canvas loads */}
       <span
@@ -165,8 +166,7 @@ export function AuroraText({
           display: "inline-block",
           whiteSpace: "nowrap",
         }}
-        aria-hidden="true"
-      >
+        aria-hidden="true">
         {children}
       </span>
 
@@ -176,13 +176,11 @@ export function AuroraText({
           opacity: isReady ? 1 : 0,
           transition: "opacity 0.2s ease-in",
         }}
-        aria-hidden="true"
-      >
+        aria-hidden="true">
         <svg
           width={dimensions.width}
           height={dimensions.height}
-          className="absolute inset-0"
-        >
+          className="absolute inset-0">
           <defs>
             <clipPath id={maskId}>
               <text
@@ -191,8 +189,7 @@ export function AuroraText({
                 y="50%"
                 dominantBaseline="middle"
                 textAnchor="middle"
-                style={textStyle as CSSProperties}
-              >
+                style={textStyle as CSSProperties}>
                 {children}
               </text>
             </clipPath>

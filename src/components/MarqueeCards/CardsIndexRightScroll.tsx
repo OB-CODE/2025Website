@@ -27,7 +27,7 @@ const CardsIndexLeftScroll = () => {
         return (
           <figure
             className={cn(
-              "relative h-full w-84 ml-3 cursor-pointer overflow-hidden rounded-xl border p-4",
+              "relative h-full w-48 md:w-84 ml-3 cursor-pointer overflow-hidden rounded-xl border p-4",
               // light styles
               // "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]"
               // dark styles
