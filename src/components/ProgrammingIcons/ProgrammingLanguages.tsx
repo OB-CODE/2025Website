@@ -2,12 +2,14 @@ import { knownLanguagesToMap } from "./ProgrammingLanguagesHelper";
 
 const ProgrammingLanguages = () => {
   return (
-    <div className="flex flex-col h-fit">
+    <div className="min-h-[25rem] pt-[5vh] md:min-h-[35rem] flex flex-col justify-center items-center h-full w-full">
       <div className="py-5">
-        <h2>Languages + Tools</h2>
+        <div className="font-sans text-[20pt] md:text-[40pt]">
+          Languages / Tools
+        </div>
       </div>
-      <div className="flex w-full justify-center">
-        <div className="max-w-[80%] justify-center h-fit flex flex-row flex-wrap gap-10">
+      <div className="flex w-full justify-center pt-[3vh]">
+        <div className="max-w-[80%] justify-center h-fit flex flex-row flex-wrap gap-10 ">
           {knownLanguagesToMap.map((language, index) => {
             return (
               <div

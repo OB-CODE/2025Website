@@ -15,7 +15,7 @@ const PersonalHeading = () => {
   }, []);
 
   return (
-    <div className="min-h-[25rem] md:min-h-[35rem] flex flex-col justify-center items-center h-full w-full bg-[radial-gradient(ellipse_at_center,_rgba(60,60,60,0.7)_0%,_rgba(0,0,0,1)_60%)]">
+    <div className="min-h-[25rem] md:min-h-[35rem] flex flex-col justify-center items-center h-full w-full bg-[radial-gradient(ellipse_at_center,_rgba(111,111,111,0.7)_0%,_rgba(0,0,0,1)_60%)]">
       <div className="flex flex-row justify-between items-center pb-1 w-full md:w-[70vw]">
         <div className="text-xl font-bold flex md:text-5xl lg:text-7xl flex-row w-full">
           <MorphingText
@@ -34,7 +34,7 @@ const PersonalHeading = () => {
         </div>
       </div>
       <div
-        className={`z-10 bg-[rgba(168,85,247,0.2)] w-fit h-16 flex justify-center rounded-4xl opacity px-2 items-center `}>
+        className={`z-10 bg-[rgba(186,113,255,0.49)] w-fit h-18 flex justify-center rounded-4xl opacity px-2 items-center `}>
         <div className="text-3xl font-bold tracking-tighter md:text-5xl lg:text-7xl bottom-1 relative">{`<`}</div>
         <HyperText
           className="text-3xl font-bold tracking-tighter md:text-5xl lg:text-7xl"

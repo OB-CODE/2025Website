@@ -15,14 +15,13 @@ function App() {
         <ParticlesBackgroundDisplay />
       </div>
       <PersonalHeading />
-      <div className="max-w-[calc(100vw)] md: overflow-hidden flex flex-col gap-4">
+      <div className="max-w-[calc(100vw)] md:max-w-[calc(100vw-30px)] overflow-hidden flex flex-col gap-4">
         <CardsIndexLeftScroll />
         <CardsIndexRightScroll />
       </div>
 
-      <div>
-        <ProgrammingLanguages />
-      </div>
+      <ProgrammingLanguages />
+
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
