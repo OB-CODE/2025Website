@@ -15,8 +15,8 @@ const PersonalHeading = () => {
   }, []);
 
   return (
-    <div className="min-h-[25rem] flex flex-col justify-center items-center h-full w-full bg-[radial-gradient(ellipse_at_center,_rgba(60,60,60,0.7)_0%,_rgba(0,0,0,1)_60%)]">
-      <div className="flex flex-row justify-between items-center pb-1 w-full md:w-[50vw]">
+    <div className="min-h-[25rem] md:min-h-[35rem] flex flex-col justify-center items-center h-full w-full bg-[radial-gradient(ellipse_at_center,_rgba(60,60,60,0.7)_0%,_rgba(0,0,0,1)_60%)]">
+      <div className="flex flex-row justify-between items-center pb-1 w-full md:w-[70vw]">
         <div className="text-xl font-bold flex md:text-5xl lg:text-7xl flex-row w-full">
           <MorphingText
             className="w-full"

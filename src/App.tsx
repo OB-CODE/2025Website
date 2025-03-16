@@ -11,7 +11,9 @@ function App() {
 
   return (
     <div className="bg-[black] w-full p-0 m-0 min-h-screen text-white text-center flex items-center flex-col justify-center">
-      <ParticlesBackgroundDisplay />
+      <div className="bg-repeat-x">
+        <ParticlesBackgroundDisplay />
+      </div>
       <PersonalHeading />
       <div className="max-w-[calc(100vw)] md: overflow-hidden flex flex-col gap-4">
         <CardsIndexLeftScroll />
