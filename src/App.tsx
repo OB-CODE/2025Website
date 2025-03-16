@@ -5,10 +5,9 @@ import ProgrammingLanguages from "./components/ProgrammingIcons/ProgrammingLangu
 import { ParticlesBackgroundDisplay } from "./components/PersonalHeading/ParticlesBackgroundDisplay";
 import CardsIndexLeftScroll from "./components/MarqueeCards/CardsIndexLeftScroll";
 import CardsIndexRightScroll from "./components/MarqueeCards/CardsIndexRightScroll";
+import AboutMe from "./components/About/AboutMe";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div className="bg-[black] w-full p-0 m-0 min-h-screen text-white text-center flex items-center flex-col justify-center">
       <div className="bg-repeat-x">
@@ -21,19 +20,7 @@ function App() {
       </div>
 
       <ProgrammingLanguages />
-
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <AboutMe />
     </div>
   );
 }
