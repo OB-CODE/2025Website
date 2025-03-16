@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import Marquee from "react-fast-marquee";
 
-const CardsIndex = () => {
+const CardsIndexLeftScroll = () => {
   const cardDetailsObject = {
     logo: "Image",
     title: "Testing",
@@ -21,6 +21,7 @@ const CardsIndex = () => {
       pauseOnHover={true}
       gradient={true}
       gradientColor={"black"}
+      direction={"left"}
       className="w-full flex justify-between group  overflow-hidden p-0 [gap:var(--gap)] flex-row space-x-1">
       {objsToMap.map((obj, index) => {
         return (
@@ -58,4 +59,4 @@ const CardsIndex = () => {
   );
 };
 
-export default CardsIndex;
+export default CardsIndexLeftScroll;
