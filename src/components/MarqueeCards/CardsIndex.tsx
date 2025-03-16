@@ -21,12 +21,12 @@ const CardsIndex = () => {
       pauseOnHover={true}
       gradient={true}
       gradientColor={"black"}
-      className="w-full flex justify-between group  overflow-hidden p-2  [gap:var(--gap)] flex-row space-x-1">
+      className="w-full flex justify-between group  overflow-hidden p-0 [gap:var(--gap)] flex-row space-x-1">
       {objsToMap.map((obj, index) => {
         return (
           <figure
             className={cn(
-              "relative h-full w-64 ml-3 cursor-pointer overflow-hidden rounded-xl border p-4",
+              "relative h-full w-84 ml-3 cursor-pointer overflow-hidden rounded-xl border p-4",
               // light styles
               // "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]"
               // dark styles

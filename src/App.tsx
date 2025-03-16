@@ -9,10 +9,12 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="bg-[black] w-screen p-0 m-0 min-h-screen text-white text-center flex items-center flex-col justify-center overflow-scroll">
+    <div className="bg-[black] w-full p-0 m-0 min-h-screen text-white text-center flex items-center flex-col justify-center">
       <ParticlesBackgroundDisplay />
       <PersonalHeading />
-      <CardsIndex />
+      <div className="max-w-[calc(100vw-40px)] overflow-hidden">
+        <CardsIndex />
+      </div>
 
       <div>
         <ProgrammingLanguages />
