@@ -1,4 +1,4 @@
-import Heading2 from "../ui/heading2";
+import Heading2 from "../ui/Heading2";
 import { knownLanguagesToMap } from "./ProgrammingLanguagesHelper";
 import ShinyButton from "../ui/ShinnyButton";
 
