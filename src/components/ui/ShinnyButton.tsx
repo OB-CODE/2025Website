@@ -3,7 +3,13 @@
 import { animate } from "motion";
 import React, { useEffect, useRef } from "react";
 
-const ShinyButton = ({ children }: { children: React.ReactNode }) => {
+const ShinyButton = ({
+  children,
+  onClick,
+}: {
+  children: React.ReactNode;
+  onclick?: () => void;
+}) => {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
@@ -24,6 +30,7 @@ const ShinyButton = ({ children }: { children: React.ReactNode }) => {
   return (
     <button
       ref={buttonRef}
+      onClick={onClick}
       className="relative px-6 py-2 font-medium text-white bg-gray-900 overflow-hidden rounded-lg"
       style={
         {
