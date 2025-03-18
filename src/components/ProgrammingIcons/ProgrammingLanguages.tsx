@@ -1,6 +1,7 @@
 import Heading2 from "../ui/Heading2";
 import { knownLanguagesToMap } from "./ProgrammingLanguagesHelper";
 import ShinyButton from "../ui/ShinnyButton";
+import { IconCloudIndex } from "./IconCloudindx";
 
 const ProgrammingLanguages = () => {
   return (
@@ -28,6 +29,7 @@ const ProgrammingLanguages = () => {
           })}
         </div>
       </div>
+      <IconCloudIndex />
     </div>
   );
 };
