@@ -12,27 +12,32 @@ const ProgrammingLanguages = () => {
       <Heading2 inputString="Languages / Tools" />
       <div className="pt-5">
         {/* <TestButton></TestButton> */}
-        <ShinyButton onClick={() => alert("hi")}>Animate List</ShinyButton>
+        <ShinyButton onClick={() => setIsAnimated((state) => !state)}>
+          {isAnimated ? "List" : "Animate List"}
+        </ShinyButton>
       </div>
-      <div className="flex w-full justify-center pt-[3vh]">
-        <div className="max-w-[80%] justify-center h-fit flex flex-row flex-wrap gap-10 ">
-          {knownLanguagesToMap.map((language, index) => {
-            return (
-              <div
-                className="w-24 h-24 flx justify-center items-center logo"
-                data-testid="language-item"
-                key={index}>
-                <img
-                  src={language.logo}
-                  alt={language.alt}
-                  className={`rounded-xl border-rounded p-2 logo ${language.additionalClassname}`}
-                />
-              </div>
-            );
-          })}
+      {isAnimated ? (
+        <IconCloudIndex />
+      ) : (
+        <div className="flex w-full justify-center pt-[3vh]">
+          <div className="max-w-[80%] justify-center h-fit flex flex-row flex-wrap gap-10 ">
+            {knownLanguagesToMap.map((language, index) => {
+              return (
+                <div
+                  className="w-24 h-24 flx justify-center items-center logo"
+                  data-testid="language-item"
+                  key={index}>
+                  <img
+                    src={language.logo}
+                    alt={language.alt}
+                    className={`rounded-xl border-rounded p-2 logo ${language.additionalClassname}`}
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
-      <IconCloudIndex />
+      )}
     </div>
   );
 };

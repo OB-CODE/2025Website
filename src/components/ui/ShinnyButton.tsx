@@ -8,7 +8,7 @@ const ShinyButton = ({
   onClick,
 }: {
   children: React.ReactNode;
-  onclick?: () => void;
+  onClick?: () => void;
 }) => {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
