@@ -1,39 +1,28 @@
 import { IconCloud } from "../magicui/icon-cloud";
+import { knownLanguagesToMap } from "./ProgrammingLanguagesHelper";
 
-const slugs = [
-  "typescript",
-  "javascript",
-  "dart",
-  "java",
-  "react",
-  "flutter",
-  "android",
-  "html5",
+// marge all slugs stored on the programming list with the slugs listed below.
+let slugs = [
   "css3",
-  "nodedotjs",
   "express",
-  "nextdotjs",
-  "prisma",
   "amazonaws",
   "postgresql",
-  "firebase",
-  "nginx",
   "vercel",
   "testinglibrary",
-  "jest",
-  "cypress",
-  "docker",
   "git",
-  "jira",
   "github",
-  "gitlab",
   "visualstudiocode",
-  "androidstudio",
-  "sonarqube",
-  "figma",
 ];
 
+function addExtraSlugs() {
+  knownLanguagesToMap.forEach((language) => {
+    slugs.push(language.slug);
+  });
+}
+
 export function IconCloudIndex() {
+  addExtraSlugs();
+
   const images = slugs.map(
     (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`
   );
