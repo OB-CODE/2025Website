@@ -21,7 +21,10 @@ function addExtraSlugs() {
 }
 
 export function IconCloudIndex() {
-  addExtraSlugs();
+  if (slugs.length < 15) {
+    addExtraSlugs();
+    addExtraSlugs();
+  }
 
   const images = slugs.map(
     (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`

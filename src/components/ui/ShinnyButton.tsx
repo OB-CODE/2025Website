@@ -31,7 +31,7 @@ const ShinyButton = ({
     <button
       ref={buttonRef}
       onClick={onClick}
-      className="relative px-6 py-2 font-medium text-white bg-gray-900 overflow-hidden rounded-lg"
+      className="relative font-medium text-white bg-gray-900 overflow-hidden rounded-lg p-[1px]"
       style={
         {
           "--border-x": "0%",
@@ -45,7 +45,7 @@ const ShinyButton = ({
 
       {/* Glowing Border Effect */}
       <span
-        className="absolute inset-0 block p-px rounded-lg"
+        className="absolute inset-[1px] block p-px rounded-lg"
         style={{
           background: `linear-gradient(
             90deg,
