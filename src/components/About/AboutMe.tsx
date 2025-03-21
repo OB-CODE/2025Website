@@ -7,11 +7,15 @@ const aboutMeBlurb = {
 
 const AboutMe = () => {
   return (
-    <div className="min-h-[25vh] pt-[10vh] pb-[5vh] flex flex-col items-center">
-      <Heading2 inputString="About Me" />
-      <div className="w-[60%] md:w-[80%] gap-3 flex flex-col pt-2">
-        <div>{aboutMeBlurb[1]}</div>
-        <div>{aboutMeBlurb[2]}</div>
+    <div className="min-h-[25vh] pt-[5vh] w-full pb-[5vh] flex flex-col items-center bg-gradient-to-b from-[#141516] to-black">
+      <div className="w-[80%] flex justify-center flex-col">
+        <div className="w-full flex justify-start">
+          <Heading2 inputString="About Me" />
+        </div>
+        <div className=" gap-3 flex flex-col justify-start text-left w-[60%] pt-6">
+          <div>{aboutMeBlurb[1]}</div>
+          <div>{aboutMeBlurb[2]}</div>
+        </div>
       </div>
     </div>
   );

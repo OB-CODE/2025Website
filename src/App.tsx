@@ -20,7 +20,9 @@ function App() {
       </div>
 
       <ProgrammingLanguages />
-      <AboutMe />
+      <div className="w-full mt-[10vh]">
+        <AboutMe />
+      </div>
     </div>
   );
 }
