@@ -166,7 +166,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-.embedded {
-  background-color: black !important;
-}

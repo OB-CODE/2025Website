@@ -23,10 +23,9 @@ function App() {
       <ProgrammingLanguages />
       <div className="w-full mt-[10vh]">
         <AboutMe />
-      </div>
-      {/* KEYBOARD */}
-      <div className="w-full - h-full">
-        <Moonlander />
+        <div className="w-full min-h-[500px] pb-[10vh] flex justify-center">
+          <Moonlander />
+        </div>
       </div>
     </div>
   );

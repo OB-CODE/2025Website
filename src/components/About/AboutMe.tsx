@@ -9,12 +9,14 @@ const AboutMe = () => {
   return (
     <div className="min-h-[25vh] pt-[5vh] w-full pb-[5vh] flex flex-col items-center bg-gradient-to-b from-[#141516] to-[#08090A]">
       <div className="w-[80%] flex justify-center flex-col">
-        <div className="w-full flex justify-start">
+        <div className="w-full flex justify-end">
           <Heading2 inputString="About Me" />
         </div>
-        <div className=" gap-3 flex flex-col justify-start text-left w-[60%] pt-6">
-          <div>{aboutMeBlurb[1]}</div>
-          <div>{aboutMeBlurb[2]}</div>
+        <div className="flex flex-col items-end text-right w-full pt-6">
+          <div className="flex flex-col w-[50%] gap-3">
+            <div>{aboutMeBlurb[1]}</div>
+            <div>{aboutMeBlurb[2]}</div>
+          </div>
         </div>
       </div>
     </div>
