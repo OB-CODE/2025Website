@@ -7,7 +7,7 @@ const aboutMeBlurb = {
 
 const AboutMe = () => {
   return (
-    <div className="min-h-[25vh] pt-[5vh] w-full pb-[5vh] flex flex-col items-center bg-gradient-to-b from-[#141516] to-black">
+    <div className="min-h-[25vh] pt-[5vh] w-full pb-[5vh] flex flex-col items-center bg-gradient-to-b from-[#141516] to-[#08090A]">
       <div className="w-[80%] flex justify-center flex-col">
         <div className="w-full flex justify-start">
           <Heading2 inputString="About Me" />

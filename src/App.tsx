@@ -6,6 +6,7 @@ import { ParticlesBackgroundDisplay } from "./components/PersonalHeading/Particl
 import CardsIndexLeftScroll from "./components/MarqueeCards/CardsIndexLeftScroll";
 import CardsIndexRightScroll from "./components/MarqueeCards/CardsIndexRightScroll";
 import AboutMe from "./components/About/AboutMe";
+import Moonlander from "./components/moonlander/Moonlander";
 
 function App() {
   return (
@@ -22,6 +23,10 @@ function App() {
       <ProgrammingLanguages />
       <div className="w-full mt-[10vh]">
         <AboutMe />
+      </div>
+      {/* KEYBOARD */}
+      <div className="w-full - h-full">
+        <Moonlander />
       </div>
     </div>
   );
