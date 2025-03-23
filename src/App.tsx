@@ -14,7 +14,7 @@ function App() {
         <ParticlesBackgroundDisplay />
       </div>
       <PersonalHeading />
-      <div className="max-w-[calc(100vw)] md:max-w-[calc(100vw-30px)] overflow-hidden flex flex-col gap-4">
+      <div className="overflow-hidden flex flex-col gap-4">
         <CardsIndexLeftScroll />
         <CardsIndexRightScroll />
       </div>

@@ -22,7 +22,7 @@ const CardsIndexLeftScroll = () => {
       gradient={true}
       gradientColor={"black"}
       direction={"left"}
-      className="w-full flex justify-between group  overflow-hidden p-0 [gap:var(--gap)] flex-row space-x-1 ">
+      className="max-w-[calc(100vw)] md:max-w-[calc(100vw-30px)] flex justify-between group  overflow-hidden p-0 [gap:var(--gap)] flex-row space-x-1 ">
       {objsToMap.map((obj, index) => {
         return (
           <figure
