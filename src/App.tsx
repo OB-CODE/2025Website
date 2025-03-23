@@ -1,12 +1,11 @@
-import { useState } from "react";
 import "./App.css";
-import PersonalHeading from "./components/PersonalHeading/PersonalHeading";
-import ProgrammingLanguages from "./components/ProgrammingIcons/ProgrammingLanguages";
-import { ParticlesBackgroundDisplay } from "./components/PersonalHeading/ParticlesBackgroundDisplay";
+import AboutMe from "./components/About/AboutMe";
 import CardsIndexLeftScroll from "./components/MarqueeCards/CardsIndexLeftScroll";
 import CardsIndexRightScroll from "./components/MarqueeCards/CardsIndexRightScroll";
-import AboutMe from "./components/About/AboutMe";
 import Moonlander from "./components/moonlander/Moonlander";
+import { ParticlesBackgroundDisplay } from "./components/PersonalHeading/ParticlesBackgroundDisplay";
+import PersonalHeading from "./components/PersonalHeading/PersonalHeading";
+import ProgrammingLanguages from "./components/ProgrammingIcons/ProgrammingLanguages";
 
 function App() {
   return (
@@ -19,10 +18,10 @@ function App() {
         <CardsIndexLeftScroll />
         <CardsIndexRightScroll />
       </div>
-
       <ProgrammingLanguages />
-      <div className="w-full mt-[10vh]">
+      <div className="min-h-[25vh] pt-[5vh] w-full pb-[5vh] flex flex-col items-center bg-gradient-to-b from-[#141516] to-[#08090A]">
         <AboutMe />
+        {/* <div className="relative w-64 h-64 flex items-center justify-center border border-gray-900"> */}
         <div className="w-full min-h-[500px] pb-[10vh] flex justify-center">
           <Moonlander />
         </div>
