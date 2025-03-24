@@ -1,8 +1,9 @@
-import Heading2 from "../ui/Heading2";
 import { knownLanguagesToMap } from "./ProgrammingLanguagesHelper";
 import ShinyButton from "../ui/ShinnyButton";
-import { IconCloudIndex } from "./IconCloudindx";
 import { useState } from "react";
+import { Meteors } from "../magicui/meteors";
+import { IconCloudIndex } from "./IconCloudIndx";
+import Heading2 from "../ui/heading2";
 
 const ProgrammingLanguages = () => {
   const [isAnimated, setIsAnimated] = useState(false);
@@ -13,7 +14,7 @@ const ProgrammingLanguages = () => {
       <div className="pt-5">
         {/* <TestButton></TestButton> */}
         <ShinyButton onClick={() => setIsAnimated((state) => !state)}>
-          {isAnimated ? "List" : "Animate List"}
+          {isAnimated ? "Normal List" : "Animate List"}
         </ShinyButton>
       </div>
       <div className="min-h-[25rem]">

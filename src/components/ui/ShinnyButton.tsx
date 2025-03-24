@@ -16,7 +16,7 @@ const ShinyButton = ({
     if (buttonRef.current) {
       animate(
         buttonRef.current,
-        { ["--border-x" as string]: ["0%", "100%", "200%", "0%"] },
+        { ["--border-x" as string]: ["80%", "100%", "120%", "80%"] },
         { duration: 2, repeat: Infinity, easing: "linear" }
       );
       animate(
