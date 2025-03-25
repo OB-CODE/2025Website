@@ -6,6 +6,7 @@ import Moonlander from "./components/moonlander/Moonlander";
 import { ParticlesBackgroundDisplay } from "./components/PersonalHeading/ParticlesBackgroundDisplay";
 import PersonalHeading from "./components/PersonalHeading/PersonalHeading";
 import ProgrammingLanguages from "./components/ProgrammingIcons/ProgrammingLanguages";
+import ProjectsIndex from "./components/projects/ProjectsIndex";
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
         <div className="w-full min-h-[500px] pb-[10vh] flex justify-center">
           <Moonlander />
         </div>
+      </div>
+      <div className="min-h-[25vh] pt-[5vh] w-full pb-[5vh] flex flex-col items-center bg-gradient-to-b from-[#141516] to-[#08090A]">
+        <ProjectsIndex />
       </div>
     </div>
   );
