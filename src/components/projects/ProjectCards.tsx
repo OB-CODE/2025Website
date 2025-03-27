@@ -24,11 +24,40 @@ const ProjectCards = () => {
       {projectsToMap.map((project) => {
         return (
           <GlowCard
-            className={`w-[90%] md:w-[48%] m-1 mb-5 h-[40vh]`}
-            glowColor="#825D8D"
-            glowSize={300}>
-            {project.name}
-            <div className="bg-black">{project.description}</div>
+            glowSize={250}
+            glowColor="#444444"
+            className="w-[90%] md:w-[48%] m-1 mb-5 min-h-[40vh] flex flex-col">
+            {/* Header */}
+            <div data-testId="projectContainer" className="flex w-full ">
+              <div
+                data-testId="projectHeaderTray"
+                className="flex w-full justify-between p-1 px-3">
+                <div>x</div>
+                <div className="flex">
+                  <div className="px-1">web</div>
+                  <div className="px-1">git</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Body - Expands to fill remaining space */}
+            <div
+              data-testId="projectBody"
+              className="min-h-0 flex items-center justify-center flex-grow-2">
+              img
+            </div>
+
+            {/* Footer */}
+            <div
+              data-testId="projectFooter"
+              className="flex flex-col w-full items-center justify-start min-h-[12vh] pb-4">
+              <div className="w-[80%] text-left text-gray-500 text-xl">
+                {project.name}
+              </div>
+              <div className="w-[80%] text-left text-gray-200">
+                {project.description}
+              </div>
+            </div>
           </GlowCard>
         );
       })}

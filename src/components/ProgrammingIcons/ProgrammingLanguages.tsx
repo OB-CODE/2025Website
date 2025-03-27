@@ -9,7 +9,7 @@ const ProgrammingLanguages = () => {
   const [isAnimated, setIsAnimated] = useState(false);
 
   return (
-    <div className="min-h-[25rem] pt-[10vh] md:min-h-[35rem] flex flex-col justify-center items-center h-full w-full">
+    <div className="min-h-[25rem] pt-[10vh] md:min-h-[35rem] flex flex-col justify-center items-center h-full w-full pb-[2vh]">
       <Heading2 inputString="Languages / Tools" />
       <div className="pt-5">
         {/* <TestButton></TestButton> */}

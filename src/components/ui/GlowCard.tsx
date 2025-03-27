@@ -40,9 +40,10 @@ const GlowCard = ({
   return (
     <div
       ref={cardRef}
-      className={`relative overflow-hidden rounded-lg p-4 transition duration-300 bg-black border-[0.1px] border-purple-500 ${className}`}
+      className={`relative rounded-lg transition duration-300 h-full min-h-[40vh] bg-black border-[0.1px] border-purple-500 ${className}`}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}>
+      {/* Glow effect */}
       <motion.div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -50,9 +51,14 @@ const GlowCard = ({
             radial-gradient(${glowSize}px circle at ${mouseX}px ${mouseY}px, ${glowColor}, transparent 80%)
           `,
           opacity: 0.5,
+          height: "100%",
         }}
       />
-      <div className="relative z-10 text-white">{children}</div>
+
+      {/* Content inside the card */}
+      <div className="relative z-10 w-full min-h-[40vh] h-full text-white flex-grow flex flex-col">
+        {children}
+      </div>
     </div>
   );
 };
