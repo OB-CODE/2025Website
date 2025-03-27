@@ -6,7 +6,7 @@ describe("ProjectsIndex component renders", () => {
     render(<ProjectsIndex />);
 
     // Check if the heading with the test ID "PortfolioHeader" contains "Portfolio"
-    const headerElement = screen.getByTestId("PortfolioHeader");
+    const headerElement = screen.getBytestid("PortfolioHeader");
     expect(headerElement).toBeInTheDocument();
     expect(headerElement).toHaveTextContent("Portfolio");
   });
