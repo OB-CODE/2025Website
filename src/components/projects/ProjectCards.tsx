@@ -12,14 +12,26 @@ const ProjectCards = () => {
       description:
         "A simple application to show multi api consumption for an informaative visual representation.",
     },
+    {
+      name: "plant one",
+      description:
+        "A simple application to show multi api consumption for an informaative visual representation.",
+    },
   ];
 
   return (
-    <div className="w-full h-full flex flex-row">
-      <GlowCard className={`w-full`} glowColor="#825D8D" glowSize={100}>
-        test
-        <div className="bg-black">No Hover?</div>
-      </GlowCard>
+    <div className="w-full h-full flex flex-wrap justify-between">
+      {projectsToMap.map((project) => {
+        return (
+          <GlowCard
+            className={`w-[90%] md:w-[48%] m-1 mb-5 h-[40vh]`}
+            glowColor="#825D8D"
+            glowSize={300}>
+            {project.name}
+            <div className="bg-black">{project.description}</div>
+          </GlowCard>
+        );
+      })}
     </div>
   );
 };
