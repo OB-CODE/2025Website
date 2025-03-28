@@ -1,4 +1,6 @@
 import React from "react";
+import { FaGlobe } from "react-icons/fa";
+
 import GlowCard from "../ui/GlowCard";
 
 const ProjectCards = () => {
@@ -26,16 +28,25 @@ const ProjectCards = () => {
           <GlowCard
             glowSize={250}
             glowColor="#444444"
-            className="w-[90%] md:w-[48%] m-1 mb-5 min-h-[40vh] flex flex-col">
+            className="w-[90%] md:w-[48%] m-1 mb-5 min-h-[50vh] flex flex-col">
             {/* Header */}
             <div data-testid="projectContainer" className="flex w-full ">
               <div
                 data-testid="projectHeaderTray"
-                className="flex w-full justify-between p-1 px-3">
-                <div>x</div>
+                className="flex w-full justify-end p-1 px-3 pt-3">
+                {/* <div>x</div> */}
                 <div className="flex">
-                  <div className="px-1">web</div>
-                  <div className="px-1">git</div>
+                  <div className="border hover:cursor-pointer hover:bg-blue-500 hover:border-blue-500 w-6 h-6 flex items-center justify-center bg-gray-400 rounded-4xl mx-1">
+                    <FaGlobe size={40} color="black" />
+                  </div>
+                  <div className="border hover:cursor-pointer hover:bg-blue-500 hover:border-blue-500 w-6 h-6 flex items-center justify-center bg-gray-400 rounded-4xl mx-1">
+                    <img
+                      src={`https://cdn.simpleicons.org/github`}
+                      alt="githubLogo"
+                      height={40}
+                      width={40}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
