@@ -7,7 +7,7 @@ const ProjectCards = () => {
   const projectsToMap = [
     {
       name: "indigo",
-      description: "the best drinks company ever? IYKYK.",
+      description: "Tnhe best drinks company ever? IYKYK.",
     },
     {
       name: "plant one",
@@ -15,9 +15,9 @@ const ProjectCards = () => {
         "A simple application to show multi api consumption for an informaative visual representation.",
     },
     {
-      name: "plant one",
+      name: "plant two",
       description:
-        "A simple application to show multi api consumption for an informaative visual representation.",
+        "A simple application to show multi api consumption for an informaative visual representation 2.",
     },
   ];
 
