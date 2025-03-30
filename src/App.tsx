@@ -18,15 +18,18 @@ function App() {
   }, []);
   return (
     <div className="bg-[black] w-full p-0 m-0 min-h-screen text-white text-center flex items-center flex-col justify-center">
-      <div className="bg-repeat-x">
+      <div className="bg-repeat-x w-full">
         <ParticlesBackgroundDisplay />
       </div>
       <PersonalHeading />
-      <div className="overflow-hidden flex flex-col gap-4">
+      <div className="overflow-hidden flex flex-col gap-4 w-full">
         <CardsIndexLeftScroll />
         <CardsIndexRightScroll />
       </div>
+      <div className="w-full">
       <ProgrammingLanguages />
+
+      </div>
       <div className="min-h-[25vh] pt-[5vh] w-full pb-[5vh] flex flex-col items-center bg-gradient-to-b from-[#141516] to-[#08090A]">
         <AboutMe />
         {/* <div className="relative w-64 h-64 flex items-center justify-center border border-gray-900"> */}
