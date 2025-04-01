@@ -27,8 +27,7 @@ function App() {
         <CardsIndexRightScroll />
       </div>
       <div className="w-full">
-      <ProgrammingLanguages />
-
+        <ProgrammingLanguages />
       </div>
       <div className="min-h-[25vh] pt-[5vh] w-full pb-[5vh] flex flex-col items-center bg-gradient-to-b from-[#141516] to-[#08090A]">
         <AboutMe />
@@ -37,7 +36,10 @@ function App() {
           <Moonlander />
         </div>
       </div>
-      <div className="min-h-[25vh] pt-[5vh] w-full pb-[5vh] flex flex-col items-center bg-gradient-to-b from-[#141516] to-[#08090A]">
+      <div
+        id="projectsIndexContainer"
+        className="min-h-[25vh] pt-[5vh] w-full pb-[5vh] flex flex-col items-center bg-gradient-to-b from-[#141516] to-[#08090A]"
+      >
         <ProjectsIndex />
       </div>
     </div>
