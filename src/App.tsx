@@ -8,6 +8,7 @@ import { ParticlesBackgroundDisplay } from "./components/PersonalHeading/Particl
 import PersonalHeading from "./components/PersonalHeading/PersonalHeading";
 import ProgrammingLanguages from "./components/ProgrammingIcons/ProgrammingLanguages";
 import ProjectsIndex from "./components/projects/ProjectsIndex";
+import FooterIndex from "./components/footer/FooterIndex";
 
 function App() {
   useEffect(() => {
@@ -44,6 +45,12 @@ function App() {
         className="min-h-[25vh] pt-[5vh] w-full pb-[5vh] flex flex-col items-center bg-gradient-to-b from-[#141516] to-[#08090A]"
       >
         <ProjectsIndex />
+      </div>
+      <div
+        id="footerContainer"
+        className="min-h-[20vh] pt-[1vh] w-full pb-[1vh] flex flex-col items-center justify-center bg-black"
+      >
+        <FooterIndex />
       </div>
     </div>
   );
