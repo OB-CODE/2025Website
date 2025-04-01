@@ -17,7 +17,10 @@ function App() {
     }
   }, []);
   return (
-    <div className="bg-[black] w-full p-0 m-0 min-h-screen text-white text-center flex items-center flex-col justify-center">
+    <div
+      id="mainAppWrapper"
+      className="bg-[black] w-full p-0 m-0 min-h-screen text-white text-center flex items-center flex-col justify-center"
+    >
       <div className="bg-repeat-x w-full">
         <ParticlesBackgroundDisplay />
       </div>
