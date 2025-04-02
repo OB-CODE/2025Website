@@ -28,15 +28,17 @@ const FooterIndex = () => {
             LinkedIn
           </a>
         </div>
-        <div className="flex h-full items-end justify-end text-sm  text-gray-400 border-gray-700">
-          2025 Mitch O'Brien
+        <div className="flex flex-col gap-4">
+          <button
+            onClick={toggleContactPopup}
+            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          >
+            Contact Me
+          </button>
+          <div className="flex h-full items-end justify-end text-sm  text-gray-700 border-gray-700">
+            2025 Mitch O'Brien
+          </div>
         </div>
-        <button
-          onClick={toggleContactPopup}
-          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-        >
-          Contact Me
-        </button>
       </div>
 
       {showContact && (
