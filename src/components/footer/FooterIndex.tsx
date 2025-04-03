@@ -1,10 +1,20 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import ModalCard from "../../../lib/ModalCard";
+export interface ModalContent {
+  header: string;
+  body: string[];
+}
 
 const FooterIndex = () => {
   const [showContact, setShowContact] = useState(false);
 
   const toggleContactPopup = () => {
     setShowContact(!showContact);
+  };
+
+  const modalContent: ModalContent = {
+    header: "Contact Me",
+    body: ["Email: mitchell.s.obrien@gmail.com", "Phone: See Resume"],
   };
 
   return (
@@ -42,26 +52,10 @@ const FooterIndex = () => {
       </div>
 
       {showContact && (
-        <div
-          onClick={toggleContactPopup}
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }} // Explicit semi-transparent black background
-          className="fixed inset-0 z-20 bg-black flex items-center justify-center"
-        >
-          <div
-            id="messageContainer"
-            className="bg-white text-black p-6 rounded shadow-lg"
-          >
-            <h2 className="text-xl font-bold mb-4">Contact Me</h2>
-            <p>Email: mitchell.s.obrien@gmail.com</p>
-            <p>Phone: See Resume</p>
-            <button
-              onClick={toggleContactPopup}
-              className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-            >
-              Close
-            </button>
-          </div>
-        </div>
+        <ModalCard
+          toggleContactPopup={toggleContactPopup}
+          modalContent={modalContent}
+        />
       )}
     </footer>
   );
