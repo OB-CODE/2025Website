@@ -42,8 +42,15 @@ const FooterIndex = () => {
       </div>
 
       {showContact && (
-        <div className="fixed inset-0 z-20  bg-black opacity-50 flex items-center justify-center">
-          <div className="bg-white opacity-100 absolute z-30 text-black p-6 rounded shadow-lg">
+        <div
+          onClick={toggleContactPopup}
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }} // Explicit semi-transparent black background
+          className="fixed inset-0 z-20 bg-black flex items-center justify-center"
+        >
+          <div
+            id="messageContainer"
+            className="bg-white text-black p-6 rounded shadow-lg"
+          >
             <h2 className="text-xl font-bold mb-4">Contact Me</h2>
             <p>Email: mitchell.s.obrien@gmail.com</p>
             <p>Phone: See Resume</p>
