@@ -6,9 +6,6 @@ describe("ProjectsIndex component renders", () => {
   test("should render the title `Portfolio` in the component", async () => {
     render(<ProjectsIndex />);
 
-    // Debug the rendered DOM
-    screen.debug();
-
     // Check if the heading with the test ID "Heading2" is in the document
     await waitFor(() => {
       const headingElement = screen.getByTestId("Heading2");

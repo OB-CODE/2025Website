@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import PersonalHeading from "./PersonalHeading";
 import { personalDetails } from "./personal-info";
-import "@testing-library/jest-dom";
 
 describe("Renders PersonalHeading component", () => {
   test("should show first and last name.", () => {
@@ -14,7 +14,7 @@ describe("Renders PersonalHeading component", () => {
     expect(nameHeading).toBeInTheDocument();
 
     // Check for the job title heading
-    const jobTitleHeading = screen.getAllByTestId("jobTitle"); // look for test id
+    const jobTitleHeading = screen.getByTestId("jobTitle"); // look for test id
     expect(jobTitleHeading).toBeInTheDocument();
   });
 });
