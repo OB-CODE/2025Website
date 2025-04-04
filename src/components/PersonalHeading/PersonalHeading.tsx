@@ -30,17 +30,20 @@ const PersonalHeading = () => {
           <div
             className={`z-10 flex h-[60%] w-1 ${
               toggleForRightBorder ? "border-r" : "border-transparent"
-            } `}></div>
+            } `}
+          ></div>
         </div>
       </div>
       <div
-        className={`z-10 bg-[rgba(186,113,255,0.49)] w-fit h-18 flex justify-center rounded-4xl opacity px-2 items-center `}>
+        data-testid="jobTitle"
+        className={`z-10 bg-[rgba(186,113,255,0.49)] w-fit h-18 flex justify-center rounded-4xl opacity px-2 items-center `}
+      >
         <div className="text-3xl font-bold tracking-tighter md:text-5xl lg:text-7xl bottom-1 relative">{`<`}</div>
         <HyperText
-          data-testid="jobTitle"
           className="text-3xl font-bold tracking-tighter md:text-5xl lg:text-7xl"
           duration={300}
-          characterSet={["0", "1"]}>
+          characterSet={["0", "1"]}
+        >
           {personalDetails.jobTitle}
         </HyperText>
         <div className="text-3xl font-bold tracking-tighter md:text-5xl lg:text-7xl bottom-1 relative pl-2">{`/>`}</div>

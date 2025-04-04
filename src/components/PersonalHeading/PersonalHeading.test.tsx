@@ -14,7 +14,7 @@ describe("Renders PersonalHeading component", () => {
     expect(nameHeading).toBeInTheDocument();
 
     // Check for the job title heading
-    const jobTitleHeading = screen.getByText(personalDetails.jobTitle); // look for test id
+    const jobTitleHeading = screen.getAllByTestId("jobTitle"); // look for test id
     expect(jobTitleHeading).toBeInTheDocument();
   });
 });

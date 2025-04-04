@@ -23,17 +23,20 @@ const ProjectCards = () => {
 
   return (
     <div className="w-full h-full flex flex-wrap justify-between">
-      {projectsToMap.map((project) => {
+      {projectsToMap.map((project, index) => {
         return (
           <GlowCard
+            key={index}
             glowSize={250}
             glowColor="#444444"
-            className="w-[90%] md:w-[48%] m-1 mb-5 min-h-[50vh] flex flex-col">
+            className="w-[90%] md:w-[48%] m-1 mb-5 min-h-[50vh] flex flex-col"
+          >
             {/* Header */}
             <div data-testid="projectContainer" className="flex w-full ">
               <div
                 data-testid="projectHeaderTray"
-                className="flex w-full justify-end p-1 px-3 pt-3">
+                className="flex w-full justify-end p-1 px-3 pt-3"
+              >
                 {/* <div>x</div> */}
                 <div className="flex">
                   <div className="border hover:cursor-pointer hover:bg-blue-500 hover:border-blue-500 w-6 h-6 flex items-center justify-center bg-gray-400 rounded-4xl mx-1">
@@ -54,14 +57,16 @@ const ProjectCards = () => {
             {/* Body - Expands to fill remaining space */}
             <div
               data-testid="projectBody"
-              className="min-h-0 flex items-center justify-center flex-grow-2">
+              className="min-h-0 flex items-center justify-center flex-grow-2"
+            >
               img
             </div>
 
             {/* Footer */}
             <div
               data-testid="projectFooter"
-              className="flex flex-col w-full items-center justify-start min-h-[12vh] pb-4">
+              className="flex flex-col w-full items-center justify-start min-h-[12vh] pb-4"
+            >
               <div className="w-[80%] text-left text-gray-500 text-xl">
                 {project.name}
               </div>

@@ -8,7 +8,7 @@ describe("ProgrammingLanguages component", () => {
 
     render(<ProgrammingLanguages />);
 
-    const languageDivs = screen.getAllBytestid("language-item");
+    const languageDivs = screen.getAllByTestId("language-item");
 
     expect(languageDivs.length).toBe(expectedDivsRendered);
   });
