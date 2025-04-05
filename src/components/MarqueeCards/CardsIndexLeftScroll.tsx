@@ -1,9 +1,10 @@
 import { cn } from "../../lib/utils";
 import Marquee from "react-fast-marquee";
+import { surfSVG } from "./marqueeSVGs";
 
 const CardsIndexLeftScroll = () => {
   const cardDetailsObject = {
-    logo: "Image",
+    logo: surfSVG,
     title: "Testing",
     description: "Used to have a small blurb",
   };
@@ -22,7 +23,8 @@ const CardsIndexLeftScroll = () => {
       gradient={true}
       gradientColor={"black"}
       direction={"left"}
-      className="max-w-[calc(100vw)] md:max-w-[calc(100vw-30px)] flex justify-between group  overflow-hidden p-0 [gap:var(--gap)] flex-row space-x-1 ">
+      className="max-w-[calc(100vw)] md:max-w-[calc(100vw-30px)] flex justify-between group  overflow-hidden p-0 [gap:var(--gap)] flex-row space-x-1 "
+    >
       {objsToMap.map((obj, index) => {
         return (
           <figure
@@ -33,15 +35,9 @@ const CardsIndexLeftScroll = () => {
               // dark styles
               "border-gray-50/[.1] bg-gray-50/[.10] hover:bg-gray-50/[.15]"
             )}
-            key={index}>
-            <div className="flex flex-row items-center gap-2">
-              {/* <img
-            className="rounded-full"
-            width="32"
-            height="32"
-            alt=""
-            src={img}
-          /> */}
+            key={index}
+          >
+            <div className="flex flex-row w-full justify-between items-center gap-2">
               <div className="flex flex-col">
                 <figcaption className="text-sm font-medium dark:text-white">
                   {obj.title}
@@ -49,6 +45,9 @@ const CardsIndexLeftScroll = () => {
                 <p className="text-xs font-medium dark:text-white/40">
                   {obj.title}
                 </p>
+              </div>
+              <div className=" rounded-full text-gray-400 w-[30px] h-[30px] flex items-center justify-center">
+                {obj.logo}
               </div>
             </div>
             <blockquote className="mt-2 text-sm">{obj.description}</blockquote>
