@@ -1,18 +1,36 @@
 import { cn } from "../../lib/utils";
 import Marquee from "react-fast-marquee";
-import { surfSVG } from "./marqueeSVGs";
+import { frontEndSVG, moonlanderSVG, surfSVG } from "./marqueeSVGs";
 
 const CardsIndexLeftScroll = () => {
-  const cardDetailsObject = {
+  const surfDetailsObject = {
     logo: surfSVG,
-    title: "Testing",
-    description: "Used to have a small blurb",
+    title: "Average Surfer",
+    description:
+      "'Not the finest swordsman in the world, but the most enthusiastic' - The Big Knights",
+  };
+  const frontEndDetailsObject = {
+    logo: frontEndSVG,
+    title: "Front End Developer",
+    description:
+      "Two years of industry experience in React, Next.js, and TypeScript.",
+  };
+  const keyboardDetailsObject = {
+    logo: moonlanderSVG,
+    title: "Moonlander astronaut",
+    description:
+      "FACT: Typing is cool and all, but typing on a moonlander is cooler.",
+  };
+  const cardDetailsObject = {
+    logo: "logo",
+    title: "title",
+    description: "",
   };
 
   const objsToMap = [
-    cardDetailsObject,
-    cardDetailsObject,
-    cardDetailsObject,
+    surfDetailsObject,
+    frontEndDetailsObject,
+    keyboardDetailsObject,
     cardDetailsObject,
     cardDetailsObject,
   ];
@@ -29,7 +47,7 @@ const CardsIndexLeftScroll = () => {
         return (
           <figure
             className={cn(
-              "relative h-full w-48 md:w-84 ml-3 cursor-pointer overflow-hidden rounded-xl border p-4",
+              "relative min-h-28 h-full w-48 md:w-84 ml-3 cursor-pointer overflow-hidden rounded-xl border p-4",
               // light styles
               // "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]"
               // dark styles
@@ -42,9 +60,9 @@ const CardsIndexLeftScroll = () => {
                 <figcaption className="text-sm font-medium dark:text-white">
                   {obj.title}
                 </figcaption>
-                <p className="text-xs font-medium dark:text-white/40">
+                {/* <p className="text-xs font-medium dark:text-white/40">
                   {obj.title}
-                </p>
+                </p> */}
               </div>
               <div className=" rounded-full text-gray-400 w-[30px] h-[30px] flex items-center justify-center">
                 {obj.logo}
