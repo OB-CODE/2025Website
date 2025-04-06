@@ -1,75 +1,14 @@
 import { cn } from "../../lib/utils";
 import Marquee from "react-fast-marquee";
-import {
-  climbingSVG,
-  frontEndSVG,
-  leadershipSVG,
-  moonlanderSVG,
-  studentSVG,
-  surfSVG,
-  teacherSVG,
-} from "./marqueeSVGs";
+import { objsToMap } from "./cardsToMap";
 
-const CardsIndexLeftScroll = () => {
-  const surfDetailsObject = {
-    logo: surfSVG,
-    title: "Average Surfer",
-    description:
-      "'Not the finest swordsman in the world, but the most enthusiastic.' - The Big Knights",
-  };
-  const frontEndDetailsObject = {
-    logo: frontEndSVG,
-    title: "Front End Development",
-    description:
-      "Two years of industry experience in React, Next.js, and TypeScript.",
-  };
-  const keyboardDetailsObject = {
-    logo: moonlanderSVG,
-    title: "Moonlander astronaut",
-    description:
-      "FACT: Typing is cool and all, but typing on a moonlander is cooler.",
-  };
-  const leadershipDetailsObject = {
-    logo: leadershipSVG,
-    title: "Leadership / Management / Coach",
-    description:
-      "Years of experience in leading teams and facilitating group goals.",
-  };
-  const educationDetailsObject = {
-    logo: teacherSVG,
-    title: "Educator / Teacher",
-    description:
-      "Passionate about teaching / learning. Fostering analytical thinking / problem-solving.",
-  };
-  const studentDetailsObject = {
-    logo: studentSVG,
-    title: "Lifelong Learner",
-    description:
-      "Growth mindset. Student of everything with a passion for programming.",
-  };
-
-  const climbingDetailsObject = {
-    logo: climbingSVG,
-    title: "Climbing Novice",
-    description: "Climbs for joy. Hangs around for the problem-solving.",
-  };
-
-  const objsToMap = [
-    surfDetailsObject,
-    frontEndDetailsObject,
-    keyboardDetailsObject,
-    leadershipDetailsObject,
-    studentDetailsObject,
-    climbingDetailsObject,
-    educationDetailsObject,
-  ];
-
+const CardsScroll = ({ direction }: { direction: "left" | "right" }) => {
   return (
     <Marquee
       pauseOnHover={true}
       gradient={true}
       gradientColor={"black"}
-      direction={"left"}
+      direction={direction}
       className="max-w-[calc(100vw)] md:max-w-[calc(100vw-30px)] flex justify-between group  overflow-hidden p-0 [gap:var(--gap)] flex-row space-x-1 "
     >
       {objsToMap.map((obj, index) => {
@@ -105,4 +44,4 @@ const CardsIndexLeftScroll = () => {
   );
 };
 
-export default CardsIndexLeftScroll;
+export default CardsScroll;

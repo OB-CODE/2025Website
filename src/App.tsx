@@ -9,6 +9,7 @@ import PersonalHeading from "./components/PersonalHeading/PersonalHeading";
 import ProgrammingLanguages from "./components/ProgrammingIcons/ProgrammingLanguages";
 import ProjectsIndex from "./components/projects/ProjectsIndex";
 import FooterIndex from "./components/footer/FooterIndex";
+import CardsScroll from "./components/MarqueeCards/CardsIndexLeftScroll";
 
 function App() {
   useEffect(() => {
@@ -27,8 +28,8 @@ function App() {
       </div>
       <PersonalHeading />
       <div className="overflow-hidden flex flex-col gap-4 w-full">
-        <CardsIndexLeftScroll />
-        <CardsIndexRightScroll />
+        <CardsScroll direction="left" />
+        <CardsScroll direction="right" />
       </div>
       <div className="w-full">
         <ProgrammingLanguages />
