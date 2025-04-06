@@ -37,7 +37,7 @@ export const moonlanderSVG = (
     <g
       id="SVGRepo_tracerCarrier"
       stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinejoin="round"
     ></g>
     <g id="SVGRepo_iconCarrier">
       <g>
@@ -58,7 +58,7 @@ export const frontEndSVG = (
     <g
       id="SVGRepo_tracerCarrier"
       stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinejoin="round"
     ></g>
     <g id="SVGRepo_iconCarrier">
       <title></title>
@@ -86,7 +86,7 @@ export const leadershipSVG = (
     <g
       id="SVGRepo_tracerCarrier"
       stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinejoin="round"
     ></g>
     <g id="SVGRepo_iconCarrier">
       <g>
@@ -107,7 +107,7 @@ export const teacherSVG = (
     <g
       id="SVGRepo_tracerCarrier"
       stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinejoin="round"
     ></g>
     <g id="SVGRepo_iconCarrier">
       <path
@@ -115,21 +115,21 @@ export const teacherSVG = (
         stroke="currentColor"
         stroke-width="1.5"
         stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinejoin="round"
       ></path>
       <path
         d="M5.63 13.08L5.62 17.77C5.62 19.04 6.6 20.4 7.8 20.8L10.99 21.86C11.54 22.04 12.45 22.04 13.01 21.86L16.2 20.8C17.4 20.4 18.38 19.04 18.38 17.77V13.13"
         stroke="currentColor"
         stroke-width="1.5"
         stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinejoin="round"
       ></path>
       <path
         d="M21.4 15V9"
         stroke="currentColor"
         stroke-width="1.5"
         stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinejoin="round"
       ></path>
     </g>
   </svg>
@@ -148,7 +148,7 @@ export const climbingSVG = (
     <g
       id="SVGRepo_tracerCarrier"
       stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinejoin="round"
     ></g>
     <g id="SVGRepo_iconCarrier">
       <g>
@@ -173,7 +173,7 @@ export const studentSVG = (
     <g
       id="SVGRepo_tracerCarrier"
       stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinejoin="round"
     ></g>
     <g id="SVGRepo_iconCarrier">
       <g>

@@ -6,6 +6,7 @@ const CardsScroll = ({ direction }: { direction: "left" | "right" }) => {
   return (
     <Marquee
       pauseOnHover={true}
+      loop={3}
       gradient={true}
       gradientColor={"black"}
       direction={direction}
@@ -24,13 +25,13 @@ const CardsScroll = ({ direction }: { direction: "left" | "right" }) => {
             key={index}
           >
             <div className="flex flex-row w-full justify-between items-center gap-2">
-              <div className="flex flex-col">
-                <figcaption className="text-sm font-medium dark:text-white">
+              <div data-testid={`card${direction}`} className="flex flex-col">
+                <figcaption
+                  data-testid="cardTitle"
+                  className="text-sm font-medium dark:text-white"
+                >
                   {obj.title}
                 </figcaption>
-                {/* <p className="text-xs font-medium dark:text-white/40">
-                  {obj.title}
-                </p> */}
               </div>
               <div className=" rounded-full text-gray-400 w-[30px] h-[30px] flex items-center justify-center">
                 {obj.logo}
