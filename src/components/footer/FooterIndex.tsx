@@ -22,7 +22,7 @@ const FooterIndex = () => {
       <div className="container flex justify-between items-center h-full">
         <div id="socials" className="flex flex-col justify-center gap-2 h-full">
           <a
-            href="https://github.com/"
+            href="https://github.com/OB-CODE"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-500 hover:underline"
@@ -30,7 +30,7 @@ const FooterIndex = () => {
             GitHub
           </a>
           <a
-            href="https://linkedin.com/"
+            href="https://linkedin.com/in/mitchellobriense01"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-500 hover:underline"
