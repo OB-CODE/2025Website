@@ -19,4 +19,27 @@ describe("ProjectsIndex component renders", () => {
       expect(headingElement).toBeInTheDocument();
     });
   });
+
+  test("should render projectsMessage first sentence", () => {
+    render(<ProjectsIndex />);
+
+    const firstSentence = screen.getByText(
+      /a small collection of my projects/i
+    ); // Case-insensitive match
+    expect(firstSentence).toBeInTheDocument();
+  });
+
+  test("should render projectsMessage second sentence", () => {
+    render(<ProjectsIndex />);
+
+    const firstSentence = screen.getByText(/Click on the cards /i); // Case-insensitive match
+    expect(firstSentence).toBeInTheDocument();
+  });
+
+  test("should render projectsMessage third sentence", () => {
+    render(<ProjectsIndex />);
+
+    const firstSentence = screen.getByText(/Check out the githubs/i); // Case-insensitive match
+    expect(firstSentence).toBeInTheDocument();
+  });
 });

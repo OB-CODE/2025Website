@@ -4,7 +4,9 @@ import { objsToMap } from "./cardsToMap";
 import { useEffect, useState } from "react";
 
 const CardsScroll = ({ direction }: { direction: "left" | "right" }) => {
-  const [dynamicObjectsToMap, setDynamicObjectsToMap] = useState(objsToMap); // Default loop count
+  const [dynamicObjectsToMap, setDynamicObjectsToMap] = useState(
+    direction == "left" ? objsToMap : objsToMap.reverse()
+  );
 
   // Adjust the loop count based on screen size
   useEffect(() => {
@@ -30,7 +32,6 @@ const CardsScroll = ({ direction }: { direction: "left" | "right" }) => {
   return (
     <Marquee
       pauseOnHover={true}
-      loop={5}
       gradient={true}
       gradientColor={"black"}
       direction={direction}
