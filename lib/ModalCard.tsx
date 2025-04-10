@@ -27,7 +27,19 @@ const ModalCard = ({
         id="messageContainer"
         className="h-fit w-fit flex-col inset-0 z-30 bg-black text-white border-2 border-white flex items-center justify-center rounded shadow-lg p-4"
       >
-        <h2 className="text-xl font-bold mb-4">{modalContent.header}</h2>
+        <div className="flex items-between justify-center mb-4 h-10 w-full">
+          <div className="flex w-full items-center">
+            <h2 className="text-xl  relative flex justify-center w-full font-bold">
+              <div className="relative left-[20px]">{modalContent.header}</div>
+            </h2>
+          </div>
+          <button
+            onClick={toggleContactPopup}
+            className=" w-20  px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+          >
+            Close
+          </button>
+        </div>
 
         <div className="flex justify-between gap-x-4 mb-4 w-full text-gray-400 ">
           <div className="flex flex-col w-[50%]" id="details">
@@ -52,13 +64,6 @@ const ModalCard = ({
             <EmailFrom />
           </div>
         </div>
-
-        <button
-          onClick={toggleContactPopup}
-          className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-        >
-          Close
-        </button>
       </div>
     </div>
   );
