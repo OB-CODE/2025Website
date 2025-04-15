@@ -1,6 +1,5 @@
-import { JSX, JSXElementConstructor, ReactNode, useState } from "react";
+import { useState } from "react";
 import ModalCard from "../../../lib/ModalCard";
-import { BuildingOffice2Icon } from "@heroicons/react/24/outline";
 
 const FooterIndex = () => {
   const [showContact, setShowContact] = useState(false);
