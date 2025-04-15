@@ -80,9 +80,11 @@ const ModalCard = ({
 
         <div className="flex justify-between gap-x-4 mb-4 w-full h-full  text-gray-400 ">
           <div
-            className="flex flex-col h-full pt-20 items-center w-[50%]"
+            className="flex flex-col h-full border-r border-gray-800 pr-5 py-10 items-center w-[50%]"
             id="details"
           >
+            <div className="w-full text-white text-xl">My details</div>
+
             {modalContent.persoanlInformation.map((line, index) => (
               <div
                 key={index}
