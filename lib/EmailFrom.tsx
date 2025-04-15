@@ -8,7 +8,7 @@ const EmailFrom = ({
 }: {
   toggleContactPopup: () => void;
 }) => {
-  const { getFormSubmitHandler } = useFormData(
+  const { formState, getFormSubmitHandler } = useFormData(
     "https://public.herotofu.com/v1/25538e50-c3a0-11ed-ae6a-6754484ba23d"
   );
 
@@ -37,18 +37,19 @@ const EmailFrom = ({
     return true;
   };
 
-  const handleSubmit = getFormSubmitHandler({
-    onSuccess: () => {
-      toast.success("Message sent successfully!");
-      setTimeout(() => {
-        toggleContactPopup();
-      }, 500);
-    },
-    onError: (error: any) => {
-      console.error("Error:", error);
-      toast.error("Failed to send message.");
-    },
-  });
+  const handleSubmit = (e: React.FormEvent) => {
+    if (handleValidation(e)) {
+      getFormSubmitHandler()(e);
+    }
+  };
+
+  // Handle form state changes
+  if (formState.status === "success") {
+    toast.success("Message sent successfully!");
+    toggleContactPopup();
+  } else if (formState.status === "error") {
+    toast.error("Failed to send message. Please email me directly.");
+  }
 
   return (
     <div>
