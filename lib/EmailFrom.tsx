@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
+import { useFormData } from "herotofu-react";
 import "react-toastify/dist/ReactToastify.css";
 
 const EmailFrom = ({
@@ -7,30 +8,59 @@ const EmailFrom = ({
 }: {
   toggleContactPopup: () => void;
 }) => {
+  const { getFormSubmitHandler } = useFormData(
+    "https://public.herotofu.com/v1/25538e50-c3a0-11ed-ae6a-6754484ba23d"
+  );
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const handleValidation = (e: React.FormEvent) => {
     e.preventDefault();
-    if (name.length == 0) {
+
+    if (name.trim().length === 0) {
       toast.error("Name is required.");
-      return;
+      return false;
     }
-    if (email.includes("@") == false) {
-      toast.error("Email is required.");
-      return;
+    if (!emailRegex.test(email)) {
+      toast.error("Invalid email format.");
+      return false;
+    }
+    if (message.trim().length === 0) {
+      toast.error("Message is required.");
+      return false;
     }
 
-    alert("hi");
-    toggleContactPopup();
+    return true;
   };
+
+  const handleSubmit = getFormSubmitHandler({
+    onSuccess: () => {
+      toast.success("Message sent successfully!");
+      setTimeout(() => {
+        toggleContactPopup();
+      }, 500);
+    },
+    onError: (error: any) => {
+      console.error("Error:", error);
+      toast.error("Failed to send message.");
+    },
+  });
 
   return (
     <div>
       <div className="w-full md:w-96 md:max-w-full mx-auto">
         <div className="sm:rounded-md">
-          <form onSubmit={handleSubmit}>
+          <form
+            onSubmit={(e) => {
+              if (handleValidation(e)) {
+                handleSubmit(e);
+              }
+            }}
+          >
             {/* Name Field */}
             <label className="block mb-6">
               <div className="flex justify-between items-center">
@@ -50,12 +80,7 @@ const EmailFrom = ({
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 // onBlur={() => handleBlur("name")}
-                className={`block w-full mt-1 px-2 border-1 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50
-                
-                //   errors.name && touched.name
-                //     ? "border-red-500"
-                //     : "border-gray-300"
-                // }`}
+                className={`block w-full mt-1 px-2 border-1 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50}`}
                 placeholder="Your name"
               />
             </label>
@@ -64,9 +89,9 @@ const EmailFrom = ({
             <label className="block mb-6">
               <div className="flex justify-between items-center">
                 <span className="text-gray-100">Your Email</span>
-                {!email.includes("@") && (
+                {!emailRegex.test(email) && (
                   <span className={`text-sm text-red-400`}>
-                    "Invalid email format.
+                    Invalid email format.
                   </span>
                 )}
               </div>
