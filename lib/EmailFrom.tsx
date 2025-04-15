@@ -1,51 +1,29 @@
 import React, { useState } from "react";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const EmailFrom = () => {
+const EmailFrom = ({
+  toggleContactPopup,
+}: {
+  toggleContactPopup: () => void;
+}) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  //   const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
-  //   const [touched, setTouched] = useState<{ name?: boolean; email?: boolean }>({
-  //     name: false,
-  //     email: false,
-  //   });
-
-  const validateForm = () => {
-    const newErrors: { name?: string; email?: string } = {};
-    if (!name.trim()) {
-      newErrors.name = "Name is required.";
-    }
-    if (!email.trim()) {
-      newErrors.email = "Email is required.";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      newErrors.email = "Invalid email format.";
-    }
-    // setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (validateForm()) {
-      // Submit the form if valid
-      console.log("Form submitted:", { name, email, message });
-      // Reset the form
-      setName("");
-      setEmail("");
-      setMessage("");
-      //   setErrors({});
-      //   setTouched({});
-    } else {
-      // Display a toast error
-      toast.error("Please fix the errors before submitting.");
+    if (name.length == 0) {
+      toast.error("Name is required.");
+      return;
     }
-  };
+    if (email.includes("@") == false) {
+      toast.error("Email is required.");
+      return;
+    }
 
-  const handleBlur = (field: "name" | "email") => {
-    // setTouched({ ...touched, [field]: true });
-    validateForm();
+    alert("hi");
+    toggleContactPopup();
   };
 
   return (
@@ -56,13 +34,13 @@ const EmailFrom = () => {
             {/* Name Field */}
             <label className="block mb-6">
               <div className="flex justify-between items-center">
-                <span>Your Name</span>
+                <span className="text-gray-100">Your Name</span>
                 {name.length == 0 && (
                   <span
-                    className={`text-sm "text-red-400"
+                    className={`text-sm text-red-400
                     }`}
                   >
-                    {"Name is required."}
+                    Name is required.
                   </span>
                 )}
               </div>
@@ -71,7 +49,7 @@ const EmailFrom = () => {
                 name="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                onBlur={() => handleBlur("name")}
+                // onBlur={() => handleBlur("name")}
                 className={`block w-full mt-1 px-2 border-1 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50
                 
                 //   errors.name && touched.name
@@ -85,10 +63,10 @@ const EmailFrom = () => {
             {/* Email Field */}
             <label className="block mb-6">
               <div className="flex justify-between items-center">
-                <span>Your Email</span>
+                <span className="text-gray-100">Your Email</span>
                 {!email.includes("@") && (
-                  <span className={`text-sm "text-red-400`}>
-                    {"Invalid email format."}
+                  <span className={`text-sm text-red-400`}>
+                    "Invalid email format.
                   </span>
                 )}
               </div>
@@ -97,7 +75,7 @@ const EmailFrom = () => {
                 name="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                onBlur={() => handleBlur("email")}
+                // onBlur={() => handleBlur("email")}
                 className={`block w-full mt-1 px-2 border-1 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 `}
                 placeholder="Your Email"
               />
@@ -105,7 +83,7 @@ const EmailFrom = () => {
 
             {/* Message Field */}
             <label className="block mb-6">
-              <span className="text-gray-100">Message</span>
+              <span className="">Message</span>
               <textarea
                 name="message"
                 value={message}
@@ -128,6 +106,7 @@ const EmailFrom = () => {
           </form>
         </div>
       </div>
+      <ToastContainer theme="dark" />
     </div>
   );
 };

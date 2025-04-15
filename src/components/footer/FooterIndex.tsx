@@ -1,57 +1,12 @@
 import { JSX, JSXElementConstructor, ReactNode, useState } from "react";
 import ModalCard from "../../../lib/ModalCard";
 import { BuildingOffice2Icon } from "@heroicons/react/24/outline";
-export interface ModalContent {
-  header: string;
-  persoanlInformation: {
-    title: string; // Changed from 'title' to 'title'
-    messgae: string; // Changed from 'messgae' to 'message'
-    symbol: JSX.Element | string; // Changed from 'symbol' to 'symbol'
-  }[];
-}
 
 const FooterIndex = () => {
   const [showContact, setShowContact] = useState(false);
 
   const toggleContactPopup = () => {
     setShowContact(!showContact);
-  };
-
-  const modalContent: ModalContent = {
-    header: "Contact Me",
-    persoanlInformation: [
-      {
-        title: "Address",
-        messgae: "Sydney, Australia",
-        symbol: (
-          <BuildingOffice2Icon
-            aria-hidden="true"
-            className="h-7 w-6 text-gray-400"
-          />
-        ),
-      },
-      {
-        title: "Email",
-        messgae: "mitchell.s.obrien@gmail.com",
-        symbol: (
-          <BuildingOffice2Icon
-            aria-hidden="true"
-            className="h-7 w-6 text-gray-400"
-          />
-        ),
-      },
-      {
-        title: "Phone",
-        messgae: "Email me and ask :)",
-        symbol: (
-          <BuildingOffice2Icon
-            aria-hidden="true"
-            className="h-7 w-6 text-gray-400"
-          />
-        ),
-      },
-    ],
-    // body: ["Email: mitchell.s.obrien@gmail.com", "Phone: See Resume"],
   };
 
   return (
@@ -88,12 +43,7 @@ const FooterIndex = () => {
         </div>
       </div>
 
-      {showContact && (
-        <ModalCard
-          toggleContactPopup={toggleContactPopup}
-          modalContent={modalContent}
-        />
-      )}
+      {showContact && <ModalCard toggleContactPopup={toggleContactPopup} />}
     </footer>
   );
 };

@@ -1,5 +1,4 @@
-import React from "react";
-import { ModalContent } from "../src/components/footer/FooterIndex";
+import React, { JSX } from "react";
 import {
   BuildingOffice2Icon,
   EnvelopeIcon,
@@ -7,13 +6,51 @@ import {
 } from "@heroicons/react/24/outline";
 import EmailFrom from "./EmailFrom";
 
+interface ModalContent {
+  header: string;
+  persoanlInformation: {
+    title: string; // Changed from 'title' to 'title'
+    messgae: string; // Changed from 'messgae' to 'message'
+    symbol: JSX.Element | string; // Changed from 'symbol' to 'symbol'
+  }[];
+}
+
 const ModalCard = ({
   toggleContactPopup,
-  modalContent,
 }: {
   toggleContactPopup: () => void;
-  modalContent: ModalContent;
 }) => {
+  const modalContent: ModalContent = {
+    header: "Contact Me",
+    persoanlInformation: [
+      {
+        title: "Address",
+        messgae: "Sydney, Australia",
+        symbol: (
+          <BuildingOffice2Icon
+            aria-hidden="true"
+            className="h-7 w-6 text-gray-400"
+          />
+        ),
+      },
+      {
+        title: "Email",
+        messgae: "mitchell.s.obrien@gmail.com",
+        symbol: (
+          <EnvelopeIcon aria-hidden="true" className="h-7 w-6 text-gray-400" />
+        ),
+      },
+      {
+        title: "Phone",
+        messgae: "Email me and ask :)",
+        symbol: (
+          <PhoneIcon aria-hidden="true" className="h-7 w-6 text-gray-400" />
+        ),
+      },
+    ],
+    // body: ["Email: mitchell.s.obrien@gmail.com", "Phone: See Resume"],
+  };
+
   return (
     <div className="w-full h-full flex items-center justify-center fixed inset-0 z-10">
       <div
@@ -41,8 +78,11 @@ const ModalCard = ({
           </button>
         </div>
 
-        <div className="flex justify-between gap-x-4 mb-4 w-full text-gray-400 ">
-          <div className="flex flex-col w-[50%]" id="details">
+        <div className="flex justify-between gap-x-4 mb-4 w-full h-full  text-gray-400 ">
+          <div
+            className="flex flex-col h-full pt-20 items-center w-[50%]"
+            id="details"
+          >
             {modalContent.persoanlInformation.map((line, index) => (
               <div
                 key={index}
@@ -60,8 +100,8 @@ const ModalCard = ({
               </div>
             ))}
           </div>
-          <div className="flex flex-col w-[40%] px-8 text-left" id="blurb">
-            <EmailFrom />
+          <div className="flex flex-col w-[50%] px-8 text-left" id="blurb">
+            <EmailFrom toggleContactPopup={toggleContactPopup} />
           </div>
         </div>
       </div>
