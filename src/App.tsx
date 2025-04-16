@@ -1,15 +1,13 @@
 import { useEffect } from "react";
 import "./App.css";
 import AboutMe from "./components/About/AboutMe";
-import CardsIndexLeftScroll from "./components/MarqueeCards/CardsScroll";
-import CardsIndexRightScroll from "./components/MarqueeCards/CardsIndexRightScroll";
+import FooterIndex from "./components/footer/FooterIndex";
+import CardsScroll from "./components/MarqueeCards/CardsScroll";
 import Moonlander from "./components/moonlander/Moonlander";
 import { ParticlesBackgroundDisplay } from "./components/PersonalHeading/ParticlesBackgroundDisplay";
 import PersonalHeading from "./components/PersonalHeading/PersonalHeading";
 import ProgrammingLanguages from "./components/ProgrammingIcons/ProgrammingLanguages";
 import ProjectsIndex from "./components/projects/ProjectsIndex";
-import FooterIndex from "./components/footer/FooterIndex";
-import CardsScroll from "./components/MarqueeCards/CardsScroll";
 
 function App() {
   useEffect(() => {

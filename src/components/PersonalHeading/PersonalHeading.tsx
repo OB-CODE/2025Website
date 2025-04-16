@@ -2,20 +2,48 @@ import { useEffect, useState } from "react";
 import { HyperText } from "../magicui/hyper-text";
 import { MorphingText } from "../magicui/morphing-text";
 import { personalDetails } from "./personal-info";
+import Confetti from "react-confetti";
 
 const PersonalHeading = () => {
   const [toggleForRightBorder, setToggleForRightBorder] = useState(true);
-  // on mount, set a timer to change the state of the toggle after a second passes.
+  const [dimensions, setDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
   useEffect(() => {
     const interval = setInterval(() => {
       setToggleForRightBorder((prev) => !prev);
     }, 500);
 
-    return () => clearInterval(interval);
+    const handleResize = () => {
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
+
+  const [setshowConfetti, setSetshowConfetti] = useState(false);
 
   return (
     <div className="min-h-[25rem] md:min-h-[35rem] flex flex-col justify-center items-center h-full w-full bg-[radial-gradient(ellipse_at_center,_rgba(111,111,111,0.7)_0%,_rgba(0,0,0,1)_60%)]">
+      <button onClick={() => setSetshowConfetti((prev) => !prev)}>
+        click for party
+      </button>
+      {setshowConfetti && (
+        <Confetti
+          width={dimensions.width - 50}
+          height={dimensions.height / 2}
+        />
+      )}
       <div className="flex flex-row justify-between items-center pb-1 w-full md:w-[70vw]">
         <div className="text-xl font-bold flex md:text-5xl lg:text-7xl flex-row w-full">
           <MorphingText
