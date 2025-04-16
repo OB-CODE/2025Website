@@ -67,12 +67,14 @@ const PersonalHeading = () => {
           transition: "left 0.05s linear",
         }}
       >
+        {movingRight == false && "🚀"}
+
         <span className="text-xl cursor-pointer ">
           <button onClick={() => setshowConfetti((prev) => !prev)}>
             Start party
           </button>
         </span>
-        🚀
+        {movingRight && "🚀"}
       </div>
 
       {showConfetti && (
