@@ -1,13 +1,22 @@
-import React from "react";
 import { FaGlobe } from "react-icons/fa";
 
 import GlowCard from "../ui/GlowCard";
 
+interface IprojectsToMap {
+  name: string;
+  description: string;
+  mainImage?: string;
+  github?: string;
+  website?: string;
+}
+
 const ProjectCards = () => {
-  const projectsToMap = [
+  const projectsToMap: IprojectsToMap[] = [
     {
       name: "indigo",
-      description: "Tnhe best drinks company ever? IYKYK.",
+      description: "The best drinks company ever? IYKYK.",
+      mainImage: "/IndigoMainImage.png",
+      website: "https://drinkindigo.com.au/",
     },
     {
       name: "plant one",
@@ -39,9 +48,12 @@ const ProjectCards = () => {
               >
                 {/* <div>x</div> */}
                 <div className="flex">
-                  <div className="border hover:cursor-pointer hover:bg-blue-500 hover:border-blue-500 w-6 h-6 flex items-center justify-center bg-gray-400 rounded-4xl mx-1">
-                    <FaGlobe size={40} color="black" />
-                  </div>
+                  <a href={project.website} target="_blank" rel="noreferrer">
+                    <div className="border hover:cursor-pointer hover:bg-blue-500 hover:border-blue-500 w-6 h-6 flex items-center justify-center bg-gray-400 rounded-4xl mx-1">
+                      <FaGlobe size={40} color="black" />
+                    </div>
+                  </a>
+
                   <div className="border hover:cursor-pointer hover:bg-blue-500 hover:border-blue-500 w-6 h-6 flex items-center justify-center bg-gray-400 rounded-4xl mx-1">
                     <img
                       src={`https://cdn.simpleicons.org/github`}
@@ -59,7 +71,15 @@ const ProjectCards = () => {
               data-testid="projectBody"
               className="min-h-0 flex items-center justify-center flex-grow-2"
             >
-              img
+              {project.mainImage ? (
+                <img
+                  src={project.mainImage}
+                  className="w-full h-full p-4"
+                  alt=""
+                />
+              ) : (
+                "img"
+              )}
             </div>
 
             {/* Footer */}
