@@ -18,11 +18,15 @@ const ProjectCards = () => {
       description: "The best drinks company ever? IYKYK.",
       mainImage: "/IndigoMainImage.png",
       website: "https://drinkindigo.com.au/",
+      // no Github - Private.
     },
     {
-      name: "plant one",
+      name: "Home Harvest",
       description:
-        "A simple application to show multi api consumption for an informaative visual representation.",
+        "A weather / gardening application to show multi api consumption for a interactive user experience. Now get planting.",
+      mainImage: "/HomeHarvestMainImage.png",
+      website: "https://mitchell-home-harvest.surge.sh/",
+      github: "https://github.com/OB-CODE/Home-Harvest?tab=readme-ov-file",
     },
     {
       name: "plant two",
@@ -64,7 +68,7 @@ const ProjectCards = () => {
                   >
                     <a
                       data-tooltip-id={project.github ? "" : "my-tooltip"}
-                      data-tooltip-content="This ones a private - Sorry!"
+                      data-tooltip-content="This ones private - Sorry!"
                       data-tooltip-place="top"
                     >
                       <img
@@ -84,15 +88,17 @@ const ProjectCards = () => {
               data-testid="projectBody"
               className="min-h-0 flex items-center justify-center flex-grow-2"
             >
-              {project.mainImage ? (
-                <img
-                  src={project.mainImage}
-                  className="w-full h-full p-4"
-                  alt=""
-                />
-              ) : (
-                "img"
-              )}
+              <div className="flex w-full h-full items-center justify-center">
+                {project.mainImage ? (
+                  <img
+                    src={project.mainImage}
+                    className="w-full max-h-[315px] p-4"
+                    alt=""
+                  />
+                ) : (
+                  "img"
+                )}
+              </div>
             </div>
 
             {/* Footer */}
