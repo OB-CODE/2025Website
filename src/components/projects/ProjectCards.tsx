@@ -1,6 +1,7 @@
 import { FaGlobe } from "react-icons/fa";
 
 import GlowCard from "../ui/GlowCard";
+import { Tooltip } from "react-tooltip";
 
 interface IprojectsToMap {
   name: string;
@@ -54,13 +55,25 @@ const ProjectCards = () => {
                     </div>
                   </a>
 
-                  <div className="border hover:cursor-pointer hover:bg-blue-500 hover:border-blue-500 w-6 h-6 flex items-center justify-center bg-gray-400 rounded-4xl mx-1">
-                    <img
-                      src={`https://cdn.simpleicons.org/github`}
-                      alt="githubLogo"
-                      height={40}
-                      width={40}
-                    />
+                  <div
+                    className={`border ${
+                      project.github
+                        ? "hover:cursor-pointer hover:bg-blue-500 hover:border-blue-500 "
+                        : ""
+                    } w-6 h-6 flex items-center justify-center bg-gray-400 rounded-4xl mx-1`}
+                  >
+                    <a
+                      data-tooltip-id={project.github ? "" : "my-tooltip"}
+                      data-tooltip-content="This ones a private - Sorry!"
+                      data-tooltip-place="top"
+                    >
+                      <img
+                        src={`https://cdn.simpleicons.org/github`}
+                        alt="githubLogo"
+                        height={40}
+                        width={40}
+                      />
+                    </a>
                   </div>
                 </div>
               </div>
@@ -97,6 +110,7 @@ const ProjectCards = () => {
           </GlowCard>
         );
       })}
+      <Tooltip id="my-tooltip" />
     </div>
   );
 };

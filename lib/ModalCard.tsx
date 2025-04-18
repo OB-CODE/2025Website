@@ -1,9 +1,9 @@
-import React, { JSX } from "react";
 import {
   BuildingOffice2Icon,
   EnvelopeIcon,
   PhoneIcon,
 } from "@heroicons/react/24/outline";
+import { JSX } from "react";
 import EmailFrom from "./EmailFrom";
 
 interface ModalContent {

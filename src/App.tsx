@@ -8,6 +8,7 @@ import { ParticlesBackgroundDisplay } from "./components/PersonalHeading/Particl
 import PersonalHeading from "./components/PersonalHeading/PersonalHeading";
 import ProgrammingLanguages from "./components/ProgrammingIcons/ProgrammingLanguages";
 import ProjectsIndex from "./components/projects/ProjectsIndex";
+import "react-tooltip/dist/react-tooltip.css";
 
 function App() {
   useEffect(() => {
