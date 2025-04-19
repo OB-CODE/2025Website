@@ -60,7 +60,7 @@ const ConfettiWrapper = ({
         left: rocketPosition,
         transition: "left 0.05s linear",
       }}
-      data-testId="rocket"
+      data-testid="rocket"
     >
       {movingRight == false && rightFacingRocket}
 

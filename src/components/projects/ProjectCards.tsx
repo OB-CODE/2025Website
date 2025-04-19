@@ -3,6 +3,7 @@ import { FaGlobe } from "react-icons/fa";
 import { TbStack } from "react-icons/tb";
 import GlowCard from "../ui/GlowCard";
 import { Tooltip } from "react-tooltip";
+import { OrbitingCircles } from "../ui/OrbitingCircles";
 
 interface IprojectsToMap {
   name: string;
@@ -58,7 +59,7 @@ const ProjectCards = () => {
   ];
 
   const [hoveringTechStackIndex, setHoveringTechStackIndex] = useState<
-    number | null
+    null | number
   >(null);
 
   return (
@@ -76,8 +77,8 @@ const ProjectCards = () => {
               <div className="p-1 pl-4 w-full flex justify-start items-center">
                 <div
                   className="flex items-center"
-                  onMouseEnter={() => setHoveringTechStackIndex(index)} // Set the hovered card index
-                  onMouseLeave={() => setHoveringTechStackIndex(null)} // Reset the hovered card index
+                  onMouseEnter={() => setHoveringTechStackIndex(index)}
+                  onMouseLeave={() => setHoveringTechStackIndex(null)}
                 >
                   <TbStack className="cursor-help" />
                   <span className="text-gray-500 pl-2 cursor-help">
@@ -131,7 +132,14 @@ const ProjectCards = () => {
           >
             <div className="w-full max-w-[700px] max-h-[315px] h-[315px] relative">
               {hoveringTechStackIndex === index ? (
-                <div className="absolute inset-0 flex items-center justify-center text-white  p-4 flex-col">
+                <div className="absolute inset-0 flex items-center justify-center text-white p-4 flex-col">
+                  <OrbitingCircles>
+                    {project.techStack?.map((tech, techIndex) => (
+                      <div key={techIndex} className="text-gray-500">
+                        {tech}
+                      </div>
+                    ))}
+                  </OrbitingCircles>
                   {project.techStack?.map((tech, techIndex) => (
                     <div key={techIndex} className="text-gray-500">
                       {tech}
@@ -141,8 +149,8 @@ const ProjectCards = () => {
               ) : (
                 <img
                   src={project.mainImage}
-                  className="absolute inset-0 w-full h-full object-cover opacity-70  p-4"
-                  alt=""
+                  className="absolute inset-0 w-full h-full object-cover opacity-70 p-4"
+                  alt="Project Main"
                 />
               )}
             </div>
