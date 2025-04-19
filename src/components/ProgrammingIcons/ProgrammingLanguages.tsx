@@ -1,9 +1,8 @@
-import { knownLanguagesToMap } from "./ProgrammingLanguagesHelper";
-import ShinyButton from "../ui/ShinnyButton";
 import { useState } from "react";
-import { Meteors } from "../magicui/meteors";
-import { IconCloudIndex } from "./IconCloudIndx";
 import Heading2 from "../ui/heading2";
+import ShinyButton from "../ui/ShinnyButton";
+import { IconCloudIndex } from "./IconCloudIndx";
+import { knownLanguagesToMap } from "./ProgrammingLanguagesHelper";
 
 const ProgrammingLanguages = () => {
   const [isAnimated, setIsAnimated] = useState(false);
@@ -28,7 +27,8 @@ const ProgrammingLanguages = () => {
                   <div
                     className="w-24 h-24 flx justify-center items-center logo"
                     data-testid="language-item"
-                    key={index}>
+                    key={index}
+                  >
                     <img
                       src={language.logo}
                       alt={language.alt}

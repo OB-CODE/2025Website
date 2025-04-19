@@ -2,7 +2,7 @@ import { IconCloud } from "../magicui/icon-cloud";
 import { knownLanguagesToMap } from "./ProgrammingLanguagesHelper";
 
 // marge all slugs stored on the programming list with the slugs listed below.
-let slugs = [
+const slugs = [
   "css3",
   "express",
   "amazonaws",

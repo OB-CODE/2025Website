@@ -33,10 +33,10 @@ export const moonlanderSVG = (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 490.754 490.754"
   >
-    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
     <g
       id="SVGRepo_tracerCarrier"
-      stroke-linecap="round"
+      strokeLinecap="round"
       strokeLinejoin="round"
     ></g>
     <g id="SVGRepo_iconCarrier">
@@ -54,10 +54,10 @@ export const frontEndSVG = (
     viewBox="0 0 64 64"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
     <g
       id="SVGRepo_tracerCarrier"
-      stroke-linecap="round"
+      strokeLinecap="round"
       strokeLinejoin="round"
     ></g>
     <g id="SVGRepo_iconCarrier">
@@ -82,10 +82,10 @@ export const leadershipSVG = (
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
     <g
       id="SVGRepo_tracerCarrier"
-      stroke-linecap="round"
+      strokeLinecap="round"
       strokeLinejoin="round"
     ></g>
     <g id="SVGRepo_iconCarrier">
@@ -103,32 +103,32 @@ export const leadershipSVG = (
 
 export const teacherSVG = (
   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
     <g
       id="SVGRepo_tracerCarrier"
-      stroke-linecap="round"
+      strokeLinecap="round"
       strokeLinejoin="round"
     ></g>
     <g id="SVGRepo_iconCarrier">
       <path
         d="M10.05 2.53004L4.03002 6.46004C2.10002 7.72004 2.10002 10.54 4.03002 11.8L10.05 15.73C11.13 16.44 12.91 16.44 13.99 15.73L19.98 11.8C21.9 10.54 21.9 7.73004 19.98 6.47004L13.99 2.54004C12.91 1.82004 11.13 1.82004 10.05 2.53004Z"
         stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
       <path
         d="M5.63 13.08L5.62 17.77C5.62 19.04 6.6 20.4 7.8 20.8L10.99 21.86C11.54 22.04 12.45 22.04 13.01 21.86L16.2 20.8C17.4 20.4 18.38 19.04 18.38 17.77V13.13"
         stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
       <path
         d="M21.4 15V9"
         stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
     </g>
@@ -144,10 +144,10 @@ export const climbingSVG = (
     viewBox="0 0 471.006 471.006"
     stroke="currentColor"
   >
-    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
     <g
       id="SVGRepo_tracerCarrier"
-      stroke-linecap="round"
+      strokeLinecap="round"
       strokeLinejoin="round"
     ></g>
     <g id="SVGRepo_iconCarrier">
@@ -169,10 +169,10 @@ export const studentSVG = (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 491.52 491.52"
   >
-    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
     <g
       id="SVGRepo_tracerCarrier"
-      stroke-linecap="round"
+      strokeLinecap="round"
       strokeLinejoin="round"
     ></g>
     <g id="SVGRepo_iconCarrier">
