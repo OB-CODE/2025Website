@@ -80,10 +80,10 @@ const ModalCard = ({
 
         <div className="flex justify-between gap-x-4 mb-4 w-full h-full  text-gray-400 ">
           <div
-            className="flex flex-col h-full border-r border-gray-800 pr-5 py-10 items-center w-[50%]"
+            className="flex flex-col h-full border-r border-gray-800 pr-5 py-2 items-center w-[50%]"
             id="details"
           >
-            <div className="w-full text-white text-xl">My details</div>
+            {/* <div className="w-full text-white text-xl">My details</div> */}
 
             {modalContent.persoanlInformation.map((line, index) => (
               <div
@@ -101,6 +101,11 @@ const ModalCard = ({
                 </div>
               </div>
             ))}
+            <img
+              className="rounded-xl"
+              src="/Me.png"
+              alt="Photo of Mitchell with surfboard."
+            />
           </div>
           <div className="flex flex-col w-[50%] px-8 text-left" id="blurb">
             <EmailFrom toggleContactPopup={toggleContactPopup} />

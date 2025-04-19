@@ -23,7 +23,7 @@ const ProjectCards = () => {
     {
       name: "Pokemon Remastered",
       description:
-        "A Pokemon battle simulator - Redo from an old project with some new features and a different stack.",
+        "A Pokemon battle simulator - Redo from an old project with some new features and a different stack. How quick can you catch the 151?",
       mainImage: "/PokemonRemasteredMainImage.png",
       website: "https://poke-battles-remastered.vercel.app/",
       github: "https://github.com/OB-CODE/PokeBattlesRemastered",
