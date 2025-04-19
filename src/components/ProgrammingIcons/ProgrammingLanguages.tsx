@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Heading2 from "../ui/heading2";
+import Heading2 from "../ui/Heading2";
 import ShinyButton from "../ui/ShinnyButton";
 import { IconCloudIndex } from "./IconCloudIndx";
 import { knownLanguagesToMap } from "./ProgrammingLanguagesHelper";

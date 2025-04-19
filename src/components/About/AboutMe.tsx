@@ -1,4 +1,4 @@
-import Heading2 from "../ui/heading2";
+import Heading2 from "../ui/Heading2";
 
 const aboutMeBlurb = [
   "I have a passion for problem solving and working with others.",

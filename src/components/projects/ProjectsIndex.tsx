@@ -1,4 +1,4 @@
-import Heading2 from "../ui/heading2";
+import Heading2 from "../ui/Heading2";
 import ProjectCards from "./ProjectCards";
 
 const ProjectsIndex = () => {

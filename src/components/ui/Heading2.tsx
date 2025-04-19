@@ -1,5 +1,3 @@
-import React from "react";
-
 const Heading2 = ({ inputString }: { inputString: string }) => {
   return (
     <div
