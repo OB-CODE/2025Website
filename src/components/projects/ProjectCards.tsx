@@ -91,6 +91,9 @@ const ProjectCards = () => {
               data-testid="projectHeaderTray"
               className="flex w-full justify-end p-1 px-3 pt-3"
             >
+              <span className="text-gray-500 pl-2 cursor-help">
+                website / Github
+              </span>
               <div className="flex">
                 <a href={project.website} target="_blank" rel="noreferrer">
                   <div className="border hover:cursor-pointer hover:bg-blue-500 hover:border-blue-500 w-6 h-6 flex items-center justify-center bg-gray-400 rounded-4xl mx-1">

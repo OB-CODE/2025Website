@@ -1,6 +1,15 @@
+import { useState } from "react";
 import { BorderBeam } from "../magicui/border-beam";
 
 const Moonlander = () => {
+  const [userClickedStaticImage, setUserClickedStaticImage] = useState(false);
+  const handleClick = () => {
+    setUserClickedStaticImage(true);
+    setTimeout(() => {
+      setUserClickedStaticImage(false);
+    }, 150);
+  };
+
   return (
     <div className="w-[80%] overflow-hidden flex flex-col items-center justify-center">
       <div className="relative sm:min-h-[300px]  md:min-h-[555px] xl:min-h-[800px] bg-black w-full overflow-hidden">
@@ -15,7 +24,19 @@ const Moonlander = () => {
             overflow: "hidden",
           }}
         ></iframe>
-        <div className="sm:block lg:hidden flex justify-center items-center h-full w-full">
+        <div
+          onClick={handleClick}
+          className="sm:block lg:hidden flex justify-center items-center h-full w-full"
+        >
+          <div
+            className={`p-2 ${
+              userClickedStaticImage
+                ? "text-purple-950 bg-purple-600"
+                : "text-purple-500 bg-purple-950"
+            } `}
+          >
+            View on larger screen for an interactive experience.
+          </div>
           <img src="/DvorakLayout.png" alt="" />
         </div>
         <BorderBeam duration={6} size={200} data-testid="border-beam" />
