@@ -58,10 +58,10 @@ const PersonalHeading = () => {
     <div className="min-h-[25rem] md:min-h-[35rem] flex flex-col justify-center items-center h-full w-full bg-[radial-gradient(ellipse_at_center,_rgba(111,111,111,0.7)_0%,_rgba(0,0,0,1)_60%)]">
       <div
         onClick={() => setshowConfetti((prev) => !prev)}
-        className="text-6xl cursor-pointer flex w-[250px] justify-center items-center"
+        className="text-3xl md:text-6xl cursor-pointer flex w-[200px] md:w-[250px]  justify-center items-center top-[20px] md:top-[30px] lg:top-[50px]" // sm:text-2xl md:text-4xl lg:
         style={{
           position: "absolute",
-          top: 60,
+          // top: 60,
           left: rocketPosition,
           transition: "left 0.05s linear",
         }}
