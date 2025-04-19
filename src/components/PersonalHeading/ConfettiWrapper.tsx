@@ -30,6 +30,7 @@ const ConfettiWrapper = ({
       clearInterval(interval);
       window.removeEventListener("resize", handleResize);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -59,6 +60,7 @@ const ConfettiWrapper = ({
         left: rocketPosition,
         transition: "left 0.05s linear",
       }}
+      data-testId="rocket"
     >
       {movingRight == false && rightFacingRocket}
 
