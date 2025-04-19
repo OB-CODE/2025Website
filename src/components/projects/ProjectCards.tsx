@@ -21,7 +21,7 @@ const ProjectCards = () => {
       description: "The best drinks company ever? IYKYK.",
       mainImage: "/IndigoMainImage.png",
       website: "https://drinkindigo.com.au/",
-      techStack: ["Liquid", "Shopify", "vanilla CSS", "JavaScript"],
+      techStack: ["Liquid", "Shopify", "css3", "JavaScript"],
     },
     {
       name: "Pokemon Remastered",
@@ -32,8 +32,8 @@ const ProjectCards = () => {
       github: "https://github.com/OB-CODE/PokeBattlesRemastered",
       techStack: [
         "React",
-        "Node.js",
-        "Next.js",
+        "Nodejs",
+        "Nextjs",
         "TypeScript",
         "TailwindCSS",
         "DynamoDB",
@@ -46,7 +46,7 @@ const ProjectCards = () => {
       mainImage: "/HomeHarvestMainImage.png",
       website: "https://mitchell-home-harvest.surge.sh/",
       github: "https://github.com/OB-CODE/Home-Harvest",
-      techStack: ["React", "Node.js", "surge", "vanilla CSS"],
+      techStack: ["React", "Nodejs", "surge", "css3"],
     },
     {
       name: "Original Website",
@@ -54,7 +54,7 @@ const ProjectCards = () => {
       mainImage: "/OldWebsiteMainImage.png",
       website: "https://www.mitch-obrien.com/",
       github: "https://github.com/OB-CODE/Personal-Website",
-      techStack: ["React", "Node.js", "AWS Amplify"],
+      techStack: ["React", "Nodejs", "AWS Amplify"],
     },
   ];
 
@@ -133,10 +133,27 @@ const ProjectCards = () => {
             <div className="w-full max-w-[700px] max-h-[315px] h-[315px] relative">
               {hoveringTechStackIndex === index ? (
                 <div className="absolute inset-0 flex items-center justify-center text-white p-4 flex-col">
-                  <OrbitingCircles>
+                  <OrbitingCircles iconSize={80}>
                     {project.techStack?.map((tech, techIndex) => (
-                      <div key={techIndex} className="text-gray-500">
-                        {tech}
+                      <div
+                        key={techIndex}
+                        className="flex flex-col items-center"
+                      >
+                        <img
+                          src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${tech.toLowerCase()}/${tech.toLowerCase()}-original.svg`}
+                          className="rounded-xl border-rounded p-2 logo w-12 h-12"
+                          alt={tech}
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).style.display =
+                              "none"; // Hide the image if it fails to load
+                            const fallbackText = document.createElement("div");
+                            fallbackText.textContent = tech;
+                            fallbackText.className = "text-gray-500 text-sm";
+                            (
+                              e.target as HTMLImageElement
+                            ).parentElement?.appendChild(fallbackText);
+                          }}
+                        />
                       </div>
                     ))}
                   </OrbitingCircles>
