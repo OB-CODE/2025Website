@@ -21,17 +21,28 @@ const ProjectCards = () => {
       // no Github - Private.
     },
     {
+      name: "Pokemon Remastered",
+      description:
+        "A Pokemon battle simulator - Redo from an old project with some new features and a different stack.",
+      mainImage: "/PokemonRemasteredMainImage.png",
+      website: "https://poke-battles-remastered.vercel.app/",
+      github: "https://github.com/OB-CODE/PokeBattlesRemastered",
+    },
+    {
       name: "Home Harvest",
       description:
         "A weather / gardening application to show multi api consumption for a interactive user experience. Now get planting.",
       mainImage: "/HomeHarvestMainImage.png",
       website: "https://mitchell-home-harvest.surge.sh/",
-      github: "https://github.com/OB-CODE/Home-Harvest?tab=readme-ov-file",
+      github: "https://github.com/OB-CODE/Home-Harvest",
     },
+
     {
-      name: "plant two",
-      description:
-        "A simple application to show multi api consumption for an informaative visual representation 2.",
+      name: "Original Website",
+      description: "My original website - showcasing some older projects.",
+      mainImage: "/OldWebsiteMainImage.png",
+      website: "https://www.mitch-obrien.com/",
+      github: "https://github.com/OB-CODE/Personal-Website",
     },
   ];
 
@@ -70,6 +81,9 @@ const ProjectCards = () => {
                       data-tooltip-id={project.github ? "" : "my-tooltip"}
                       data-tooltip-content="This ones private - Sorry!"
                       data-tooltip-place="top"
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
                     >
                       <img
                         src={`https://cdn.simpleicons.org/github`}
@@ -92,7 +106,7 @@ const ProjectCards = () => {
                 {project.mainImage ? (
                   <img
                     src={project.mainImage}
-                    className="w-full max-h-[315px] p-4"
+                    className="opacity-70 w-full max-w-[700px] max-h-[315px] p-4"
                     alt=""
                   />
                 ) : (
