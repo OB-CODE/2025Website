@@ -56,8 +56,8 @@ const ModalCard = ({
       <div
         data-testid="modalBackground"
         onClick={toggleContactPopup}
-        style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }} // Explicit semi-transparent black background
-        className="fixed inset-0 z-20 bg-black flex items-center justify-center"
+        style={{ backgroundColor: "rgba(0, 0, 0, 0.8)" }} // Explicit semi-transparent black background
+        className="fixed inset-0 z-20 bg-black flex items-center justify-center cursor-pointer"
       ></div>
 
       <div

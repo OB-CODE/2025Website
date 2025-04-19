@@ -1,92 +1,45 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { HyperText } from "../magicui/hyper-text";
 import { MorphingText } from "../magicui/morphing-text";
+import ConfettiWrapper from "./ConfettiWrapper";
 import { personalDetails } from "./personal-info";
-import Confetti from "react-confetti";
-import { leftFacingRocket, rightFacingRocket } from "./headerSVGs";
+import Confetti from "react-confetti"; // Ensure this is the correct library or file path
+export interface IConfettiWrapper {
+  setToggleForRightBorder: React.Dispatch<React.SetStateAction<boolean>>;
+  setshowConfetti: React.Dispatch<React.SetStateAction<boolean>>;
+  setDimensions: React.Dispatch<
+    React.SetStateAction<{ width: number; height: number }>
+  >;
+  dimensions: { width: number; height: number };
+  showConfetti: boolean;
+}
 
 const PersonalHeading = () => {
   const [toggleForRightBorder, setToggleForRightBorder] = useState(true);
+  const [showConfetti, setshowConfetti] = useState(false);
   const [dimensions, setDimensions] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
   });
 
-  const [rocketPosition, setRocketPosition] = useState(0);
-  const [movingRight, setMovingRight] = useState(true);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setToggleForRightBorder((prev) => !prev);
-    }, 500);
-
-    const handleResize = () => {
-      setDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      clearInterval(interval);
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
-    const moveRocket = setInterval(() => {
-      setRocketPosition((prev) => {
-        if (movingRight && prev >= dimensions.width - 300) {
-          setMovingRight(false);
-          return prev - 10;
-        } else if (!movingRight && prev <= 0) {
-          setMovingRight(true);
-          return prev + 10;
-        }
-        return movingRight ? prev + 10 : prev - 10;
-      });
-    }, 50);
-
-    return () => clearInterval(moveRocket);
-  }, [movingRight, dimensions.width]);
-
-  const [showConfetti, setshowConfetti] = useState(false);
+  const props: IConfettiWrapper = {
+    setToggleForRightBorder,
+    setshowConfetti,
+    setDimensions,
+    dimensions,
+    showConfetti,
+  };
 
   return (
     <div className="min-h-[25rem] md:min-h-[35rem] flex flex-col justify-center items-center h-full w-full bg-[radial-gradient(ellipse_at_center,_rgba(111,111,111,0.7)_0%,_rgba(0,0,0,1)_60%)]">
-      <div
-        onClick={() => setshowConfetti((prev) => !prev)}
-        className="text-3xl md:text-6xl cursor-pointer flex w-[200px] md:w-[250px]  justify-center items-center top-[20px] md:top-[30px] lg:top-[50px]" // sm:text-2xl md:text-4xl lg:
-        style={{
-          position: "absolute",
-          // top: 60,
-          left: rocketPosition,
-          transition: "left 0.05s linear",
-        }}
-      >
-        {movingRight == false && rightFacingRocket}
-
-        <span className="text-xl cursor-pointer w-fit flex">
-          <button
-            className={`${
-              showConfetti ? "text-red-400" : "text-purple-400"
-            } w-[150px]  flex`}
-          >
-            {showConfetti ? "Stop" : "Start"} party
-          </button>
-        </span>
-        {movingRight && leftFacingRocket}
-      </div>
-
+      <ConfettiWrapper {...props} />
       {showConfetti && (
         <Confetti
           width={dimensions.width - 50}
           height={dimensions.height / 2 + 70}
+          gravity={0.3}
         />
       )}
-
       {/* Heading */}
       <div className="flex flex-row justify-between items-center pb-1 w-full md:w-[70vw]">
         <div className="text-xl font-bold flex md:text-5xl lg:text-7xl flex-row w-full">
