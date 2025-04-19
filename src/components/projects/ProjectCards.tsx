@@ -72,16 +72,16 @@ const ProjectCards = () => {
           className="w-[90%] md:w-[48%] m-1 mb-5 min-h-[50vh] flex flex-col"
         >
           {/* Header */}
-          <div data-testid="projectContainer" className="flex w-full">
-            <div className="flex justify-between w-full">
-              <div className="p-1 pl-4 w-full flex justify-start items-center">
+          <div data-testid="projectContainer" className="flex w-full px-1 pt-1">
+            <div className="flex justify-between w-fit flex-grow-1 ">
+              <div className="p-1 pl-4 w-fit flex justify-start items-center">
                 <div
                   className="flex items-center"
                   onMouseEnter={() => setHoveringTechStackIndex(index)}
                   onMouseLeave={() => setHoveringTechStackIndex(null)}
                 >
                   <TbStack className="cursor-help" />
-                  <span className="text-gray-500 pl-2 cursor-help">
+                  <span className="text-gray-500 pl-2 cursor-help whitespace-nowrap">
                     Tech Stack
                   </span>
                 </div>
@@ -89,7 +89,7 @@ const ProjectCards = () => {
             </div>
             <div
               data-testid="projectHeaderTray"
-              className="flex w-full justify-end p-1 px-3 pt-3"
+              className="flex w-full justify-end p-1 pl-4 flex-grow-2"
             >
               <span className="text-gray-500 pl-2 cursor-help">
                 website / Github
