@@ -4,6 +4,7 @@ import { TbStack } from "react-icons/tb";
 import GlowCard from "../ui/GlowCard";
 import { Tooltip } from "react-tooltip";
 import { OrbitingCircles } from "../ui/OrbitingCircles";
+import { knownLanguagesToMap } from "../ProgrammingIcons/ProgrammingLanguagesHelper";
 
 interface IprojectsToMap {
   name: string;
@@ -143,7 +144,11 @@ const ProjectCards = () => {
                         className="flex flex-col items-center"
                       >
                         <img
-                          src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${tech.toLowerCase()}/${tech.toLowerCase()}-original.svg`}
+                          src={
+                            knownLanguagesToMap.find(
+                              (language) => language.internalStackCode == tech
+                            )?.logo || "useFallback"
+                          }
                           className="rounded-xl border-rounded p-2 logo w-12 h-12"
                           alt={tech}
                           onError={(e) => {
