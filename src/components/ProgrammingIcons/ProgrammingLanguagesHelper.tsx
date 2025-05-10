@@ -88,4 +88,33 @@ export const knownLanguagesToMap: ILanguages[] = [
     alt: "Vite Logo",
     slug: "vite",
   },
+  // used for project cards
+  {
+    language: "Shopify",
+    internalStackCode: "Shopify",
+    logo: "/logos/shopify.svg",
+    alt: "Shopify Logo",
+    slug: "Shopify",
+  },
+  {
+    language: "css3",
+    internalStackCode: "css3",
+    logo: "/logos/css3.svg",
+    alt: "css3 Logo",
+    slug: "css3",
+  },
+  {
+    language: "awsDynamodb",
+    internalStackCode: "DynamoDB",
+    logo: "/logos/awsDynamodb.svg",
+    alt: "awsDynamodb Logo",
+    slug: "awsDynamodb",
+  },
+  {
+    language: "aws",
+    internalStackCode: "AWS Amplify",
+    logo: "/logos/aws-2.svg",
+    alt: "aws Logo",
+    slug: "aws",
+  },
 ];
