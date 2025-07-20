@@ -9,7 +9,7 @@ const FooterIndex = () => {
   };
 
   return (
-    <footer className="w-[70%] text-white py-1 h-full">
+    <footer className="w-[70%] text-white py-1 h-full ">
       <div className="container flex justify-between items-center h-full">
         <div id="socials" className="flex flex-col justify-center gap-2 h-full">
           <a
