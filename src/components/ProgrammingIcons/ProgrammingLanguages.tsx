@@ -3,12 +3,14 @@ import Heading2 from "../ui/Heading2";
 import ShinyButton from "../ui/ShinnyButton";
 import { IconCloudIndex } from "./IconCloudIndx";
 import { knownLanguagesToMap } from "./ProgrammingLanguagesHelper";
+import CyberpunkGrid from "../magicui/cyberpunk-grid";
 
 const ProgrammingLanguages = () => {
   const [isAnimated, setIsAnimated] = useState(false);
 
   return (
     <div className="min-h-[25rem] pt-[10vh] md:min-h-[35rem] flex flex-col justify-center items-center h-full w-full pb-[2vh]">
+      {/* <CyberpunkGrid color="#ba71ff" opacity={0.15} spacing={30} /> */}
       <Heading2 inputString="Languages / Tools" />
       <div className="pt-5">
         {/* <TestButton></TestButton> */}
@@ -25,7 +27,7 @@ const ProgrammingLanguages = () => {
               {knownLanguagesToMap.map((language, index) => {
                 return (
                   <div
-                    className="w-24 h-24 flx justify-center items-center logo"
+                    className="w-24 h-24 flx justify-center items-center logo "
                     data-testid="language-item"
                     key={index}
                   >

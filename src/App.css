@@ -16,7 +16,7 @@
   /* padding: 1.5em; */
   will-change: filter;
   transition: filter 300ms;
-  filter: drop-shadow(0 0 0.5em #464876aa);
+  filter: drop-shadow(0 0 0.5em #000000aa);
 }
 
 .logo:hover {

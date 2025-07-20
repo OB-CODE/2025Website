@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { FaGlobe } from "react-icons/fa";
 import { TbStack } from "react-icons/tb";
-import GlowCard from "../ui/GlowCard";
+import { GlassCard } from "../ui/GlassCard";
 import { Tooltip } from "react-tooltip";
 import { OrbitingCircles } from "../ui/OrbitingCircles";
 import { knownLanguagesToMap } from "../ProgrammingIcons/ProgrammingLanguagesHelper";
+import { DataGrid } from "../magicui/data-grid";
 
 interface IprojectsToMap {
   name: string;
@@ -66,10 +67,12 @@ const ProjectCards = () => {
   return (
     <div className="w-full h-full flex flex-wrap justify-between">
       {projectsToMap.map((project, index) => (
-        <GlowCard
+        <GlassCard
           key={index}
-          glowSize={250}
-          glowColor="#444444"
+          variant="primary"
+          glowColor="rgba(76, 97, 255, 0.5)"
+          interactive={true}
+          borderHighlight={true}
           className="w-[90%] md:w-[48%] m-1 mb-5 min-h-[50vh] flex flex-col"
         >
           {/* Header */}
@@ -129,10 +132,24 @@ const ProjectCards = () => {
             </div>
           </div>
 
+          {/* Data grid background */}
+          <div className="absolute inset-0 opacity-10 pointer-events-none overflow-hidden">
+            <DataGrid
+              columns={30}
+              rows={15}
+              cellSize={15}
+              color={index % 2 === 0 ? "#4c61ff" : "#ba71ff"}
+              density={0.1}
+              speed={0.5}
+              interactive={false}
+              className="w-full h-full opacity-30"
+            />
+          </div>
+
           {/* Body - Expands to fill remaining space */}
           <div
             data-testid="projectBody"
-            className="min-h-0 flex items-center justify-center flex-grow-2"
+            className="min-h-0 flex items-center justify-center flex-grow-2 relative z-10"
           >
             <div className="w-full max-w-[700px] max-h-[315px] h-[315px] relative">
               {hoveringTechStackIndex === index ? (
@@ -193,7 +210,7 @@ const ProjectCards = () => {
               {project.description}
             </div>
           </div>
-        </GlowCard>
+        </GlassCard>
       ))}
       <Tooltip id="my-tooltip" />
     </div>

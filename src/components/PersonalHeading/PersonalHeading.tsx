@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { HyperText } from "../magicui/hyper-text";
 import { MorphingText } from "../magicui/morphing-text";
+import { HologramText } from "../magicui/hologram-text";
+import { NeonButton } from "../ui/NeonButton";
 import ConfettiWrapper from "./ConfettiWrapper";
 import { personalDetails } from "./personal-info";
 import Confetti from "react-confetti"; // Ensure this is the correct library or file path
@@ -31,7 +33,7 @@ const PersonalHeading = () => {
   };
 
   return (
-    <div className="min-h-[25rem] md:min-h-[35rem] flex flex-col justify-center items-center h-full w-full bg-[radial-gradient(ellipse_at_center,_rgba(111,111,111,0.7)_0%,_rgba(0,0,0,1)_60%)]">
+    <div className="min-h-[25rem] md:min-h-[35rem] flex flex-col justify-center items-center h-full w-full bg-[radial-gradient(ellipse_at_center,_rgba(76,97,255,0.2)_0%,_rgba(0,0,0,1)_70%)] z-above-scan">
       <ConfettiWrapper {...props} />
       {showConfetti && (
         <Confetti
@@ -40,6 +42,7 @@ const PersonalHeading = () => {
           gravity={0.3}
         />
       )}
+
       {/* Heading */}
       <div className="flex flex-row justify-between items-center pb-1 w-full md:w-[70vw]">
         <div className="text-xl font-bold flex md:text-5xl lg:text-7xl flex-row w-full">
@@ -54,7 +57,9 @@ const PersonalHeading = () => {
         <div className="w-3 pl-1 h-full flex items-center">
           <div
             className={`z-10 flex h-[60%] w-1 ${
-              toggleForRightBorder ? "border-r" : "border-transparent"
+              toggleForRightBorder
+                ? "border-r border-purple-500"
+                : "border-transparent"
             } `}
           ></div>
         </div>
@@ -63,7 +68,7 @@ const PersonalHeading = () => {
       {/* Job Title */}
       <div
         data-testid="jobTitle"
-        className={`z-10 bg-[rgba(186,113,255,0.49)] w-fit h-18 flex justify-center rounded-4xl opacity px-2 items-center `}
+        className={`z-10 glassmorphic w-fit h-18 flex justify-center rounded-xl opacity px-4 py-2 items-center`}
       >
         <div className="text-3xl font-bold tracking-tighter md:text-5xl lg:text-7xl bottom-1 relative">{`<`}</div>
         <HyperText
