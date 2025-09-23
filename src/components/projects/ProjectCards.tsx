@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaGlobe } from "react-icons/fa";
 import { TbStack } from "react-icons/tb";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { GlassCard } from "../ui/GlassCard";
 import { Tooltip } from "react-tooltip";
 import { OrbitingCircles } from "../ui/OrbitingCircles";
@@ -11,17 +12,54 @@ import { DataGrid } from "../magicui/data-grid";
   name: string;
   description: string;
   mainImage?: string;
+  images?: string[];
   github?: string;
   website?: string;
   techStack?: string[];
 }
 
 const ProjectCards = ({projectsToMap, isTallCard = false} : {projectsToMap: IprojectsToMap[], isTallCard?: boolean}) => {
-
-
   const [hoveringTechStackIndex, setHoveringTechStackIndex] = useState<
     null | number
   >(null);
+  
+  // State for tracking current image index for each project
+  const [currentImageIndices, setCurrentImageIndices] = useState<number[]>(
+    projectsToMap.map(() => 0)
+  );
+  
+  // Helper functions for carousel navigation
+  const nextImage = (projectIndex: number) => {
+    setCurrentImageIndices(prevIndices => {
+      const newIndices = [...prevIndices];
+      const project = projectsToMap[projectIndex];
+      
+      // If no images array exists or contains only one item, do nothing
+      if (!project.images || project.images.length <= 1) {
+        return prevIndices;
+      }
+      
+      const imageCount = project.images.length;
+      newIndices[projectIndex] = (newIndices[projectIndex] + 1) % imageCount;
+      return newIndices;
+    });
+  };
+  
+  const prevImage = (projectIndex: number) => {
+    setCurrentImageIndices(prevIndices => {
+      const newIndices = [...prevIndices];
+      const project = projectsToMap[projectIndex];
+      
+      // If no images array exists or contains only one item, do nothing
+      if (!project.images || project.images.length <= 1) {
+        return prevIndices;
+      }
+      
+      const imageCount = project.images.length;
+      newIndices[projectIndex] = (newIndices[projectIndex] - 1 + imageCount) % imageCount;
+      return newIndices;
+    });
+  };
 
   return (
     <div className={`w-full h-full flex   ${isTallCard ? "flex-col justify-center items-center" : "flex-wrap justify-between"}`}>
@@ -148,16 +186,65 @@ const ProjectCards = ({projectsToMap, isTallCard = false} : {projectsToMap: Ipro
                   ))}
                 </div>
               ) : (
-   <div className="w-full h-full flex justify-center items-center">
-  <img
-    src={project.mainImage}
-    alt="Project Main"
-    className={`h-full opacity-70 p-4 ${
-      isTallCard
-        ? "object-contain w-auto"  
-        : "object-cover w-full"        }`}
-  />
-</div>
+                <div className="w-full h-full flex justify-center items-center text-center relative">
+                  {/* Left arrow navigation - only show if there are multiple images */}
+                  {project.images && project.images.length > 1 && (
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        prevImage(index);
+                      }}
+                      className="absolute left-2 z-20 bg-black/30 hover:bg-black/60 rounded-full p-2 text-white/70 hover:text-white/100 transition-opacity duration-200"
+                      aria-label="Previous image"
+                    >
+                      <FiArrowLeft size={20} />
+                    </button>
+                  )}
+
+                  {/* Image with transition effect */}
+                  <div className="w-full h-full flex justify-center items-center overflow-hidden">
+                    <img
+                      src={project.images?.length ? 
+                        project.images[currentImageIndices[index]] : 
+                        project.mainImage
+                      }
+                      alt="Project"
+                      className={`h-full opacity-70 p-4 transition-all duration-500 ease-in-out ${
+                        isTallCard
+                          ? "object-contain w-auto"  
+                          : "object-cover w-full"
+                      }`}
+                    />
+                  </div>
+
+                  {/* Right arrow navigation - only show if there are multiple images */}
+                  {project.images && project.images.length > 1 && (
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        nextImage(index);
+                      }}
+                      className="absolute right-2 z-20 bg-black/30 hover:bg-black/60 rounded-full p-2 text-white/70 hover:text-white/100 transition-opacity duration-200"
+                      aria-label="Next image"
+                    >
+                      <FiArrowRight size={20} />
+                    </button>
+                  )}
+
+                  {/* Image indicator dots - only show if there are multiple images */}
+                  {project.images && project.images.length > 1 && (
+                    <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1">
+                      {project.images.map((_, imgIndex) => (
+                        <div 
+                          key={imgIndex}
+                          className={`w-2 h-2 rounded-full ${
+                            currentImageIndices[index] === imgIndex ? 'bg-white' : 'bg-white/40'
+                          }`}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </div>
               )}
             </div>
           </div>

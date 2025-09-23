@@ -62,6 +62,7 @@ const ProjectsIndex = () => {
           name: "Planner",
           description: "A simple meal / routine planner. To prove a simple task that could have been achieved with paper can be made more complicated.",
           mainImage: "/PlannerMain.jpg",
+          images: ["/PlannerMain.jpg", "/PlannerCreate.jpg", "/PlannerShopping.jpg"],
           website: "",
           techStack: ["React", "Typescript", "css3", "JavaScript"],
         },
