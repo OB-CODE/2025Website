@@ -7,7 +7,7 @@ import { OrbitingCircles } from "../ui/OrbitingCircles";
 import { knownLanguagesToMap } from "../ProgrammingIcons/ProgrammingLanguagesHelper";
 import { DataGrid } from "../magicui/data-grid";
 
-interface IprojectsToMap {
+ export interface IprojectsToMap {
   name: string;
   description: string;
   mainImage?: string;
@@ -16,56 +16,15 @@ interface IprojectsToMap {
   techStack?: string[];
 }
 
-const ProjectCards = () => {
-  const projectsToMap: IprojectsToMap[] = [
-    {
-      name: "indigo",
-      description: "The best drinks company ever? IYKYK.",
-      mainImage: "/IndigoMainImage.png",
-      website: "https://drinkindigo.com.au/",
-      techStack: ["Liquid", "Shopify", "css3", "JavaScript"],
-    },
-    {
-      name: "Pokemon Remastered",
-      description:
-        "A Pokemon battle simulator - Redo from an old project with some new features and a different stack. How quick can you catch the 151?",
-      mainImage: "/PokemonRemasteredMainImage.png",
-      website: "https://poke-battles-remastered.vercel.app/",
-      github: "https://github.com/OB-CODE/PokeBattlesRemastered",
-      techStack: [
-        "React",
-        "Nodejs",
-        "Nextjs",
-        "TypeScript",
-        "TailwindCSS",
-        "DynamoDB",
-      ],
-    },
-    {
-      name: "Home Harvest",
-      description:
-        "A weather / gardening application to show multi api consumption for a interactive user experience. Now get planting.",
-      mainImage: "/HomeHarvestMainImage.png",
-      website: "https://mitchell-home-harvest.surge.sh/",
-      github: "https://github.com/OB-CODE/Home-Harvest",
-      techStack: ["React", "Nodejs", "surge", "css3"],
-    },
-    {
-      name: "Original Website",
-      description: "My original website - showcasing some older projects.",
-      mainImage: "/OldWebsiteMainImage.png",
-      website: "https://www.mitch-obrien.com/",
-      github: "https://github.com/OB-CODE/Personal-Website",
-      techStack: ["React", "Nodejs", "AWS Amplify"],
-    },
-  ];
+const ProjectCards = ({projectsToMap, isTallCard = false} : {projectsToMap: IprojectsToMap[], isTallCard?: boolean}) => {
+
 
   const [hoveringTechStackIndex, setHoveringTechStackIndex] = useState<
     null | number
   >(null);
 
   return (
-    <div className="w-full h-full flex flex-wrap justify-between">
+    <div className={`w-full h-full flex   ${isTallCard ? "flex-col justify-center items-center" : "flex-wrap justify-between"}`}>
       {projectsToMap.map((project, index) => (
         <GlassCard
           key={index}
@@ -73,10 +32,10 @@ const ProjectCards = () => {
           glowColor="rgba(76, 97, 255, 0.5)"
           interactive={true}
           borderHighlight={true}
-          className="w-[90%] md:w-[48%] m-1 mb-5 min-h-[50vh] flex flex-col"
+          className={`w-[90%] md:w-[48%] m-1 mb-5  flex flex-col ${isTallCard ? "min-h-[70vh]" : "min-h-[50vh]"}`}
         >
           {/* Header */}
-          <div data-testid="projectContainer" className="flex w-full px-1 pt-1">
+          <div data-testid="projectContainer" className={`flex w-full px-1 pt-1 ${isTallCard ? "" : ""}`}>
             <div className="flex justify-between w-fit flex-grow-1 ">
               <div className="p-1 pl-4 w-fit flex justify-start items-center">
                 <div
@@ -151,7 +110,7 @@ const ProjectCards = () => {
             data-testid="projectBody"
             className="min-h-0 flex items-center justify-center flex-grow-2 relative z-10"
           >
-            <div className="w-full max-w-[700px] max-h-[315px] h-[315px] relative">
+            <div className={`w-full max-w-[700px]  relative ${isTallCard ? "max-h-[450px] h-[450px]" : "max-h-[315px] h-[315px]"}`}>
               {hoveringTechStackIndex === index ? (
                 <div className="absolute inset-0 flex items-center justify-center text-white p-4 flex-col">
                   <OrbitingCircles iconSize={80}>
@@ -189,11 +148,16 @@ const ProjectCards = () => {
                   ))}
                 </div>
               ) : (
-                <img
-                  src={project.mainImage}
-                  className="absolute inset-0 w-full h-full object-cover opacity-70 p-4"
-                  alt="Project Main"
-                />
+   <div className="w-full h-full flex justify-center items-center">
+  <img
+    src={project.mainImage}
+    alt="Project Main"
+    className={`h-full opacity-70 p-4 ${
+      isTallCard
+        ? "object-contain w-auto"  
+        : "object-cover w-full"        }`}
+  />
+</div>
               )}
             </div>
           </div>
