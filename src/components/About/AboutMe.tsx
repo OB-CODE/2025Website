@@ -1,6 +1,5 @@
-import Heading2 from "../ui/Heading2";
-import CyberpunkGrid from "../magicui/cyberpunk-grid";
 import { RetroTerminal } from "../magicui/retro-terminal";
+import Heading2 from "../ui/Heading2";
 
 const aboutMeBlurb = [
   "I have a passion for problem solving and working with others.",

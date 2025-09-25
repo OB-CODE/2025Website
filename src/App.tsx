@@ -1,17 +1,16 @@
 import { useEffect } from "react";
+import "react-tooltip/dist/react-tooltip.css";
 import "./App.css";
-import "./futuristic.css";
 import AboutMe from "./components/About/AboutMe";
 import FooterIndex from "./components/footer/FooterIndex";
-import CardsScroll from "./components/MarqueeCards/CardsScroll";
-import Moonlander from "./components/moonlander/Moonlander";
 import { CosmicBackground } from "./components/magicui/cosmic-background";
 import { StarBackground } from "./components/magicui/star-background";
+import CardsScroll from "./components/MarqueeCards/CardsScroll";
+import Moonlander from "./components/moonlander/Moonlander";
 import PersonalHeading from "./components/PersonalHeading/PersonalHeading";
 import ProgrammingLanguages from "./components/ProgrammingIcons/ProgrammingLanguages";
 import ProjectsIndex from "./components/projects/ProjectsIndex";
-import "react-tooltip/dist/react-tooltip.css";
-import CyberpunkGrid from "./components/magicui/cyberpunk-grid";
+import "./futuristic.css";
 
 function App() {
   useEffect(() => {

@@ -1,11 +1,9 @@
 import { useState } from "react";
+import Confetti from "react-confetti"; // Ensure this is the correct library or file path
 import { HyperText } from "../magicui/hyper-text";
 import { MorphingText } from "../magicui/morphing-text";
-import { HologramText } from "../magicui/hologram-text";
-import { NeonButton } from "../ui/NeonButton";
 import ConfettiWrapper from "./ConfettiWrapper";
 import { personalDetails } from "./personal-info";
-import Confetti from "react-confetti"; // Ensure this is the correct library or file path
 export interface IConfettiWrapper {
   setToggleForRightBorder: React.Dispatch<React.SetStateAction<boolean>>;
   setshowConfetti: React.Dispatch<React.SetStateAction<boolean>>;

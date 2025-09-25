@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { FaGlobe } from "react-icons/fa";
-import { TbStack } from "react-icons/tb";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
-import { GlassCard } from "../ui/GlassCard";
+import { TbStack } from "react-icons/tb";
 import { Tooltip } from "react-tooltip";
-import { OrbitingCircles } from "../ui/OrbitingCircles";
 import { knownLanguagesToMap } from "../ProgrammingIcons/ProgrammingLanguagesHelper";
 import { DataGrid } from "../magicui/data-grid";
+import { GlassCard } from "../ui/GlassCard";
+import { OrbitingCircles } from "../ui/OrbitingCircles";
 
  export interface IprojectsToMap {
   name: string;

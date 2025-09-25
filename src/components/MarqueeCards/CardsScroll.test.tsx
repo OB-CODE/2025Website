@@ -1,5 +1,5 @@
-import { render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { render, screen } from "@testing-library/react";
 import CardsScroll from "./CardsScroll";
 import { objsToMap } from "./cardsToMap";
 
@@ -18,7 +18,7 @@ describe("CardsScroll Component", () => {
 
     render(<CardsScroll direction="left" />);
     const cards = screen.getAllByTestId("cardleft"); // Use getAllByTestId
-    expect(cards).toHaveLength(objsToMap.length * 2);
+    expect(cards).toHaveLength(objsToMap.length * 2); 
   });
 
   // Test for the marquee element RENDERING LEFT
