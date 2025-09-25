@@ -51,7 +51,7 @@ const ProjectsIndex = () => {
         name: "Original Website",
         description: "My original website - showcasing some older projects.",
         mainImage: "/OldWebsiteMainImage.png",
-        website: "https://www.mitch-obrien.com/",
+        website: "https://www.old.mitch-obrien.com/",
         github: "https://github.com/OB-CODE/Personal-Website",
         techStack: ["React", "Nodejs", "AWS Amplify"],
       },
