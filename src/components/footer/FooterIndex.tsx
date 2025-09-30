@@ -8,6 +8,8 @@ const FooterIndex = () => {
     setShowContact(!showContact);
   };
 
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="w-[70%] text-white py-1 h-full ">
       <div className="container flex justify-between items-center h-full">
@@ -36,9 +38,9 @@ const FooterIndex = () => {
           >
             Contact Me
           </button>
-          <div className="flex h-full items-end justify-end text-sm  text-gray-500 border-gray-500">
-            2025 Mitch O'Brien
-          </div>
+            <div className="flex h-full items-end justify-end text-sm text-gray-500 border-gray-500">
+            &copy; {currentYear} - Mitch O'Brien
+            </div>
         </div>
       </div>
 
