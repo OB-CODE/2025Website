@@ -36,7 +36,7 @@ const FooterIndex = () => {
           >
             Contact Me
           </button>
-          <div className="flex h-full items-end justify-end text-sm  text-gray-700 border-gray-700">
+          <div className="flex h-full items-end justify-end text-sm  text-gray-500 border-gray-500">
             2025 Mitch O'Brien
           </div>
         </div>
