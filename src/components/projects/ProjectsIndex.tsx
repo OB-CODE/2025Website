@@ -74,7 +74,7 @@ const ProjectsIndex = () => {
       className="flex items-start w-[80%] flex-col"
     >
       <Heading2 inputString="Portfolio" />
-      <div className="flex flex-col w-[70%] gap-3 items-start">
+      <div className="flex flex-col w-full md:w-[70%] gap-3 items-start">
         {projectsMessage.map((message, index) => (
           <div key={index} className={`${index != 0 ? "text-gray-400" : ""}`}>
             {message}

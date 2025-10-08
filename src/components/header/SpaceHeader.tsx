@@ -181,9 +181,9 @@ const SpaceHeader: React.FC = () => {
       {/* Mobile Navigation - Simplified implementation */}
       {mobileMenuOpen && (
         <div 
-          className="fixed inset-0 w-full h-full bg-black/95 backdrop-blur-xl border-t border-purple-500/30 z-[9999] shadow-lg flex flex-col"
+          className="fixed inset-0 w-full h-[calc(100%-64px)] top-[64px] bg-black/95 backdrop-blur-xl border-t border-purple-500/30 z-[9999] shadow-lg flex flex-col"
         >
-          <div className="pt-[64px] max-h-full overflow-y-auto flex-1">
+          <div className="pt-[15px] max-h-full overflow-y-auto flex-1">
             <div className="relative overflow-hidden h-full">
               {/* Background effects for mobile menu */}
               <div className="absolute inset-0 opacity-30 pointer-events-none">
@@ -191,7 +191,7 @@ const SpaceHeader: React.FC = () => {
               </div>
               
               {/* Mobile navigation links */}
-              <div className="px-4 py-8 space-y-4 relative z-10">
+              <div className="px-4 pb-8 space-y-4 relative z-10">
             {navLinks.map((link) => (
               <button
                 key={link.id}
