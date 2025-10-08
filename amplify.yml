@@ -1,0 +1,21 @@
+version: 1
+build:
+  baseImage: aws/codebuild/amazonlinux2023-x86_64-standard:5.0
+
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - echo "Using Node 20 on Amazon Linux 2023"
+        - corepack enable
+        - npm ci
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: dist
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
