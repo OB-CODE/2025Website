@@ -53,10 +53,12 @@ const SpaceHeader: React.FC = () => {
       document.body.style.overflow = 'hidden';
       
       // Force scroll to top when menu opens to ensure it's visible
-      window.scrollTo({
-        top: 0,
-        behavior: 'auto'
-      });
+    setTimeout(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'auto'
+        });
+    }, 400);
     } else {
       // Restore normal scrolling
       document.body.style.overflow = '';
