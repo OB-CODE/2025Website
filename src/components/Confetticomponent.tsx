@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import ConfettiWrapper from './PersonalHeading/ConfettiWrapper'
 import ReactConfetti from 'react-confetti';
 export interface IConfettiWrapper {
@@ -25,6 +25,28 @@ const Confetticomponent = () => {
     dimensions,
     showConfetti,
   };
+
+const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+useEffect(() => {
+    if (showConfetti) {
+        timerRef.current = setTimeout(() => {
+            setshowConfetti(false);
+        }, 5000);
+    } else {
+        if (timerRef.current) {
+            clearTimeout(timerRef.current);
+            timerRef.current = null;
+        }
+    }
+    return () => {
+        if (timerRef.current) {
+            clearTimeout(timerRef.current);
+            timerRef.current = null;
+        }
+    };
+}, [showConfetti]);
+
   return (
     <div className='flex absolute w-full h-screen items-end'>      
     <div id='confettiBottomContainer' className='flex-1 items-end justify-end flex relative mb-10'>
