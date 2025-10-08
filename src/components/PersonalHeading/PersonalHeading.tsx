@@ -4,42 +4,16 @@ import { HyperText } from "../magicui/hyper-text";
 import { MorphingText } from "../magicui/morphing-text";
 import ConfettiWrapper from "./ConfettiWrapper";
 import { personalDetails } from "./personal-info";
-export interface IConfettiWrapper {
-  setToggleForRightBorder: React.Dispatch<React.SetStateAction<boolean>>;
-  setshowConfetti: React.Dispatch<React.SetStateAction<boolean>>;
-  setDimensions: React.Dispatch<
-    React.SetStateAction<{ width: number; height: number }>
-  >;
-  dimensions: { width: number; height: number };
-  showConfetti: boolean;
-}
+
 
 const PersonalHeading = () => {
-  const [toggleForRightBorder, setToggleForRightBorder] = useState(true);
-  const [showConfetti, setshowConfetti] = useState(false);
-  const [dimensions, setDimensions] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
 
-  const props: IConfettiWrapper = {
-    setToggleForRightBorder,
-    setshowConfetti,
-    setDimensions,
-    dimensions,
-    showConfetti,
-  };
+
+
 
   return (
     <div className="min-h-[25rem] md:min-h-[35rem] flex flex-col justify-center items-center h-full w-full bg-[radial-gradient(ellipse_at_center,_rgba(76,97,255,0.2)_0%,_rgba(0,0,0,1)_70%)] z-above-scan">
-      <ConfettiWrapper {...props} />
-      {showConfetti && (
-        <Confetti
-          width={dimensions.width - 50}
-          height={dimensions.height / 2 + 70}
-          gravity={0.3}
-        />
-      )}
+
 
       {/* Heading */}
       <div className="flex flex-row justify-between items-center pb-1 w-full md:w-[70vw]">
@@ -54,11 +28,7 @@ const PersonalHeading = () => {
         </div>
         <div className="w-3 pl-1 h-full flex items-center">
           <div
-            className={`z-10 flex h-[60%] w-1 ${
-              toggleForRightBorder
-                ? "border-r border-purple-500"
-                : "border-transparent"
-            } `}
+            className="border-transparent z-10 flex h-[60%] w-1"
           ></div>
         </div>
       </div>

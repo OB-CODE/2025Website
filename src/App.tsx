@@ -11,6 +11,7 @@ import PersonalHeading from "./components/PersonalHeading/PersonalHeading";
 import ProgrammingLanguages from "./components/ProgrammingIcons/ProgrammingLanguages";
 import ProjectsIndex from "./components/projects/ProjectsIndex";
 import "./futuristic.css";
+import Confetticomponent from "./components/Confetticomponent";
 
 function App() {
   useEffect(() => {
@@ -50,8 +51,9 @@ function App() {
         <div className="text-visible flex justify-center flex-col w-full items-center">
           <AboutMe />
           {/* <div className="relative w-64 h-64 flex items-center justify-center border border-gray-900"> */}
-          <div className="w-full min-h-[600px] pb-[10vh] flex justify-center !overflow-hidden">
+          <div className="w-full min-h-[600px] pb-[10vh] flex flex-col items-center justify-center !overflow-hidden">
             <Moonlander />
+            <Confetticomponent />
           </div>
         </div>
       </div>
