@@ -1,14 +1,19 @@
 import { defineConfig } from "vite";
-import { webcrypto } from "crypto";
-// Ensure crypto.getRandomValues() exists for Vite in Node
-if (!globalThis.crypto) {
-  globalThis.crypto = webcrypto as any;
-}
 import react from "@vitejs/plugin-react-swc";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
-
+// --- FIX: safely polyfill crypto.getRandomValues ---
+try {
+  // Some AWS Node environments need this dynamic import
+  if (typeof globalThis.crypto?.getRandomValues !== "function") {
+    const { webcrypto } = await import("crypto");
+    globalThis.crypto = webcrypto as any;
+  }
+} catch (err) {
+  console.warn("⚠️ crypto polyfill failed:", err);
+}
+// ---------------------------------------------------
 
 // https://vite.dev/config/
 export default defineConfig({
