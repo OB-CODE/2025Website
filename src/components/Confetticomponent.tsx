@@ -9,43 +9,68 @@ export interface IConfettiWrapper {
   >;
   dimensions: { width: number; height: number };
   showConfetti: boolean;
+  countdown: number;
+  setCountdown: React.Dispatch<React.SetStateAction<number>>;
 }
 const Confetticomponent = () => {
-      const [toggleForRightBorder, setToggleForRightBorder] = useState(true);
+  const [toggleForRightBorder, setToggleForRightBorder] = useState(true);
   const [showConfetti, setshowConfetti] = useState(false);
   const [dimensions, setDimensions] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
   });
+  const [countdown, setCountdown] = useState(5);
 
-      const props: IConfettiWrapper = {
-    setToggleForRightBorder,
-    setshowConfetti,
-    setDimensions,
-    dimensions,
-    showConfetti,
-  };
+
 
 const timerRef = useRef<NodeJS.Timeout | null>(null);
 
 useEffect(() => {
     if (showConfetti) {
-        timerRef.current = setTimeout(() => {
-            setshowConfetti(false);
-        }, 5000);
+        // Reset countdown to 5 when confetti starts
+        setCountdown(5);
+        
+        // Set up an interval to update the countdown every second
+        const countdownInterval = setInterval(() => {
+            setCountdown(prev => {
+                if (prev <= 1) {
+                    // When countdown reaches 0, clear interval and stop confetti
+                    clearInterval(countdownInterval);
+                    setshowConfetti(false);
+                    return 5; // Reset to 5 for next time
+                }
+                return prev - 1;
+            });
+        }, 1000);
+        
+        // Store the interval reference for cleanup
+        timerRef.current = countdownInterval as unknown as NodeJS.Timeout;
     } else {
+        // When confetti stops (manually), reset countdown and clear any timers
+        setCountdown(5);
         if (timerRef.current) {
-            clearTimeout(timerRef.current);
+            clearInterval(timerRef.current);
             timerRef.current = null;
         }
     }
+    
     return () => {
         if (timerRef.current) {
-            clearTimeout(timerRef.current);
+            clearInterval(timerRef.current);
             timerRef.current = null;
         }
     };
 }, [showConfetti]);
+
+const props: IConfettiWrapper = {
+    setToggleForRightBorder,
+    setshowConfetti,
+    setDimensions,
+    dimensions,
+    showConfetti,
+    countdown,
+    setCountdown,
+  };
 
   return (
     <div className='flex absolute w-full h-screen items-end'>      

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { leftFacingRocket, rightFacingRocket } from "./headerSVGs";
-import { IConfettiWrapper } from "./PersonalHeading";
+import { IConfettiWrapper } from "../Confetticomponent";
 
 const ConfettiWrapper = ({
   setToggleForRightBorder,
@@ -8,6 +8,8 @@ const ConfettiWrapper = ({
   setDimensions,
   dimensions,
   showConfetti,
+  countdown,
+  setCountdown,
 }: IConfettiWrapper) => {
   const [rocketPosition, setRocketPosition] = useState(0);
   const [movingRight, setMovingRight] = useState(true);
@@ -53,7 +55,7 @@ const ConfettiWrapper = ({
   return (
     <div
       onClick={() => setshowConfetti((prev) => !prev)}
-      className="text-3xl md:text-6xl cursor-pointer flex w-[200px] md:w-[250px]  justify-center items-center top-[20px] md:top-[30px] lg:top-[50px]" // sm:text-2xl md:text-4xl lg:
+      className="text-3xl md:text-6xl cursor-pointer flex w-[270px] md:w-[270px]  justify-center items-center top-[20px] md:top-[30px] lg:top-[50px]" // sm:text-2xl md:text-4xl lg:
       style={{
         position: "absolute",
         // top: 60,
@@ -68,9 +70,9 @@ const ConfettiWrapper = ({
         <button
           className={`${
             showConfetti ? "text-red-400" : "text-purple-400"
-          } w-[150px]  flex`}
+          } w-[200px] flex justify-center items-center border-2 border-white rounded-lg hover:bg-white/10 transition-colors duration-300 p-2`}
         >
-          {showConfetti ? "Stop" : "Start"} party
+          {showConfetti ? "Stop" : "Start"} party ({countdown}s)
         </button>
       </span>
       {movingRight && leftFacingRocket}
