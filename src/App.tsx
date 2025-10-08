@@ -60,8 +60,10 @@ function App() {
           <div id="aboutMeSection" className="text-visible flex justify-center flex-col w-full items-center">
             <AboutMe />
             {/* <div className="relative w-64 h-64 flex items-center justify-center border border-gray-900"> */}
-            <div className="w-full min-h-[600px] pb-[10vh] flex flex-col items-center justify-center !overflow-hidden">
+            <div className="w-full md:min-h-[600px] min-h-[200px] pb-[10vh] flex flex-col items-center justify-center overflow-hidden">
               <Moonlander />
+            </div>
+            <div className="relative w-full flex justify-center ">
               <Confetticomponent />
             </div>
           </div>

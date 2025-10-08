@@ -161,3 +161,85 @@
     opacity: 0;
   }
 }
+
+/* Mobile menu animations and styles */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* Mobile menu overlay with animation */
+.mobile-menu-overlay {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+.mobile-menu-overlay.menu-closing {
+  animation: fadeOut 0.2s ease-out forwards;
+}
+
+/* Mobile menu container with animation */
+.mobile-menu {
+  animation: slideDown 0.3s ease-out forwards;
+  box-shadow: 0 4px 20px rgba(76, 97, 255, 0.3);
+}
+
+.menu-closing .mobile-menu {
+  animation: slideUp 0.3s ease-out forwards;
+}
+
+/* Add futuristic glow to mobile menu */
+.mobile-menu button {
+  position: relative;
+  overflow: hidden;
+  text-shadow: 0 0 5px rgba(137, 100, 255, 0.5);
+}
+
+.mobile-menu button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: 0.5s;
+}
+
+.mobile-menu button:hover::after {
+  left: 100%;
+}
