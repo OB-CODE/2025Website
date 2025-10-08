@@ -1,8 +1,5 @@
-import { useState } from "react";
-import Confetti from "react-confetti"; // Ensure this is the correct library or file path
 import { HyperText } from "../magicui/hyper-text";
 import { MorphingText } from "../magicui/morphing-text";
-import ConfettiWrapper from "./ConfettiWrapper";
 import { personalDetails } from "./personal-info";
 
 interface PersonalHeadingProps {

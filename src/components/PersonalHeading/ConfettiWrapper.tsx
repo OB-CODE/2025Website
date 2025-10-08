@@ -1,22 +1,20 @@
 import { useEffect, useState } from "react";
-import { leftFacingRocket, rightFacingRocket } from "./headerSVGs";
 import { IConfettiWrapper } from "../Confetticomponent";
+import { leftFacingRocket, rightFacingRocket } from "./headerSVGs";
 
 const ConfettiWrapper = ({
-  setToggleForRightBorder,
+  
   setshowConfetti,
   setDimensions,
   dimensions,
   showConfetti,
   countdown,
-  setCountdown,
 }: IConfettiWrapper) => {
   const [rocketPosition, setRocketPosition] = useState(0);
   const [movingRight, setMovingRight] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setToggleForRightBorder((prev) => !prev);
     }, 500);
 
     const handleResize = () => {

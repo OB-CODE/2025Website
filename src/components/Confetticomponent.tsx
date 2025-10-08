@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import ConfettiWrapper from './PersonalHeading/ConfettiWrapper'
 import ReactConfetti from 'react-confetti';
 export interface IConfettiWrapper {
-  setToggleForRightBorder: React.Dispatch<React.SetStateAction<boolean>>;
   setshowConfetti: React.Dispatch<React.SetStateAction<boolean>>;
   setDimensions: React.Dispatch<
     React.SetStateAction<{ width: number; height: number }>
@@ -10,10 +9,9 @@ export interface IConfettiWrapper {
   dimensions: { width: number; height: number };
   showConfetti: boolean;
   countdown: number;
-  setCountdown: React.Dispatch<React.SetStateAction<number>>;
+  setCountdown?: React.Dispatch<React.SetStateAction<number>>;
 }
 const Confetticomponent = () => {
-  const [toggleForRightBorder, setToggleForRightBorder] = useState(true);
   const [showConfetti, setshowConfetti] = useState(false);
   const [dimensions, setDimensions] = useState({
     width: window.innerWidth,
@@ -63,7 +61,6 @@ useEffect(() => {
 }, [showConfetti]);
 
 const props: IConfettiWrapper = {
-    setToggleForRightBorder,
     setshowConfetti,
     setDimensions,
     dimensions,

@@ -13,6 +13,7 @@ describe("ConfettiWrapper Component", () => {
     setDimensions: mockSetDimensions,
     dimensions: { width: 800, height: 600 },
     showConfetti: false,
+    countdown: 5,
   };
 
   test("renders the ConfettiWrapper component", () => {
