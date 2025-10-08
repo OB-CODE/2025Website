@@ -1,0 +1,6 @@
+/* Header spacing - only apply this to specific containers that need it */
+.header-padding-top {
+  padding-top: 64px; /* Same as header height */
+}
+
+/* Remove body padding since we're handling this in the App component */

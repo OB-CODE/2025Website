@@ -20,17 +20,30 @@ const SpaceHeader: React.FC = () => {
     { id: 'contactSection', label: 'Contact' },
   ];
 
+  // Simple scroll behavior - just to add background when scrolled
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 10;
-      if (isScrolled !== scrolled) {
-        setScrolled(isScrolled);
+      const currentScrollPos = window.scrollY;
+      
+      // Add background when scrolled down, transparent at top
+      if (currentScrollPos > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
       }
     };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [scrolled]);
+    
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Initial check
+    handleScroll();
+    
+    // Cleanup
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -50,8 +63,8 @@ const SpaceHeader: React.FC = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 space-header ${
-        scrolled ? 'bg-black/80 backdrop-blur-md' : 'bg-transparent'
+      className={`space-header ${
+        scrolled ? 'bg-black/80 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}
     >
       <div className="absolute inset-0 opacity-40 overflow-hidden pointer-events-none">
@@ -71,8 +84,8 @@ const SpaceHeader: React.FC = () => {
         <div className="shooting-star"></div>
       </div>
       
-      <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="relative z-10 w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-full">
           {/* Logo/Brand */}
           <div className="flex-shrink-0">
             <div className="text-white font-bold text-xl flex items-center logo-text">
@@ -98,7 +111,7 @@ const SpaceHeader: React.FC = () => {
                 <li key={link.id}>
                   <button
                     onClick={() => scrollToSection(link.id)}
-                    className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors relative group nav-item-glow"
+                    className="text-gray-200 hover:text-white px-4 py-2 text-base font-medium transition-colors relative group nav-item-glow"
                   >
                     {link.label}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500 group-hover:w-full transition-all duration-300"></span>
