@@ -1,6 +1,4 @@
-/* Header spacing - only apply this to specific containers that need it */
+/* Header spacing class for containers that need padding from fixed header */
 .header-padding-top {
-  padding-top: 64px; /* Same as header height */
+  padding-top: 64px; /* Same as header height in space-header.css */
 }
-
-/* Remove body padding since we're handling this in the App component */
