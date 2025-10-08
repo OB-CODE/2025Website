@@ -5,14 +5,17 @@ import { MorphingText } from "../magicui/morphing-text";
 import ConfettiWrapper from "./ConfettiWrapper";
 import { personalDetails } from "./personal-info";
 
+interface PersonalHeadingProps {
+  id?: string;
+}
 
-const PersonalHeading = () => {
+const PersonalHeading = ({ id }: PersonalHeadingProps) => {
 
 
 
 
   return (
-    <div className="min-h-[25rem] md:min-h-[35rem] flex flex-col justify-center items-center h-full w-full bg-[radial-gradient(ellipse_at_center,_rgba(76,97,255,0.2)_0%,_rgba(0,0,0,1)_70%)] z-above-scan">
+    <div id={id} className="min-h-[25rem] md:min-h-[35rem] flex flex-col justify-center items-center h-full w-full bg-[radial-gradient(ellipse_at_center,_rgba(76,97,255,0.2)_0%,_rgba(0,0,0,1)_70%)] z-above-scan">
 
 
       {/* Heading */}
