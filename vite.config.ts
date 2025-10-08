@@ -1,13 +1,14 @@
 import { defineConfig } from "vite";
 import { webcrypto } from "crypto";
+// Ensure crypto.getRandomValues() exists for Vite in Node
+if (!globalThis.crypto) {
+  globalThis.crypto = webcrypto as any;
+}
 import react from "@vitejs/plugin-react-swc";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
-// Polyfill for webcrypto
-if (!globalThis.crypto) {
-  (globalThis as any).crypto = webcrypto;
-}
+
 
 // https://vite.dev/config/
 export default defineConfig({
