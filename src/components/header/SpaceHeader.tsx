@@ -234,6 +234,7 @@ const SpaceHeader: React.FC = () => {
       {mobileMenuOpen && portalContainer && createPortal(
         <div 
           className="fixed top-[64px] left-0 right-0 bottom-0 w-full h-[calc(100vh-64px)]  backdrop-blur-xl border-t border-purple-500/30 z-[9999] shadow-lg flex flex-col overflow-y-auto"
+            onClick={(e) => {e.stopPropagation(), setMobileMenuOpen(false)}} // Prevent clicks inside menu from closing it
         >
           {/* Background effects for mobile menu */}
           <div className="absolute inset-0 opacity-30 pointer-events-none">
@@ -246,7 +247,7 @@ const SpaceHeader: React.FC = () => {
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className="text-gray-200 hover:text-white hover:bg-purple-900/30 block px-4 py-5 rounded-lg text-xl font-medium w-full text-center transition-all duration-200 border border-purple-500/20"
+                className="text-gray-200 hover:text-white hover:bg-purple-900/30 block px-4 py-5 rounded-lg text-xl font-medium w-full text-center transition-all duration-200 border border-purple-500/20 hover:cursor-pointer"
                 aria-label={`Navigate to ${link.label} section`}
               >
                 {link.label}
