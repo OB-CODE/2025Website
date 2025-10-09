@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { StarBackground } from '../magicui/star-background';
 import { DataGrid } from '../magicui/data-grid';
@@ -12,6 +13,29 @@ interface NavLink {
 const SpaceHeader: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [portalContainer, setPortalContainer] = useState<HTMLElement | null>(null);
+
+  // Setup portal container
+  useEffect(() => {
+    // Check if the portal container already exists
+    let container = document.getElementById('mobile-menu-portal');
+    
+    // Create it if it doesn't exist
+    if (!container) {
+      container = document.createElement('div');
+      container.id = 'mobile-menu-portal';
+      document.body.appendChild(container);
+    }
+    
+    setPortalContainer(container);
+    
+    // Cleanup function
+    return () => {
+      if (container && container.parentNode) {
+        container.parentNode.removeChild(container);
+      }
+    };
+  }, []);
 
   // Define navigation links - update these with the actual section IDs from your page
   const navLinks: NavLink[] = [
@@ -46,19 +70,11 @@ const SpaceHeader: React.FC = () => {
     };
   }, []);
   
-  // Handle scroll locking and menu positioning
+  // Handle scroll locking for menu
   useEffect(() => {
     if (mobileMenuOpen) {
       // Prevent scrolling when menu is open
       document.body.style.overflow = 'hidden';
-      
-      // Force scroll to top when menu opens to ensure it's visible
-    setTimeout(() => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'auto'
-        });
-    }, 400);
     } else {
       // Restore normal scrolling
       document.body.style.overflow = '';
@@ -70,46 +86,80 @@ const SpaceHeader: React.FC = () => {
     };
   }, [mobileMenuOpen]);
 
-  // Very simple scroll function
+  // Improved scroll function using scrollIntoView
   const scrollToSection = (id: string) => {
-    // Store whether mobile menu was open
-    const wasMenuOpen = mobileMenuOpen;
-    
     // If mobile menu is open, close it first
     if (mobileMenuOpen) {
-      // Simply close the menu
       setMobileMenuOpen(false);
     }
     
-    // Delay scrolling if menu was open
+    // Short delay to allow any menu animations to complete
     setTimeout(() => {
       const element = document.getElementById(id);
       if (element) {
-        // Get the element's position relative to the document
-        const rect = element.getBoundingClientRect();
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        const elementTop = rect.top + scrollTop;
-        
-        // Calculate position with header offset
-        const offsetTop = elementTop - 80;
-        
-        // Use standard scrollTo with a smooth behavior
-        window.scrollTo({
-          top: offsetTop,
-          behavior: 'smooth'
+        // Use scrollIntoView with options for better browser compatibility
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
         });
+        
+        // Apply an offset to account for the fixed header
+        // This uses a small additional scroll after the main scrollIntoView
+        setTimeout(() => {
+          const headerOffset = 80; // Adjust based on your header height
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }, 100);
       }
-    }, wasMenuOpen ? 100 : 0);
+    }, 50);
   };
   
-  // Super-simple toggle menu function
+  // Toggle menu function
   const toggleMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
+  
+  // Handle click outside to close menu
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      // Only do this if the mobile menu is open
+      if (!mobileMenuOpen) return;
+      
+      // Check if the click target is part of the menu content or the toggle button
+      const menuContent = document.querySelector('.mobile-menu-content');
+      const mobileMenuButton = document.querySelector('.mobile-menu-button');
+      const clickedElement = event.target as Node;
+      
+      // If we clicked outside both the menu content and the toggle button, close the menu
+      if (
+        menuContent && 
+        !menuContent.contains(clickedElement) && 
+        mobileMenuButton && 
+        !mobileMenuButton.contains(clickedElement)
+      ) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    // Add event listener when mobile menu is open
+    if (mobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    
+    // Clean up
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [mobileMenuOpen]);
 
   return (
     <header 
-      className={`space-header ${
+      className={`space-header fixed top-0 left-0 right-0 z-[10000] ${
         scrolled ? 'bg-black/80 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}
     >
@@ -180,33 +230,31 @@ const SpaceHeader: React.FC = () => {
         </div>
       </div>
       
-      {/* Mobile Navigation - Simplified implementation */}
-      {mobileMenuOpen && (
+      {/* Mobile Navigation - Implemented with React Portal */}
+      {mobileMenuOpen && portalContainer && createPortal(
         <div 
-          className="fixed inset-0 w-full h-[calc(100%-64px)] top-[64px] bg-black/95 backdrop-blur-xl border-t border-purple-500/30 z-[9999] shadow-lg flex flex-col"
+          className="fixed top-[64px] left-0 right-0 bottom-0 w-full h-[calc(100vh-64px)] bg-black/95 backdrop-blur-xl border-t border-purple-500/30 z-[9999] shadow-lg flex flex-col overflow-y-auto"
         >
-          <div className="pt-[15px] max-h-full overflow-y-auto flex-1">
-            <div className="relative overflow-hidden h-full">
-              {/* Background effects for mobile menu */}
-              <div className="absolute inset-0 opacity-30 pointer-events-none">
+          {/* Background effects for mobile menu */}
+          <div className="absolute inset-0 opacity-30 pointer-events-none">
             <StarBackground />
-              </div>
+          </div>
               
-              {/* Mobile navigation links */}
-              <div className="px-4 pb-8 space-y-4 relative z-10">
+          {/* Mobile navigation links - Positioned at the top of the menu */}
+          <div className="px-4 py-8 space-y-6 relative z-10 mobile-menu-content">
             {navLinks.map((link) => (
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
                 className="text-gray-200 hover:text-white hover:bg-purple-900/30 block px-4 py-5 rounded-lg text-xl font-medium w-full text-center transition-all duration-200 border border-purple-500/20"
+                aria-label={`Navigate to ${link.label} section`}
               >
                 {link.label}
               </button>
             ))}
-              </div>
-            </div>
           </div>
-        </div>
+        </div>,
+        portalContainer
       )}
     </header>
   );
