@@ -233,7 +233,7 @@ const SpaceHeader: React.FC = () => {
       {/* Mobile Navigation - Implemented with React Portal */}
       {mobileMenuOpen && portalContainer && createPortal(
         <div 
-          className="fixed top-[64px] left-0 right-0 bottom-0 w-full h-[calc(100vh-64px)] bg-black/95 backdrop-blur-xl border-t border-purple-500/30 z-[9999] shadow-lg flex flex-col overflow-y-auto"
+          className="fixed top-[64px] left-0 right-0 bottom-0 w-full h-[calc(100vh-64px)]  backdrop-blur-xl border-t border-purple-500/30 z-[9999] shadow-lg flex flex-col overflow-y-auto"
         >
           {/* Background effects for mobile menu */}
           <div className="absolute inset-0 opacity-30 pointer-events-none">
