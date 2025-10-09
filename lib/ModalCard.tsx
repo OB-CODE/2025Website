@@ -9,9 +9,9 @@ import EmailFrom from "./EmailFrom";
 interface ModalContent {
   header: string;
   persoanlInformation: {
-    title: string; // Changed from 'title' to 'title'
-    messgae: string; // Changed from 'messgae' to 'message'
-    symbol: JSX.Element | string; // Changed from 'symbol' to 'symbol'
+    title: string; 
+    message: string; 
+    symbol: JSX.Element | string; 
   }[];
 }
 
@@ -25,7 +25,7 @@ const ModalCard = ({
     persoanlInformation: [
       {
         title: "Address",
-        messgae: "Sydney, Australia",
+        message: "Sydney, Australia",
         symbol: (
           <BuildingOffice2Icon
             aria-hidden="true"
@@ -35,14 +35,14 @@ const ModalCard = ({
       },
       {
         title: "Email",
-        messgae: "mitchell.s.obrien@gmail.com",
+        message: "mitchell.s.obrien@gmail.com",
         symbol: (
           <EnvelopeIcon aria-hidden="true" className="h-7 w-6 text-gray-400" />
         ),
       },
       {
         title: "Phone",
-        messgae: "Email me and ask :)",
+        message: "Email me and ask :)",
         symbol: (
           <PhoneIcon aria-hidden="true" className="h-7 w-6 text-gray-400" />
         ),
@@ -88,16 +88,16 @@ const ModalCard = ({
             {modalContent.persoanlInformation.map((line, index) => (
               <div
                 key={index}
-                className="flex mb-2 py-2 items-center w-full gap-2"
+                className="flex  mb-2 py-2 items-center w-full gap-2"
               >
                 <div className="flex items-center gap-2">
                   {line.symbol && ( // Ensure symbol is rendered correctly
                     <span className="ml-2">{line.symbol}</span> // Adjusted to render symbol correctly
                   )}
                 </div>
-                <div className="flex items-center gap-2 justify-between w-full">
+                <div className="flex md:flex-row flex-col items-start pl-4 md:pl-0 md:items-center gap-2 md:justify-between w-full">
                   <span className="text-gray-700 font-bold">{line.title}:</span>
-                  {line.messgae}
+                  {line.message}
                 </div>
               </div>
             ))}
