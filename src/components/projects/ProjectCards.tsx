@@ -93,21 +93,40 @@ const ProjectCards = ({projectsToMap, isTallCard = false} : {projectsToMap: Ipro
               className="flex w-full justify-end p-1 pl-4 flex-grow-2"
             >
               <span className="text-gray-500 pl-2">
-                <a href={project.website} target="_blank" rel="noreferrer" className="hover:text-blue-400 transition-colors">website</a>
+                <a
+                  href={project.website || undefined}
+                  target="_blank"
+                  rel="noreferrer"
+                  data-tooltip-id={project.website ? "" : "my-tooltip"}
+                  data-tooltip-content="Currently not hosted."
+                  data-tooltip-place="top"
+                  className={project.website ? "hover:text-blue-400 transition-colors" : "cursor-help"}
+                >website</a>
                 {" / "}
                 <a
-                  href={project.github}
+                  href={project.github || undefined}
                   target="_blank"
                   rel="noreferrer"
                   data-tooltip-id={project.github ? "" : "my-tooltip"}
                   data-tooltip-content="This one's private - Sorry!"
                   data-tooltip-place="top"
-                  className="hover:text-blue-400 transition-colors"
+                  className={project.github ? "hover:text-blue-400 transition-colors" : "cursor-help"}
                 >Github</a>
               </span>
               <div className="flex">
-                <a href={project.website} target="_blank" rel="noreferrer">
-                  <div className="border hover:cursor-pointer hover:bg-blue-500 hover:border-blue-500 w-6 h-6 flex items-center justify-center bg-gray-400 rounded-4xl mx-1">
+                <a
+                  href={project.website || undefined}
+                  target="_blank"
+                  rel="noreferrer"
+                  data-tooltip-id={project.website ? "" : "my-tooltip"}
+                  data-tooltip-content="Currently not hosted"
+                  data-tooltip-place="top"
+                >
+                  <div className={`border ${
+                    project.website
+                      ? "hover:cursor-pointer hover:bg-blue-500 hover:border-blue-500"
+                      : ""
+                  } w-6 h-6 flex items-center justify-center bg-gray-400 rounded-4xl mx-1`}>
                     <FaGlobe size={40} color="black" />
                   </div>
                 </a>
@@ -123,7 +142,7 @@ const ProjectCards = ({projectsToMap, isTallCard = false} : {projectsToMap: Ipro
                     data-tooltip-id={project.github ? "" : "my-tooltip"}
                     data-tooltip-content="This one's private - Sorry!"
                     data-tooltip-place="top"
-                    href={project.github}
+                    href={project.github || undefined}
                     target="_blank"
                     rel="noreferrer"
                   >
