@@ -92,8 +92,18 @@ const ProjectCards = ({projectsToMap, isTallCard = false} : {projectsToMap: Ipro
               data-testid="projectHeaderTray"
               className="flex w-full justify-end p-1 pl-4 flex-grow-2"
             >
-              <span className="text-gray-500 pl-2 cursor-help">
-                website / Github
+              <span className="text-gray-500 pl-2">
+                <a href={project.website} target="_blank" rel="noreferrer" className="hover:text-blue-400 transition-colors">website</a>
+                {" / "}
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  data-tooltip-id={project.github ? "" : "my-tooltip"}
+                  data-tooltip-content="This one's private - Sorry!"
+                  data-tooltip-place="top"
+                  className="hover:text-blue-400 transition-colors"
+                >Github</a>
               </span>
               <div className="flex">
                 <a href={project.website} target="_blank" rel="noreferrer">
