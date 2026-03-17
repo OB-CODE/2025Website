@@ -80,8 +80,13 @@ const ProjectCards = ({projectsToMap, isTallCard = false} : {projectsToMap: Ipro
                   className="flex items-center"
                   onMouseEnter={() => setHoveringTechStackIndex(index)}
                   onMouseLeave={() => setHoveringTechStackIndex(null)}
+                  onFocus={() => setHoveringTechStackIndex(index)}
+                  onBlur={() => setHoveringTechStackIndex(null)}
+                  tabIndex={0}
+                  role="button"
+                  aria-label={`View tech stack for ${project.name}`}
                 >
-                  <TbStack className="cursor-help" />
+                  <TbStack className="cursor-help" aria-hidden="true" />
                   <span className="text-gray-500 pl-2 cursor-help whitespace-nowrap">
                     Tech Stack
                   </span>
@@ -97,6 +102,7 @@ const ProjectCards = ({projectsToMap, isTallCard = false} : {projectsToMap: Ipro
                   href={project.website || undefined}
                   target="_blank"
                   rel="noreferrer"
+                  aria-label={project.website ? `Visit ${project.name} website` : `${project.name} website not hosted`}
                   data-tooltip-id={project.website ? "" : "my-tooltip"}
                   data-tooltip-content="Currently not hosted."
                   data-tooltip-place="top"
@@ -107,6 +113,7 @@ const ProjectCards = ({projectsToMap, isTallCard = false} : {projectsToMap: Ipro
                   href={project.github || undefined}
                   target="_blank"
                   rel="noreferrer"
+                  aria-label={project.github ? `View ${project.name} on GitHub` : `${project.name} GitHub repository is private`}
                   data-tooltip-id={project.github ? "" : "my-tooltip"}
                   data-tooltip-content="This one's private - Sorry!"
                   data-tooltip-place="top"
@@ -118,6 +125,7 @@ const ProjectCards = ({projectsToMap, isTallCard = false} : {projectsToMap: Ipro
                   href={project.website || undefined}
                   target="_blank"
                   rel="noreferrer"
+                  aria-label={project.website ? `Visit ${project.name} website` : `${project.name} website not hosted`}
                   data-tooltip-id={project.website ? "" : "my-tooltip"}
                   data-tooltip-content="Currently not hosted"
                   data-tooltip-place="top"
@@ -127,7 +135,7 @@ const ProjectCards = ({projectsToMap, isTallCard = false} : {projectsToMap: Ipro
                       ? "hover:cursor-pointer hover:bg-blue-500 hover:border-blue-500"
                       : ""
                   } w-6 h-6 flex items-center justify-center bg-gray-400 rounded-4xl mx-1`}>
-                    <FaGlobe size={40} color="black" />
+                    <FaGlobe size={40} color="black" aria-hidden="true" />
                   </div>
                 </a>
 
@@ -145,10 +153,11 @@ const ProjectCards = ({projectsToMap, isTallCard = false} : {projectsToMap: Ipro
                     href={project.github || undefined}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={project.github ? `View ${project.name} on GitHub` : `${project.name} GitHub repository is private`}
                   >
                     <img
                       src={`https://cdn.simpleicons.org/github`}
-                      alt="githubLogo"
+                      alt="GitHub"
                       height={40}
                       width={40}
                     />
@@ -233,11 +242,11 @@ const ProjectCards = ({projectsToMap, isTallCard = false} : {projectsToMap: Ipro
                   {/* Image with transition effect */}
                   <div className="w-full h-full flex justify-center items-center overflow-hidden">
                     <img
-                      src={project.images?.length ? 
-                        project.images[currentImageIndices[index]] : 
+                      src={project.images?.length ?
+                        project.images[currentImageIndices[index]] :
                         project.mainImage
                       }
-                      alt="Project"
+                      alt={`${project.name} screenshot`}
                       className={`h-full opacity-70 p-4 transition-all duration-500 ease-in-out ${
                         isTallCard
                           ? "object-contain w-auto"  

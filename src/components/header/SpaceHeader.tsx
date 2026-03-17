@@ -201,7 +201,7 @@ const SpaceHeader: React.FC = () => {
           </div>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:block">
+          <nav className="hidden md:block" aria-label="Main navigation">
             <ul className="flex space-x-8">
               {navLinks.map((link) => (
                 <li key={link.id}>
@@ -222,7 +222,9 @@ const SpaceHeader: React.FC = () => {
             <button
               onClick={toggleMenu}
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-              className="inline-flex items-center justify-center p-2 rounded-md text-purple-400 hover:text-white hover:bg-purple-900/40 focus:outline-none transition-all"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-menu-portal"
+              className="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-purple-400 hover:text-white hover:bg-purple-900/40 focus:outline-none transition-all"
             >
               {mobileMenuOpen ? <FiX size={28} /> : <FiMenu size={28} />}
             </button>
