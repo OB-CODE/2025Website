@@ -10,6 +10,8 @@ interface NavLink {
   label: string;
 }
 
+const HEADER_SCROLL_OFFSET = 80; // px — header height (64px) + comfortable breathing room
+
 const SpaceHeader: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -106,7 +108,7 @@ const SpaceHeader: React.FC = () => {
         // Apply an offset to account for the fixed header
         // This uses a small additional scroll after the main scrollIntoView
         setTimeout(() => {
-          const headerOffset = 80; // Adjust based on your header height
+          const headerOffset = HEADER_SCROLL_OFFSET;
           const elementPosition = element.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
           
@@ -235,7 +237,7 @@ const SpaceHeader: React.FC = () => {
       {/* Mobile Navigation - Implemented with React Portal */}
       {mobileMenuOpen && portalContainer && createPortal(
         <div 
-          className="fixed top-[64px] left-0 right-0 bottom-0 w-full h-[calc(100vh-64px)]  backdrop-blur-xl border-t border-purple-500/30 z-[9999] shadow-lg flex flex-col overflow-y-auto"
+          className="fixed top-[var(--header-height)] left-0 right-0 bottom-0 w-full h-[calc(100vh-var(--header-height))] backdrop-blur-xl border-t border-purple-500/30 z-[9999] shadow-lg flex flex-col overflow-y-auto"
             onClick={(e) => { e.stopPropagation(); setMobileMenuOpen(false); }} // Close menu on backdrop click
         >
           {/* Background effects for mobile menu */}

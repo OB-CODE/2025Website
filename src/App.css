@@ -50,6 +50,13 @@
 }
 
 :root {
+  /* Site-wide design tokens */
+  --header-height: 64px;
+  --brand-blue: #4c61ff;
+  --brand-blue-rgb: 76, 97, 255;
+  --brand-purple: #ba71ff;
+  --brand-purple-rgb: 186, 113, 255;
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
