@@ -1,45 +1,43 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import ProjectCards from "./ProjectCards";
 
-// filepath: src/components/projects/ProjectCards.test.tsx
 const projectsToMap = [
   {
     name: "indigo",
-    description: "Tnhe best drinks company ever? IYKYK.",
+    description: "The best drinks company ever? IYKYK.",
     mainImage: "/IndigoMainImage.png",
     techStack: ["Liquid", "Shopify", "css3", "JavaScript"],
   },
-]
-
+  {
+    name: "plant one",
+    description:
+      "A simple application to show multi api consumption for an informative visual representation.",
+    mainImage: "/PlantOne.png",
+    techStack: ["React", "TypeScript"],
+  },
+];
 
 describe("ProjectCards component", () => {
   test("renders the correct number of projects", () => {
     render(<ProjectCards projectsToMap={projectsToMap} />);
     const projectContainers = screen.getAllByTestId("projectContainer");
-    expect(projectContainers.length).toBe(3); // Based on the `projectsToMap` array
+    expect(projectContainers.length).toBe(projectsToMap.length);
   });
 
-  test("renders project names and descriptions correctly", () => {
+  test("renders project names correctly", () => {
     render(<ProjectCards projectsToMap={projectsToMap} />);
-    const projectNames = ["indigo", "plant one", "plant two"];
-    const projectDescriptions = [
-      "Tnhe best drinks company ever? IYKYK.",
-      "A simple application to show multi api consumption for an informaative visual representation.",
-      "A simple application to show multi api consumption for an informaative visual representation 2.",
-    ];
-
-    projectNames.forEach((name) => {
-      const nameElement = screen.getAllByText(name);
-      waitFor(() => {
-        expect(nameElement).toBeInTheDocument();
-      });
+    projectsToMap.forEach((project) => {
+      const nameElements = screen.getAllByText(project.name);
+      expect(nameElements.length).toBeGreaterThan(0);
     });
+  });
 
-    projectDescriptions.forEach((description) => {
-      const descriptionElement = screen.getAllByText(description);
-      waitFor(() => {
-        expect(descriptionElement).toBeInTheDocument();
-      });
+  test("renders project descriptions correctly", () => {
+    render(<ProjectCards projectsToMap={projectsToMap} />);
+    projectsToMap.forEach((project) => {
+      const descriptionElement = screen.getByText(project.description);
+      expect(descriptionElement).toBeInTheDocument();
     });
   });
 
@@ -49,8 +47,16 @@ describe("ProjectCards component", () => {
     const projectBodies = screen.getAllByTestId("projectBody");
     const projectFooters = screen.getAllByTestId("projectFooter");
 
-    expect(projectContainers.length).toBe(3);
-    expect(projectBodies.length).toBe(3);
-    expect(projectFooters.length).toBe(3);
+    expect(projectContainers.length).toBe(projectsToMap.length);
+    expect(projectBodies.length).toBe(projectsToMap.length);
+    expect(projectFooters.length).toBe(projectsToMap.length);
+  });
+
+  test("renders project screenshots with descriptive alt text", () => {
+    render(<ProjectCards projectsToMap={projectsToMap} />);
+    projectsToMap.forEach((project) => {
+      const img = screen.getByAltText(`${project.name} screenshot`);
+      expect(img).toBeInTheDocument();
+    });
   });
 });

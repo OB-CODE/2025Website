@@ -15,7 +15,7 @@ describe("AboutMe Component", () => {
 
     expect(
       screen.getByText(
-        /When im not wearing my coding hat, I can be found chilling my my partner and dog, surrfing, working out, bouldering, eating and drinking too much coffee./i
+        /When im not wearing my coding hat, I can be found chilling with my partner and dog, surfing, working out, bouldering, eating and drinking too much coffee./i
       )
     ).toBeInTheDocument();
 

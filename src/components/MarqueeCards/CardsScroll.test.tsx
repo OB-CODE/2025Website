@@ -14,8 +14,6 @@ global.ResizeObserver = ResizeObserver;
 
 describe("CardsScroll Component", () => {
   test("renders the correct number of cards", () => {
-    console.log("objsToMap:", objsToMap); // Log the array
-
     render(<CardsScroll direction="left" />);
     const cards = screen.getAllByTestId("cardleft"); // Use getAllByTestId
     expect(cards).toHaveLength(objsToMap.length * 2); 
