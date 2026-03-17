@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ModalCard from "../../../lib/ModalCard";
+import ModalCard from "@/lib/ModalCard";
 
 const FooterIndex = () => {
   const [showContact, setShowContact] = useState(false);

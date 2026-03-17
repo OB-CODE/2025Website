@@ -1,4 +1,4 @@
-import { cn } from "../../lib/utils";
+import { cn } from "@/lib/utils";
 import Marquee from "react-fast-marquee";
 import { objsToMap } from "./cardsToMap";
 import { useEffect, useState } from "react";
