@@ -234,7 +234,7 @@ const SpaceHeader: React.FC = () => {
       {mobileMenuOpen && portalContainer && createPortal(
         <div 
           className="fixed top-[64px] left-0 right-0 bottom-0 w-full h-[calc(100vh-64px)]  backdrop-blur-xl border-t border-purple-500/30 z-[9999] shadow-lg flex flex-col overflow-y-auto"
-            onClick={(e) => {e.stopPropagation(), setMobileMenuOpen(false)}} // Prevent clicks inside menu from closing it
+            onClick={(e) => { e.stopPropagation(); setMobileMenuOpen(false); }} // Close menu on backdrop click
         >
           {/* Background effects for mobile menu */}
           <div className="absolute inset-0 opacity-30 pointer-events-none">

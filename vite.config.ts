@@ -8,7 +8,7 @@ try {
   // Some AWS Node environments need this dynamic import
   if (typeof globalThis.crypto?.getRandomValues !== "function") {
     const { webcrypto } = await import("crypto");
-    globalThis.crypto = webcrypto as any;
+    globalThis.crypto = webcrypto as unknown as Crypto;
   }
 } catch (err) {
   console.warn("⚠️ crypto polyfill failed:", err);
