@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Tooltip } from "react-tooltip";
 import Heading2 from "../ui/Heading2";
 import ShinyButton from "../ui/ShinnyButton";
 import { IconCloudIndex } from "./IconCloudIndx";
@@ -27,6 +28,9 @@ const ProgrammingLanguages = () => {
                   <div
                     className="group flex h-20 w-20 md:h-24 md:w-24 items-center justify-center rounded-2xl border border-white/10 bg-white/[.04] backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-nebula/50 hover:bg-white/[.08] hover:shadow-[0_0_18px_rgba(76,97,255,0.25)]"
                     data-testid="language-item"
+                    data-tooltip-id="language-tooltip"
+                    data-tooltip-content={language.language}
+                    data-tooltip-place="top"
                     key={index}
                   >
                     <img
@@ -41,6 +45,7 @@ const ProgrammingLanguages = () => {
           </div>
         )}
       </div>
+      <Tooltip id="language-tooltip" />
     </div>
   );
 };
