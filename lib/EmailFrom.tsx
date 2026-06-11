@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { useFormData } from "herotofu-react";
 import "react-toastify/dist/ReactToastify.css";
+import CyberButton from "../src/components/ui/CyberButton";
+
+const inputClasses =
+  "block w-full mt-1 px-3 py-2 rounded-md border border-white/15 bg-white/5 text-white placeholder-gray-500 shadow-sm transition-colors focus:border-nebula focus:outline-none focus:ring-2 focus:ring-nebula/40";
 
 const EmailFrom = ({
   toggleContactPopup,
@@ -77,8 +81,7 @@ const EmailFrom = ({
                 name="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                // onBlur={() => handleBlur("name")}
-                className={`block w-full mt-1 px-2 border-1 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50}`}
+                className={inputClasses}
                 placeholder="Your name"
               />
             </label>
@@ -98,20 +101,19 @@ const EmailFrom = ({
                 name="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                // onBlur={() => handleBlur("email")}
-                className={`block w-full mt-1 px-2 border-1 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 `}
+                className={inputClasses}
                 placeholder="Your Email"
               />
             </label>
 
             {/* Message Field */}
             <label className="block mb-6">
-              <span className="">Message</span>
+              <span className="text-gray-100">Message</span>
               <textarea
                 name="message"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className="block w-full mt-1 px-2 border-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                className={inputClasses}
                 rows={3}
                 placeholder="Type your message here..."
               ></textarea>
@@ -119,12 +121,7 @@ const EmailFrom = ({
 
             {/* Submit Button */}
             <div className="mb-6 w-full flex justify-end">
-              <button
-                type="submit"
-                className="h-10 px-5 text-indigo-100 bg-indigo-700 rounded-lg transition-colors duration-150 focus:shadow-outline hover:bg-indigo-800"
-              >
-                Contact Mitch
-              </button>
+              <CyberButton type="submit">Contact Mitch</CyberButton>
             </div>
           </form>
         </div>

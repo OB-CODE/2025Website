@@ -25,7 +25,7 @@ function App() {
   return (
     <div
       id="mainAppWrapper"
-      className="bg-[black] w-full p-0 m-0 min-h-screen text-white text-center flex flex-col scan-line-wrapper"
+      className="bg-space-950 w-full p-0 m-0 min-h-screen text-white text-center flex flex-col scan-line-wrapper"
     >
       {/* Fixed header at the top - no additional SpaceHeader should be rendered elsewhere */}
       <SpaceHeader />
@@ -55,7 +55,7 @@ function App() {
             <ProjectsIndex />
           </div>
         </div>
-        <div className="min-h-[25vh] pt-[5vh] w-full pb-[5vh] flex flex-col items-center justify-center bg-gradient-to-b from-[#141516] to-[#08090A]">
+        <div className="min-h-[25vh] pt-[5vh] w-full pb-[5vh] flex flex-col items-center justify-center bg-gradient-to-b from-space-800 to-space-950">
           <StarBackground />
           <div id="aboutMeSection" className="text-visible flex justify-center flex-col w-full items-center">
             <AboutMe />
@@ -71,7 +71,7 @@ function App() {
 
         <div
           id="footerContainer"
-          className="min-h-[20vh] pt-[1vh] w-full pb-[1vh] flex flex-col items-center justify-center bg-black"
+          className="min-h-[20vh] pt-[1vh] w-full pb-[1vh] flex flex-col items-center justify-center bg-space-950"
         >
           <StarBackground color="rgba(0, 0, 0, 0.9)" />
           <div className="text-visible w-full flex flex-col items-center">

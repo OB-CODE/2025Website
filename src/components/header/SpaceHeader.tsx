@@ -184,7 +184,7 @@ const SpaceHeader: React.FC = () => {
         <div className="flex items-center justify-between h-full">
           {/* Logo/Brand */}
           <div className="flex-shrink-0">
-            <div className="text-white font-bold text-xl flex items-center logo-text">
+            <div className="text-white font-bold text-xl flex items-center logo-text font-display tracking-wider">
               <span className="text-purple-400">M</span>
               <span className="text-purple-400">I</span>
               <span className="text-purple-400">T</span>

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { FaGlobe } from "react-icons/fa";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { TbStack } from "react-icons/tb";
 import { Tooltip } from "react-tooltip";
@@ -7,8 +6,9 @@ import { knownLanguagesToMap } from "../ProgrammingIcons/ProgrammingLanguagesHel
 import { DataGrid } from "../magicui/data-grid";
 import { GlassCard } from "../ui/GlassCard";
 import { OrbitingCircles } from "../ui/OrbitingCircles";
+import ProjectLinks from "./ProjectLinks";
 
- export interface IprojectsToMap {
+export interface IprojectsToMap {
   name: string;
   description: string;
   mainImage?: string;
@@ -18,51 +18,49 @@ import { OrbitingCircles } from "../ui/OrbitingCircles";
   techStack?: string[];
 }
 
-const ProjectCards = ({projectsToMap, isTallCard = false} : {projectsToMap: IprojectsToMap[], isTallCard?: boolean}) => {
+const ProjectCards = ({
+  projectsToMap,
+  isTallCard = false,
+}: {
+  projectsToMap: IprojectsToMap[];
+  isTallCard?: boolean;
+}) => {
   const [hoveringTechStackIndex, setHoveringTechStackIndex] = useState<
     null | number
   >(null);
-  
+
   // State for tracking current image index for each project
   const [currentImageIndices, setCurrentImageIndices] = useState<number[]>(
     projectsToMap.map(() => 0)
   );
-  
-  // Helper functions for carousel navigation
-  const nextImage = (projectIndex: number) => {
-    setCurrentImageIndices(prevIndices => {
-      const newIndices = [...prevIndices];
+
+  // Helper for carousel navigation; step is +1 (next) or -1 (previous)
+  const stepImage = (projectIndex: number, step: 1 | -1) => {
+    setCurrentImageIndices((prevIndices) => {
       const project = projectsToMap[projectIndex];
-      
+
       // If no images array exists or contains only one item, do nothing
       if (!project.images || project.images.length <= 1) {
         return prevIndices;
       }
-      
+
       const imageCount = project.images.length;
-      newIndices[projectIndex] = (newIndices[projectIndex] + 1) % imageCount;
-      return newIndices;
-    });
-  };
-  
-  const prevImage = (projectIndex: number) => {
-    setCurrentImageIndices(prevIndices => {
       const newIndices = [...prevIndices];
-      const project = projectsToMap[projectIndex];
-      
-      // If no images array exists or contains only one item, do nothing
-      if (!project.images || project.images.length <= 1) {
-        return prevIndices;
-      }
-      
-      const imageCount = project.images.length;
-      newIndices[projectIndex] = (newIndices[projectIndex] - 1 + imageCount) % imageCount;
+      newIndices[projectIndex] =
+        (newIndices[projectIndex] + step + imageCount) % imageCount;
       return newIndices;
     });
   };
 
   return (
-    <div className={`w-full h-full flex   ${isTallCard ? "flex-col justify-center items-center" : "flex-wrap justify-between"}`}>
+    <>
+    <div
+      className={`w-full ${
+        isTallCard
+          ? "flex flex-col items-center"
+          : "grid grid-cols-1 gap-6 md:grid-cols-2"
+      }`}
+    >
       {projectsToMap.map((project, index) => (
         <GlassCard
           key={index}
@@ -70,91 +68,25 @@ const ProjectCards = ({projectsToMap, isTallCard = false} : {projectsToMap: Ipro
           glowColor="rgba(76, 97, 255, 0.5)"
           interactive={true}
           borderHighlight={true}
-          className={`w-[90%] md:w-[48%] m-1 mb-5  flex flex-col ${isTallCard ? "min-h-[70vh]" : "min-h-[50vh]"}`}
+          className={`flex w-full flex-col ${
+            isTallCard ? "max-w-md min-h-[38rem]" : "min-h-[30rem]"
+          }`}
         >
           {/* Header */}
-          <div data-testid="projectContainer" className={`flex w-full px-1 pt-1 ${isTallCard ? "" : ""}`}>
-            <div className="flex justify-between w-fit flex-grow-1 ">
-              <div className="p-1 pl-4 w-fit flex justify-start items-center">
-                <div
-                  className="flex items-center"
-                  onMouseEnter={() => setHoveringTechStackIndex(index)}
-                  onMouseLeave={() => setHoveringTechStackIndex(null)}
-                >
-                  <TbStack className="cursor-help" />
-                  <span className="text-gray-500 pl-2 cursor-help whitespace-nowrap">
-                    Tech Stack
-                  </span>
-                </div>
-              </div>
-            </div>
+          <div
+            data-testid="projectContainer"
+            className="flex w-full flex-wrap items-center justify-between gap-2 px-4 pt-3"
+          >
             <div
-              data-testid="projectHeaderTray"
-              className="flex w-full justify-end p-1 pl-4 flex-grow-2"
+              className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm text-gray-400 cursor-help transition-colors hover:border-aurora/50 hover:text-gray-200"
+              onMouseEnter={() => setHoveringTechStackIndex(index)}
+              onMouseLeave={() => setHoveringTechStackIndex(null)}
             >
-              <span className="text-gray-500 pl-2">
-                <a
-                  href={project.website || undefined}
-                  target="_blank"
-                  rel="noreferrer"
-                  data-tooltip-id={project.website ? "" : "my-tooltip"}
-                  data-tooltip-content="Currently not hosted."
-                  data-tooltip-place="top"
-                  className={project.website ? "hover:text-blue-400 transition-colors" : "cursor-help"}
-                >website</a>
-                {" / "}
-                <a
-                  href={project.github || undefined}
-                  target="_blank"
-                  rel="noreferrer"
-                  data-tooltip-id={project.github ? "" : "my-tooltip"}
-                  data-tooltip-content="This one's private - Sorry!"
-                  data-tooltip-place="top"
-                  className={project.github ? "hover:text-blue-400 transition-colors" : "cursor-help"}
-                >Github</a>
-              </span>
-              <div className="flex">
-                <a
-                  href={project.website || undefined}
-                  target="_blank"
-                  rel="noreferrer"
-                  data-tooltip-id={project.website ? "" : "my-tooltip"}
-                  data-tooltip-content="Currently not hosted"
-                  data-tooltip-place="top"
-                >
-                  <div className={`border ${
-                    project.website
-                      ? "hover:cursor-pointer hover:bg-blue-500 hover:border-blue-500"
-                      : ""
-                  } w-6 h-6 flex items-center justify-center bg-gray-400 rounded-4xl mx-1`}>
-                    <FaGlobe size={40} color="black" />
-                  </div>
-                </a>
-
-                <div
-                  className={`border ${
-                    project.github
-                      ? "hover:cursor-pointer hover:bg-blue-500 hover:border-blue-500"
-                      : ""
-                  } w-6 h-6 flex items-center justify-center bg-gray-400 rounded-4xl mx-1`}
-                >
-                  <a
-                    data-tooltip-id={project.github ? "" : "my-tooltip"}
-                    data-tooltip-content="This one's private - Sorry!"
-                    data-tooltip-place="top"
-                    href={project.github || undefined}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <img
-                      src={`https://cdn.simpleicons.org/github`}
-                      alt="githubLogo"
-                      height={40}
-                      width={40}
-                    />
-                  </a>
-                </div>
-              </div>
+              <TbStack />
+              <span className="whitespace-nowrap">Tech Stack</span>
+            </div>
+            <div data-testid="projectHeaderTray">
+              <ProjectLinks website={project.website} github={project.github} />
             </div>
           </div>
 
@@ -175,11 +107,17 @@ const ProjectCards = ({projectsToMap, isTallCard = false} : {projectsToMap: Ipro
           {/* Body - Expands to fill remaining space */}
           <div
             data-testid="projectBody"
-            className="min-h-0 flex items-center justify-center flex-grow-2 relative z-10"
+            className="relative z-10 flex min-h-0 flex-grow items-center justify-center"
           >
-            <div className={`w-full max-w-[700px]  relative ${isTallCard ? "max-h-[450px] h-[450px]" : "max-h-[315px] h-[315px]"}`}>
+            <div
+              className={`relative w-full max-w-[700px] ${
+                isTallCard ? "h-[26rem]" : "h-[18rem]"
+              }`}
+            >
               {hoveringTechStackIndex === index ? (
-                <div className="absolute inset-0 flex items-center justify-center text-white p-4 flex-col">
+                // pointer-events-none: orbiting icons sweep under the cursor and
+                // would steal hover from the Tech Stack chip, flickering the view
+                <div className="pointer-events-none absolute inset-0 flex items-center justify-center text-white p-4 flex-col">
                   <OrbitingCircles iconSize={80}>
                     {project.techStack?.map((tech, techIndex) => (
                       <div
@@ -209,7 +147,7 @@ const ProjectCards = ({projectsToMap, isTallCard = false} : {projectsToMap: Ipro
                     ))}
                   </OrbitingCircles>
                   {project.techStack?.map((tech, techIndex) => (
-                    <div key={techIndex} className="text-gray-500">
+                    <div key={techIndex} className="text-gray-400">
                       {tech}
                     </div>
                   ))}
@@ -218,12 +156,12 @@ const ProjectCards = ({projectsToMap, isTallCard = false} : {projectsToMap: Ipro
                 <div className="w-full h-full flex justify-center items-center text-center relative">
                   {/* Left arrow navigation - only show if there are multiple images */}
                   {project.images && project.images.length > 1 && (
-                    <button 
+                    <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        prevImage(index);
+                        stepImage(index, -1);
                       }}
-                      className="absolute left-2 z-20 bg-black/30 hover:bg-black/60 rounded-full p-2 text-white/70 hover:text-white/100 transition-opacity duration-200"
+                      className="absolute left-2 z-20 rounded-full border border-white/10 bg-black/40 p-2 text-white/70 backdrop-blur-sm transition-all duration-200 hover:border-nebula hover:bg-black/70 hover:text-white"
                       aria-label="Previous image"
                     >
                       <FiArrowLeft size={20} />
@@ -233,27 +171,28 @@ const ProjectCards = ({projectsToMap, isTallCard = false} : {projectsToMap: Ipro
                   {/* Image with transition effect */}
                   <div className="w-full h-full flex justify-center items-center overflow-hidden">
                     <img
-                      src={project.images?.length ? 
-                        project.images[currentImageIndices[index]] : 
-                        project.mainImage
+                      src={
+                        project.images?.length
+                          ? project.images[currentImageIndices[index]]
+                          : project.mainImage
                       }
-                      alt="Project"
-                      className={`h-full opacity-70 p-4 transition-all duration-500 ease-in-out ${
+                      alt={`${project.name} preview`}
+                      className={`h-full p-4 opacity-80 transition-all duration-500 ease-in-out ${
                         isTallCard
-                          ? "object-contain w-auto"  
-                          : "object-cover w-full"
+                          ? "object-contain w-auto"
+                          : "object-cover w-full rounded-3xl"
                       }`}
                     />
                   </div>
 
                   {/* Right arrow navigation - only show if there are multiple images */}
                   {project.images && project.images.length > 1 && (
-                    <button 
+                    <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        nextImage(index);
+                        stepImage(index, 1);
                       }}
-                      className="absolute right-2 z-20 bg-black/30 hover:bg-black/60 rounded-full p-2 text-white/70 hover:text-white/100 transition-opacity duration-200"
+                      className="absolute right-2 z-20 rounded-full border border-white/10 bg-black/40 p-2 text-white/70 backdrop-blur-sm transition-all duration-200 hover:border-nebula hover:bg-black/70 hover:text-white"
                       aria-label="Next image"
                     >
                       <FiArrowRight size={20} />
@@ -262,12 +201,14 @@ const ProjectCards = ({projectsToMap, isTallCard = false} : {projectsToMap: Ipro
 
                   {/* Image indicator dots - only show if there are multiple images */}
                   {project.images && project.images.length > 1 && (
-                    <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1">
+                    <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1.5">
                       {project.images.map((_, imgIndex) => (
-                        <div 
+                        <div
                           key={imgIndex}
-                          className={`w-2 h-2 rounded-full ${
-                            currentImageIndices[index] === imgIndex ? 'bg-white' : 'bg-white/40'
+                          className={`h-2 w-2 rounded-full transition-all duration-300 ${
+                            currentImageIndices[index] === imgIndex
+                              ? "bg-aurora shadow-[0_0_6px_rgba(186,113,255,0.9)]"
+                              : "bg-white/30"
                           }`}
                         />
                       ))}
@@ -281,19 +222,20 @@ const ProjectCards = ({projectsToMap, isTallCard = false} : {projectsToMap: Ipro
           {/* Footer */}
           <div
             data-testid="projectFooter"
-            className="flex flex-col w-full items-center justify-start min-h-[12vh] pb-4"
+            className="z-10 flex min-h-28 w-full flex-col items-center justify-start gap-1 pb-5"
           >
-            <div className="w-[80%] text-left text-gray-500 text-xl">
+            <div className="w-[85%] border-t border-white/10 pt-3 text-left font-display text-lg tracking-wide text-white">
               {project.name}
             </div>
-            <div className="w-[80%] text-left text-gray-200">
+            <div className="w-[85%] text-left text-sm text-gray-300">
               {project.description}
             </div>
           </div>
         </GlassCard>
       ))}
-      <Tooltip id="my-tooltip" />
     </div>
+    <Tooltip id="my-tooltip" />
+    </>
   );
 };
 

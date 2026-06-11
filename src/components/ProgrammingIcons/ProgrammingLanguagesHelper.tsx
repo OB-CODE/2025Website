@@ -88,6 +88,27 @@ export const knownLanguagesToMap: ILanguages[] = [
     alt: "Vite Logo",
     slug: "vite",
   },
+  {
+    language: "Claude",
+    internalStackCode: "Claude",
+    logo: "/logos/claude.svg",
+    alt: "Claude Logo",
+    slug: "claude",
+  },
+  {
+    language: "MCP",
+    internalStackCode: "MCP",
+    logo: "/logos/modelcontextprotocol.svg",
+    alt: "Model Context Protocol Logo",
+    slug: "modelcontextprotocol",
+  },
+  {
+    language: "Jira",
+    internalStackCode: "Jira",
+    logo: "/logos/jira.svg",
+    alt: "Jira Logo",
+    slug: "jira",
+  },
   // used for project cards
   {
     language: "Shopify",

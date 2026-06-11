@@ -41,11 +41,8 @@ const CardsScroll = ({ direction }: { direction: "left" | "right" }) => {
         return (
           <figure
             className={cn(
-              "relative min-h-28 h-full w-48 md:w-84 ml-3 cursor-pointer overflow-hidden rounded-xl border p-4",
-              // light styles
-              // "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]"
-              // dark styles
-              "border-gray-50/[.1] bg-gray-50/[.10] hover:bg-gray-50/[.15]"
+              "relative h-44 w-56 md:h-40 md:w-84 ml-3 cursor-pointer overflow-hidden rounded-xl border p-4 backdrop-blur-sm transition-all duration-300",
+              "border-white/10 bg-white/[.06] hover:border-aurora/40 hover:bg-white/[.12] hover:shadow-[0_0_20px_rgba(186,113,255,0.15)]"
             )}
             key={index}
           >
@@ -53,16 +50,18 @@ const CardsScroll = ({ direction }: { direction: "left" | "right" }) => {
               <div data-testid={`card${direction}`} className="flex flex-col">
                 <figcaption
                   data-testid="cardTitle"
-                  className="text-sm font-medium dark:text-white"
+                  className="text-sm font-medium text-white"
                 >
                   {obj.title}
                 </figcaption>
               </div>
-              <div className=" rounded-full text-gray-400 w-[30px] h-[30px] flex items-center justify-center">
+              <div className="rounded-full text-aurora/80 w-[30px] h-[30px] shrink-0 flex items-center justify-center">
                 {obj.logo}
               </div>
             </div>
-            <blockquote className="mt-2 text-sm">{obj.description}</blockquote>
+            <blockquote className="mt-2 text-sm text-gray-300">
+              {obj.description}
+            </blockquote>
           </figure>
         );
       })}

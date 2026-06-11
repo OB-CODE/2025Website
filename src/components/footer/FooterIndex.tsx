@@ -1,5 +1,20 @@
 import { useState } from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import ModalCard from "../../../lib/ModalCard";
+import CyberButton from "../ui/CyberButton";
+
+const socials = [
+  {
+    label: "GitHub",
+    href: "https://github.com/OB-CODE",
+    icon: <FaGithub size={16} />,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/mitchellobriense01",
+    icon: <FaLinkedin size={16} />,
+  },
+];
 
 const FooterIndex = () => {
   const [showContact, setShowContact] = useState(false);
@@ -11,36 +26,27 @@ const FooterIndex = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-[70%] text-white py-1 h-full ">
-      <div className="container flex justify-between items-center h-full">
-        <div id="socials" className="flex flex-col justify-center gap-2 h-full">
-          <a
-            href="https://github.com/OB-CODE"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-500 hover:underline"
-          >
-            GitHub
-          </a>
-          <a
-            href="https://linkedin.com/in/mitchellobriense01"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-500 hover:underline"
-          >
-            LinkedIn
-          </a>
+    <footer className="w-[85%] md:w-[70%] text-white py-6 h-full border-t border-white/10">
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-6 h-full">
+        <div id="socials" className="flex flex-row sm:flex-col justify-center gap-4 sm:gap-2">
+          {socials.map((social) => (
+            <a
+              key={social.label}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-gray-300 hover:text-aurora transition-colors"
+            >
+              <span className="text-nebula">{social.icon}</span>
+              {social.label}
+            </a>
+          ))}
         </div>
-        <div className="flex flex-col gap-4">
-          <button
-            onClick={toggleContactPopup}
-            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-          >
-            Contact Me
-          </button>
-            <div className="flex h-full items-end justify-end text-sm text-gray-500 border-gray-500">
+        <div className="flex flex-col items-center sm:items-end gap-3">
+          <CyberButton onClick={toggleContactPopup}>Contact Me</CyberButton>
+          <div className="text-sm text-gray-500">
             &copy; {currentYear} - Mitch O'Brien
-            </div>
+          </div>
         </div>
       </div>
 

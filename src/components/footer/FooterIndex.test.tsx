@@ -42,8 +42,11 @@ describe("FooterIndex Component", () => {
   test("renders footer text", () => {
     render(<FooterIndex />);
 
-    // Check if the footer text is rendered
-    const footerText = screen.getByText("2025 Mitch O'Brien");
+    // Check if the copyright line with the current year is rendered
+    const currentYear = new Date().getFullYear();
+    const footerText = screen.getByText(
+      new RegExp(`${currentYear} - Mitch O'Brien`)
+    );
     expect(footerText).toBeInTheDocument();
   });
 });

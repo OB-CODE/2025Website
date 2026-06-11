@@ -74,9 +74,9 @@ const ProjectsIndex = () => {
       className="flex items-start w-[80%] flex-col"
     >
       <Heading2 inputString="Portfolio" />
-      <div className="flex flex-col w-full md:w-[70%] gap-3 items-start">
+      <div className="flex flex-col w-full md:w-[70%] gap-2 items-start pt-4 text-left">
         {projectsMessage.map((message, index) => (
-          <div key={index} className={`${index != 0 ? "text-gray-400" : ""}`}>
+          <div key={index} className={`${index != 0 ? "text-gray-400" : "text-white"}`}>
             {message}
           </div>
         ))}
@@ -84,9 +84,9 @@ const ProjectsIndex = () => {
       <div className="pt-[3vh] w-full">
         <ProjectCards projectsToMap={projectsToMap}/>
       </div>
-      <div className="flex flex-col w-[100%] gap-3 items-end pt-5 pb-3">
+      <div className="flex flex-col w-[100%] gap-2 items-end pt-8 pb-3 text-right">
         {phoneProjectsMessage.map((message, index) => (
-          <div key={index} className={`${index != 0 ? "text-gray-400" : ""}`}>
+          <div key={index} className={`${index != 0 ? "text-gray-400" : "text-white"}`}>
             {message}
           </div>
         ))}

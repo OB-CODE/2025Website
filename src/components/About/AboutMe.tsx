@@ -11,7 +11,7 @@ const AboutMe = () => {
   return (
     <div className="w-[80%] flex justify-center flex-col pb-20 items-center relative">
       <div className="w-full flex justify-end z-content">
-        <Heading2 inputString="About Me" className="text-glow" />
+        <Heading2 inputString="About Me" align="right" />
       </div>
 
       <div className="flex flex-col md:flex-row items-center justify-between w-full pt-6 gap-6 z-content">
@@ -32,7 +32,7 @@ const AboutMe = () => {
               key={index}
               className={`${
                 index !== 0 ? "text-gray-300" : "text-white"
-              } content-box backdrop-blur-md text-enhanced`}
+              } content-box backdrop-blur-md text-enhanced rounded-lg border border-white/10 border-r-2 border-r-aurora/60 bg-white/[.03]`}
             >
               {message}
             </div>

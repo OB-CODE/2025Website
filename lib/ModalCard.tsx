@@ -4,14 +4,15 @@ import {
   PhoneIcon,
 } from "@heroicons/react/24/outline";
 import { JSX } from "react";
+import CyberButton from "../src/components/ui/CyberButton";
 import EmailFrom from "./EmailFrom";
 
 interface ModalContent {
   header: string;
-  persoanlInformation: {
-    title: string; 
-    message: string; 
-    symbol: JSX.Element | string; 
+  personalInformation: {
+    title: string;
+    message: string;
+    symbol: JSX.Element | string;
   }[];
 }
 
@@ -22,14 +23,14 @@ const ModalCard = ({
 }) => {
   const modalContent: ModalContent = {
     header: "Contact Me",
-    persoanlInformation: [
+    personalInformation: [
       {
         title: "Address",
         message: "Sydney, Australia",
         symbol: (
           <BuildingOffice2Icon
             aria-hidden="true"
-            className="h-7 w-6 text-gray-400"
+            className="h-6 w-6 text-nebula"
           />
         ),
       },
@@ -37,77 +38,67 @@ const ModalCard = ({
         title: "Email",
         message: "mitchell.s.obrien@gmail.com",
         symbol: (
-          <EnvelopeIcon aria-hidden="true" className="h-7 w-6 text-gray-400" />
+          <EnvelopeIcon aria-hidden="true" className="h-6 w-6 text-nebula" />
         ),
       },
       {
         title: "Phone",
         message: "Email me and ask :)",
         symbol: (
-          <PhoneIcon aria-hidden="true" className="h-7 w-6 text-gray-400" />
+          <PhoneIcon aria-hidden="true" className="h-6 w-6 text-nebula" />
         ),
       },
     ],
-    // body: ["Email: mitchell.s.obrien@gmail.com", "Phone: See Resume"],
   };
 
   return (
-    <div className="w-full h-full flex items-center justify-center fixed inset-0 z-10">
+    <div className="w-full h-full flex items-center justify-center fixed inset-0 z-[10001] p-4">
       <div
         data-testid="modalBackground"
         onClick={toggleContactPopup}
         style={{ backgroundColor: "rgba(0, 0, 0, 0.8)" }} // Explicit semi-transparent black background
-        className="fixed inset-0 z-20 bg-black flex items-center justify-center cursor-pointer"
+        className="fixed inset-0 z-20 bg-black flex items-center justify-center cursor-pointer backdrop-blur-sm"
       ></div>
 
       <div
         id="messageContainer"
-        className="h-fit w-fit flex-col inset-0 z-30 bg-black text-white border-2 border-white flex items-center justify-center rounded shadow-lg p-4"
+        className="relative z-30 flex max-h-[90vh] w-full max-w-3xl flex-col overflow-y-auto rounded-2xl border border-nebula/30 bg-space-900/95 p-4 md:p-6 text-white shadow-[0_0_40px_rgba(76,97,255,0.25)] backdrop-blur-xl"
       >
-        <div className="flex items-between justify-center mb-4 h-10 w-full">
-          <div className="flex w-full items-center">
-            <h2 className="text-xl  relative flex justify-center w-full font-bold">
-              <div className="relative left-[20px]">{modalContent.header}</div>
-            </h2>
-          </div>
-          <button
-            onClick={toggleContactPopup}
-            className=" w-20  px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-          >
+        <div className="mb-4 flex w-full items-center justify-between gap-4">
+          <h2 className="font-display text-xl md:text-2xl font-bold tracking-wide bg-gradient-to-r from-white to-aurora bg-clip-text text-transparent">
+            {modalContent.header}
+          </h2>
+          <CyberButton variant="danger" onClick={toggleContactPopup}>
             Close
-          </button>
+          </CyberButton>
         </div>
 
-        <div className="flex justify-between gap-x-4 mb-4 w-full h-full  text-gray-400 ">
+        <div className="flex w-full flex-col gap-6 md:flex-row md:gap-8 text-gray-300">
           <div
-            className="flex flex-col h-full border-r border-gray-800 pr-5 py-2 items-center w-[50%]"
+            className="flex w-full flex-col items-center gap-2 border-b border-white/10 pb-6 md:w-1/2 md:border-b-0 md:border-r md:pb-0 md:pr-6"
             id="details"
           >
-            {/* <div className="w-full text-white text-xl">My details</div> */}
-
-            {modalContent.persoanlInformation.map((line, index) => (
+            {modalContent.personalInformation.map((line, index) => (
               <div
                 key={index}
-                className="flex  mb-2 py-2 items-center w-full gap-2"
+                className="flex w-full items-center gap-3 py-2"
               >
-                <div className="flex items-center gap-2">
-                  {line.symbol && ( // Ensure symbol is rendered correctly
-                    <span className="ml-2">{line.symbol}</span> // Adjusted to render symbol correctly
-                  )}
-                </div>
-                <div className="flex md:flex-row flex-col items-start pl-4 md:pl-0 md:items-center gap-2 md:justify-between w-full">
-                  <span className="text-gray-700 font-bold">{line.title}:</span>
-                  {line.message}
+                {line.symbol}
+                <div className="flex flex-col items-start text-left">
+                  <span className="font-bold text-gray-400">
+                    {line.title}:
+                  </span>
+                  <span className="break-words">{line.message}</span>
                 </div>
               </div>
             ))}
             <img
-              className="rounded-xl"
+              className="mt-3 max-h-56 w-auto rounded-xl border border-white/10 object-cover md:max-h-72"
               src="/Me.png"
               alt="Photo of Mitchell with surfboard."
             />
           </div>
-          <div className="flex flex-col w-[50%] px-8 text-left" id="blurb">
+          <div className="flex w-full flex-col text-left md:w-1/2" id="blurb">
             <EmailFrom toggleContactPopup={toggleContactPopup} />
           </div>
         </div>
