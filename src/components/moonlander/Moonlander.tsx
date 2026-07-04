@@ -11,7 +11,7 @@ const Moonlander = () => {
 
   return (
     <div className="flex w-full flex-col items-center justify-center overflow-hidden">
-      <div className="relative min-h-[100px] w-full overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950 sm:min-h-[300px] md:min-h-[555px] xl:min-h-[800px]">
+      <div className="relative min-h-[100px] w-full overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950 sm:min-h-[300px] md:min-h-[555px]">
         <iframe
           title="Moonlander Configuration"
           src="https://configure.zsa.io/embed/moonlander/layouts/gdxrX/latest/0?theme=dark"
