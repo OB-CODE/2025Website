@@ -5,12 +5,12 @@ const ProjectsIndex = () => {
   const projectsMessage = [
     "A small collection of my projects.",
     "Click on the cards to view a larger example.",
-    "Check out the githubs/live demos if you want a better idea. Better yet, get in touch and lets chat!",
+    "Check out the GitHubs/live demos if you want a better idea. Better yet, get in touch and let's chat!",
   ];
 
   const phoneProjectsMessage = [
     "App First Design",
-    "Trying my hand at a react native android/IOS app.",
+    "Trying my hand at a React Native Android/iOS app.",
     "Made for learning and personal use, not a public store."
   ]
 
@@ -18,7 +18,7 @@ const ProjectsIndex = () => {
       {
         name: "indigo",
         description: "The best drinks company ever? IYKYK.",
-        mainImage: "/IndigoMainImage.png",
+        mainImage: "/IndigoMainImage.webp",
         website: "https://drinkindigo.com.au/",
         techStack: ["Liquid", "Shopify", "css3", "JavaScript"],
       },
@@ -26,7 +26,7 @@ const ProjectsIndex = () => {
         name: "Pokemon Remastered",
         description:
           "A Pokemon battle simulator - Redo from an old project with some new features and a different stack. How quick can you catch the 151?",
-        mainImage: "/PokemonRemasteredMainImage.png",
+        mainImage: "/PokemonRemasteredMainImage.webp",
         website: "https://poke-battles-remastered.vercel.app/",
         github: "https://github.com/OB-CODE/PokeBattlesRemastered",
         techStack: [
@@ -41,8 +41,8 @@ const ProjectsIndex = () => {
       {
         name: "Home Harvest",
         description:
-          "A weather / gardening application to show multi api consumption for a interactive user experience. Now get planting.",
-        mainImage: "/HomeHarvestMainImage.png",
+          "A weather / gardening application to show multi API consumption for an interactive user experience. Now get planting.",
+        mainImage: "/HomeHarvestMainImage.webp",
         website: "https://mitchell-home-harvest.surge.sh/",
         github: "https://github.com/OB-CODE/Home-Harvest",
         techStack: ["React", "Nodejs", "surge", "css3"],
@@ -50,7 +50,7 @@ const ProjectsIndex = () => {
       {
         name: "Original Website",
         description: "My original website - showcasing some older projects.",
-        mainImage: "/OldWebsiteMainImage.png",
+        mainImage: "/OldWebsiteMainImage.webp",
         website: "https://www.old.mitch-obrien.com/",
         github: "https://github.com/OB-CODE/Personal-Website",
         techStack: ["React", "Nodejs", "AWS Amplify"],
@@ -61,10 +61,10 @@ const ProjectsIndex = () => {
          {
           name: "Planner",
           description: "A simple meal / routine planner. To prove a simple task that could have been achieved with paper can be made more complicated.",
-          mainImage: "/PlannerMain.jpg",
-          images: ["/PlannerMain.jpg", "/PlannerCreate.jpg", "/PlannerShopping.jpg"],
+          mainImage: "/PlannerMain.webp",
+          images: ["/PlannerMain.webp", "/PlannerCreate.webp", "/PlannerShopping.webp"],
           website: "",
-          techStack: ["React", "Typescript", "css3", "JavaScript"],
+          techStack: ["React", "TypeScript", "css3", "JavaScript"],
         },
       ]
 

@@ -3,7 +3,7 @@ import Heading2 from "../ui/Heading2";
 
 const aboutMeBlurb = [
   "I have a passion for problem solving and working with others.",
-  "When im not wearing my coding hat, I can be found chilling with my partner and dog, surfing, working out, bouldering, eating and drinking too much coffee.",
+  "When I'm not wearing my coding hat, I can be found chilling with my partner and dog, surfing, working out, bouldering, eating and drinking too much coffee.",
   "It's often said a good tradesman never blames their tools - That's why I decided to tool with a split Dvorak layout. It's a lot more believable to blame the tools when they look more complicated ;)",
 ];
 
