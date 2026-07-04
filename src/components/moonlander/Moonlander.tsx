@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { BorderBeam } from "../magicui/border-beam";
 
 const Moonlander = () => {
   const [userClickedStaticImage, setUserClickedStaticImage] = useState(false);
@@ -18,6 +17,7 @@ const Moonlander = () => {
           src="https://configure.zsa.io/embed/moonlander/layouts/gdxrX/latest/0?theme=dark"
           className="absolute top-0 left-0 w-full h-full border-0 bg-black hidden lg:block"
           id="iFrameContainer"
+          scrolling="no"
           style={{
             filter: "invert(1) hue-rotate(180deg)",
             height: "100%",
@@ -37,9 +37,8 @@ const Moonlander = () => {
           >
             View on larger screen for an interactive experience.
           </div>
-          <img src="/DvorakLayout.png" alt="Dvorak Keyboard Layout" className="w-full max-w-[300px] sm:max-w-full border border-purple-500" />
+          <img src="/DvorakLayout.webp" alt="Dvorak Keyboard Layout" loading="lazy" className="w-full max-w-[300px] sm:max-w-full border border-purple-500" />
         </div>
-        <BorderBeam duration={6} size={200} data-testid="border-beam" />
       </div>
     </div>
   );

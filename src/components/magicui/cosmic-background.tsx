@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { cn } from "../../lib/utils";
+import { cn, prefersReducedMotion } from "../../lib/utils";
 
 interface CosmicBackgroundProps {
   className?: string;
@@ -78,6 +78,7 @@ export function CosmicBackground({
 
     // Animation loop
     let animationFrame: number;
+    const reducedMotion = prefersReducedMotion();
 
     const animate = () => {
       if (!ctx || !canvas) return;
@@ -168,7 +169,10 @@ export function CosmicBackground({
         ctx.shadowBlur = 0;
       }
 
-      animationFrame = requestAnimationFrame(animate);
+      // Draw a single static frame when the user prefers reduced motion
+      if (!reducedMotion) {
+        animationFrame = requestAnimationFrame(animate);
+      }
     };
 
     animate();

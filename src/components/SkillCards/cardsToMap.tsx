@@ -6,7 +6,7 @@ import {
   studentSVG,
   surfSVG,
   teacherSVG,
-} from "./marqueeSVGs";
+} from "./skillSVGs";
 
 const surfDetailsObject = {
   logo: surfSVG,

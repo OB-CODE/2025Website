@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { cn } from "../../lib/utils";
+import { cn, prefersReducedMotion } from "../../lib/utils";
 
 interface DataGridProps {
   className?: string;
@@ -85,6 +85,7 @@ export function DataGrid({
     // Animation loop
     let animationId: number;
     let frameCount = 0;
+    const reducedMotion = prefersReducedMotion();
 
     const animate = () => {
       frameCount++;
@@ -188,7 +189,10 @@ export function DataGrid({
         gridRef.current.hoverCell = null;
       }
 
-      animationId = requestAnimationFrame(animate);
+      // Draw a single static frame when the user prefers reduced motion
+      if (!reducedMotion) {
+        animationId = requestAnimationFrame(animate);
+      }
     };
 
     animate();

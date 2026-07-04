@@ -1,4 +1,5 @@
 import { useState, useEffect, ReactNode } from "react";
+import { prefersReducedMotion } from "../../lib/utils";
 
 interface TerminalTextProps {
   children: string;
@@ -18,6 +19,13 @@ export const RetroTerminal = ({
   const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
+    // Skip the typing animation entirely for users who prefer reduced motion
+    if (prefersReducedMotion()) {
+      setDisplayedText(children.toString());
+      setShowCursor(false);
+      return;
+    }
+
     // Start typing after the specified delay
     const timeout = setTimeout(() => {
       setIsTyping(true);

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
-import { StarBackground } from '../magicui/star-background';
-import { DataGrid } from '../magicui/data-grid';
 import './space-header.css';
 
 interface NavLink {
@@ -163,40 +161,15 @@ const SpaceHeader: React.FC = () => {
         scrolled ? 'bg-black/80 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}
     >
-      <div className="absolute inset-0 opacity-40 overflow-hidden pointer-events-none">
-        <StarBackground />
-        <DataGrid
-          columns={50}
-          rows={8}
-          cellSize={20}
-          color="#4c61ff"
-          density={0.05}
-          speed={0.4}
-          interactive={false}
-          className="w-full h-full opacity-20"
-        />
-        {/* Add shooting stars */}
-        <div className="shooting-star"></div>
-        <div className="shooting-star"></div>
-      </div>
-      
       <div className="relative z-10 w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-full">
           {/* Logo/Brand */}
           <div className="flex-shrink-0">
-            <div className="text-white font-bold text-xl flex items-center logo-text font-display tracking-wider">
-              <span className="text-purple-400">M</span>
-              <span className="text-purple-400">I</span>
-              <span className="text-purple-400">T</span>
-              <span className="text-purple-400">C</span>
-              <span className="text-purple-400">H</span>
-              <span className="text-purple-700 ml-1">O</span>
-              <span className="text-purple-700">'</span>
-              <span className="text-purple-700">B</span>
-              <span className="text-purple-700">R</span>
-              <span className="text-purple-700">I</span>
-              <span className="text-purple-700">E</span>
-              <span className="text-purple-700">N</span>
+            <div className="text-white font-bold text-xl flex items-center gap-1.5 logo-text font-display tracking-wider">
+              <span>MITCH</span>
+              <span className="bg-gradient-to-r from-nebula to-aurora bg-clip-text text-transparent">
+                O'BRIEN
+              </span>
             </div>
           </div>
           
@@ -234,13 +207,11 @@ const SpaceHeader: React.FC = () => {
       {mobileMenuOpen && portalContainer && createPortal(
         <div 
           className="fixed top-[64px] left-0 right-0 bottom-0 w-full h-[calc(100vh-64px)]  backdrop-blur-xl border-t border-purple-500/30 z-[9999] shadow-lg flex flex-col overflow-y-auto"
-            onClick={(e) => {e.stopPropagation(), setMobileMenuOpen(false)}} // Prevent clicks inside menu from closing it
+            onClick={(e) => {
+              e.stopPropagation();
+              setMobileMenuOpen(false);
+            }}
         >
-          {/* Background effects for mobile menu */}
-          <div className="absolute inset-0 opacity-30 pointer-events-none">
-            <StarBackground />
-          </div>
-              
           {/* Mobile navigation links - Positioned at the top of the menu */}
           <div className="px-4 py-8 space-y-6 relative z-10 mobile-menu-content">
             {navLinks.map((link) => (

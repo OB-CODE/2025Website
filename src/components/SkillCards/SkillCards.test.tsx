@@ -1,66 +1,28 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import CardsScroll from "./CardsScroll";
+import SkillCards from "./SkillCards";
 import { objsToMap } from "./cardsToMap";
 
-// Mock ResizeObserver
-class ResizeObserver {
-  observe() {}
-  unobserve() {}
-  disconnect() {}
-}
-
-global.ResizeObserver = ResizeObserver;
-
-describe("CardsScroll Component", () => {
+describe("SkillCards Component", () => {
   test("renders the correct number of cards", () => {
-    console.log("objsToMap:", objsToMap); // Log the array
-
-    render(<CardsScroll direction="left" />);
-    const cards = screen.getAllByTestId("cardleft"); // Use getAllByTestId
-    expect(cards).toHaveLength(objsToMap.length * 2); 
+    render(<SkillCards />);
+    const cards = screen.getAllByTestId("skillCard");
+    expect(cards).toHaveLength(objsToMap.length);
   });
-
-  // Test for the marquee element RENDERING LEFT
 
   objsToMap.forEach((obj) => {
     test(`renders the title of ${obj.title}`, () => {
-      render(<CardsScroll direction="left" />);
-      const cardTitleHeading = screen.getAllByText(obj.title); // look for test id
-      cardTitleHeading.forEach((heading) => {
-        expect(heading).toBeInTheDocument();
-      });
+      render(<SkillCards />);
+      const cardTitleHeading = screen.getByText(obj.title);
+      expect(cardTitleHeading).toBeInTheDocument();
     });
   });
 
   objsToMap.forEach((obj) => {
-    test(`renders the title of ${obj.description}`, () => {
-      render(<CardsScroll direction="left" />);
-      const cardDescription = screen.getAllByText(obj.description); // look for test id
-      cardDescription.forEach((description) => {
-        expect(description).toBeInTheDocument();
-      });
-    });
-  });
-  // Test for the marquee element RENDERING RIGHT
-
-  objsToMap.forEach((obj) => {
-    test(`renders the title of ${obj.title}`, () => {
-      render(<CardsScroll direction="right" />);
-      const cardTitleHeading = screen.getAllByText(obj.title); // look for test id
-      cardTitleHeading.forEach((heading) => {
-        expect(heading).toBeInTheDocument();
-      });
-    });
-  });
-
-  objsToMap.forEach((obj) => {
-    test(`renders the title of ${obj.description}`, () => {
-      render(<CardsScroll direction="right" />);
-      const cardDescription = screen.getAllByText(obj.description); // look for test id
-      cardDescription.forEach((description) => {
-        expect(description).toBeInTheDocument();
-      });
+    test(`renders the description of ${obj.title}`, () => {
+      render(<SkillCards />);
+      const cardDescription = screen.getByText(obj.description);
+      expect(cardDescription).toBeInTheDocument();
     });
   });
 });

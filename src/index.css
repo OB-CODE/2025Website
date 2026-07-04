@@ -74,3 +74,20 @@ button:focus-visible {
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #4c61ffaa, #ba71ffaa);
 }
+
+/* Respect the user's motion preferences: collapse CSS animations and
+   transitions to a single frame. Canvas-based effects check the same
+   media query in JS. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
