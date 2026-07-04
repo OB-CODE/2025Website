@@ -1,3 +1,8 @@
+import { personalDetails } from "../PersonalHeading/personal-info";
+
+const capitalise = (value: string) =>
+  value.charAt(0).toUpperCase() + value.slice(1);
+
 /**
  * Placeholder section — swap these values for whatever is actually
  * current. Keep each one short; it reads as a status line, not a bio.
@@ -5,7 +10,10 @@
 const nowItems = [
   { label: "Building", value: "This website" },
   { label: "Learning", value: "Something new" },
-  { label: "Off the clock", value: "Surf, coffee, climbing" },
+  {
+    label: "Off the clock",
+    value: capitalise(personalDetails.offClock.join(", ")),
+  },
 ];
 
 const NowSection = () => {
