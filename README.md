@@ -1,54 +1,60 @@
-# React + TypeScript + Vite
+# mitch-obrien.com
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio site for Mitch O'Brien — Software Engineer. A space-themed
+single page covering skills, projects, and contact details.
 
-Currently, two official plugins are available:
+**Live site:** [www.mitch-obrien.com](https://www.mitch-obrien.com/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech stack
 
-## Expanding the ESLint configuration
+- [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vite.dev/) for dev/build tooling
+- [Tailwind CSS v4](https://tailwindcss.com/) for styling
+- [Jest](https://jestjs.io/) + [Testing Library](https://testing-library.com/) for tests
+- Deployed on [AWS Amplify](https://aws.amazon.com/amplify/) (see `amplify.yml`)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting started
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+nvm use        # Node version pinned in .nvmrc
+npm ci
+npm run dev    # start the dev server
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Environment variables
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The contact form posts through [HeroTofu](https://herotofu.com/). Create a
+`.env` file (not committed) with:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
 ```
+VITE_HEROTOFU_API_KEY=<your-herotofu-form-id>
+```
+
+For deployed builds, set the same variable in the Amplify console under
+**App settings → Environment variables**.
+
+## Scripts
+
+| Command           | Description                        |
+| ----------------- | ---------------------------------- |
+| `npm run dev`     | Start the Vite dev server          |
+| `npm run build`   | Type-check and build to `dist/`    |
+| `npm run preview` | Preview the production build       |
+| `npm test`        | Run the Jest test suite            |
+| `npm run lint`    | Run ESLint                         |
+
+## Project structure
+
+```
+public/           Static assets (images, favicon, og-image, robots.txt)
+src/
+  components/     Feature components (header, projects, about, contact, ...)
+    magicui/      Canvas/visual effect components
+    ui/           Reusable UI primitives (buttons, cards, headings)
+  lib/            Shared utilities
+```
+
+## Accessibility
+
+Ambient animation is kept intentionally light, and the remaining effects
+(cosmic background, terminal typing) respect `prefers-reduced-motion`.

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { useFormData } from "herotofu-react";
 import "react-toastify/dist/ReactToastify.css";
-import CyberButton from "../src/components/ui/CyberButton";
+import CyberButton from "../ui/CyberButton";
 
 const inputClasses =
   "block w-full mt-1 px-3 py-2 rounded-md border border-white/15 bg-white/5 text-white placeholder-gray-500 shadow-sm transition-colors focus:border-nebula focus:outline-none focus:ring-2 focus:ring-nebula/40";

@@ -4,7 +4,7 @@ import {
   PhoneIcon,
 } from "@heroicons/react/24/outline";
 import { JSX } from "react";
-import CyberButton from "../src/components/ui/CyberButton";
+import CyberButton from "../ui/CyberButton";
 import EmailFrom from "./EmailFrom";
 
 interface ModalContent {
@@ -94,7 +94,7 @@ const ModalCard = ({
             ))}
             <img
               className="mt-3 max-h-56 w-auto rounded-xl border border-white/10 object-cover md:max-h-72"
-              src="/Me.png"
+              src="/Me.webp"
               alt="Photo of Mitchell with surfboard."
             />
           </div>

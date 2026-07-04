@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import ModalCard from "../../../lib/ModalCard";
+import ModalCard from "../contact/ModalCard";
 import CyberButton from "../ui/CyberButton";
 
 const socials = [

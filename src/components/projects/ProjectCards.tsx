@@ -177,6 +177,7 @@ const ProjectCards = ({
                           : project.mainImage
                       }
                       alt={`${project.name} preview`}
+                      loading="lazy"
                       className={`h-full p-4 opacity-80 transition-all duration-500 ease-in-out ${
                         isTallCard
                           ? "object-contain w-auto"
