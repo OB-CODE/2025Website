@@ -30,6 +30,39 @@
   background-size: 26px 26px;
 }
 
+/* Periodic wiggle to draw the eye to the hidden confetti button.
+   Mostly at rest, with a quick shake every cycle. */
+@keyframes egg-shake {
+  0%, 92%, 100% {
+    transform: rotate(0deg);
+  }
+  93% {
+    transform: rotate(-12deg);
+  }
+  94% {
+    transform: rotate(10deg);
+  }
+  95% {
+    transform: rotate(-8deg);
+  }
+  96% {
+    transform: rotate(6deg);
+  }
+  97% {
+    transform: rotate(-4deg);
+  }
+  98% {
+    transform: rotate(2deg);
+  }
+  99% {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-egg-shake {
+  animation: egg-shake 4s ease-in-out infinite;
+}
+
 /* Site is dark-only: the shadcn variables default to the dark palette. */
 :root,
 .dark {
@@ -113,22 +146,5 @@
   }
   body {
     @apply bg-background text-foreground;
-  }
-}
-
-/* Orbiting circles */
-@theme inline {
-  --animate-orbit: orbit calc(var(--duration) * 1s) linear infinite;
-
-  @keyframes orbit {
-    0% {
-      transform: rotate(calc(var(--angle) * 1deg))
-        translateY(calc(var(--radius) * 1px)) rotate(calc(var(--angle) * -1deg));
-    }
-    100% {
-      transform: rotate(calc(var(--angle) * 1deg + 360deg))
-        translateY(calc(var(--radius) * 1px))
-        rotate(calc((var(--angle) * -1deg) - 360deg));
-    }
   }
 }

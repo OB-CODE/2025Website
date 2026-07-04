@@ -56,15 +56,15 @@ function App() {
           <div className="mx-auto mt-12 w-full max-w-5xl px-6">
             <Moonlander />
           </div>
-          <div className="mt-12 flex w-full justify-center">
-            <Confetticomponent />
-          </div>
         </section>
 
         <div id="contactSection">
           <FooterIndex />
         </div>
       </main>
+
+      {/* Hidden easter egg, floats over the whole page */}
+      <Confetticomponent />
     </div>
   );
 }

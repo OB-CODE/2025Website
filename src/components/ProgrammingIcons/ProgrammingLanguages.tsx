@@ -6,7 +6,7 @@ const ProgrammingLanguages = () => {
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col px-6">
       <Heading2 inputString="Languages / Tools" />
-      <div className="mt-8 flex flex-row flex-wrap gap-3">
+      <div className="mt-8 flex flex-row flex-wrap justify-center gap-3">
         {knownLanguagesToMap.map((language, index) => {
           return (
             <div

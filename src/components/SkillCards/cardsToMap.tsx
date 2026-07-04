@@ -18,7 +18,7 @@ const frontEndDetailsObject = {
   logo: frontEndSVG,
   title: "Front End Development",
   description:
-    "Two years of industry experience in React, Next.js, and TypeScript.",
+    "Three years of industry experience in React, Next.js, and TypeScript.",
 };
 const keyboardDetailsObject = {
   logo: moonlanderSVG,
@@ -52,8 +52,8 @@ const climbingDetailsObject = {
 };
 
 export const objsToMap = [
-  surfDetailsObject,
   frontEndDetailsObject,
+  surfDetailsObject,
   keyboardDetailsObject,
   leadershipDetailsObject,
   studentDetailsObject,
