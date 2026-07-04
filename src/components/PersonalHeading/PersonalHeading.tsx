@@ -9,31 +9,33 @@ const PersonalHeading = ({ id }: PersonalHeadingProps) => {
   return (
     <div
       id={id}
-      className="relative min-h-[28rem] md:min-h-[38rem] flex flex-col justify-center items-center gap-8 md:gap-12 h-full w-full px-4 bg-[radial-gradient(ellipse_at_center,_rgba(76,97,255,0.2)_0%,_rgba(0,0,0,1)_70%)] z-content"
+      className="relative flex min-h-[70vh] w-full flex-col items-center justify-center gap-6 overflow-hidden px-6 md:min-h-[80vh]"
     >
-      {/* Heading */}
-      <div className="flex flex-row justify-center items-center w-full md:w-[70vw]">
-        <h1 className="text-4xl font-bold md:text-6xl lg:text-8xl w-full text-center font-display bg-gradient-to-r from-white via-blue-100 to-fuchsia-200 bg-clip-text text-transparent drop-shadow-[0_0_12px_rgba(186,113,255,0.35)]">
-          {`${personalDetails.firstName} ${personalDetails.lastName}`}
-        </h1>
-      </div>
+      {/* Subtle dot-grid backdrop, faded at the edges */}
+      <div
+        aria-hidden="true"
+        className="bg-dot-grid absolute inset-0 [mask-image:radial-gradient(ellipse_60%_60%_at_center,black_30%,transparent_80%)]"
+      />
 
       {/* Job Title */}
       <div
         data-testid="jobTitle"
-        className="z-10 glassmorphic w-fit flex justify-center rounded-xl border-nebula/30 px-4 py-3 md:px-6 items-center shadow-[0_0_30px_rgba(76,97,255,0.15)]"
+        className="relative z-10 flex items-center gap-1 rounded-full border border-zinc-800 bg-zinc-950/60 px-4 py-1.5 font-mono text-xs text-zinc-400 md:text-sm"
       >
-        <div className="text-2xl font-bold tracking-tighter md:text-5xl lg:text-6xl bottom-1 relative text-aurora">{`<`}</div>
-        <div className="text-2xl font-bold tracking-tighter md:text-5xl lg:text-6xl px-2 text-white">
-          {personalDetails.jobTitle}
-        </div>
-        <div className="text-2xl font-bold tracking-tighter md:text-5xl lg:text-6xl bottom-1 relative text-aurora">{`/>`}</div>
+        <span className="text-zinc-600">{`<`}</span>
+        <span className="text-zinc-200">{personalDetails.jobTitle}</span>
+        <span className="text-zinc-600">{`/>`}</span>
       </div>
 
+      {/* Heading */}
+      <h1 className="relative z-10 text-center text-5xl font-semibold tracking-tight text-zinc-50 md:text-7xl">
+        {`${personalDetails.firstName} ${personalDetails.lastName}`}
+      </h1>
+
       {/* Scroll cue */}
-      <div className="absolute bottom-4 flex flex-col items-center gap-1 text-gray-500 motion-safe:animate-bounce">
-        <span className="text-xs uppercase tracking-[0.3em]">scroll</span>
-        <FiChevronDown size={18} />
+      <div className="absolute bottom-6 z-10 flex flex-col items-center gap-1 text-zinc-600">
+        <span className="text-[10px] uppercase tracking-[0.3em]">scroll</span>
+        <FiChevronDown size={16} className="motion-safe:animate-bounce" />
       </div>
     </div>
   );

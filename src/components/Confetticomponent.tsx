@@ -70,8 +70,8 @@ const props: IConfettiWrapper = {
   };
 
   return (
-    <div className='flex w-full h-40 items-end overflow-hidden'>      
-    <div id='confettiBottomContainer' className='flex-1 items-end justify-center flex relative mb-30 sm:mb-40'>
+    <div className='flex w-full items-center justify-center'>
+    <div id='confettiBottomContainer' className='flex-1 items-center justify-center flex relative'>
         <ConfettiWrapper {...props} />
         {showConfetti && (
             <ReactConfetti

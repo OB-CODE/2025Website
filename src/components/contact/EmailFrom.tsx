@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { useFormData } from "herotofu-react";
 import "react-toastify/dist/ReactToastify.css";
-import CyberButton from "../ui/CyberButton";
+import Button from "../ui/Button";
 
 const inputClasses =
-  "block w-full mt-1 px-3 py-2 rounded-md border border-white/15 bg-white/5 text-white placeholder-gray-500 shadow-sm transition-colors focus:border-nebula focus:outline-none focus:ring-2 focus:ring-nebula/40";
+  "mt-1.5 block w-full rounded-md border border-zinc-800 bg-zinc-900/50 px-3 py-2 text-sm text-zinc-50 placeholder-zinc-600 transition-colors focus:border-zinc-600 focus:outline-none focus:ring-1 focus:ring-zinc-600";
 
 const EmailFrom = ({
   toggleContactPopup,
@@ -66,10 +66,10 @@ const EmailFrom = ({
             {/* Name Field */}
             <label className="block mb-6">
               <div className="flex justify-between items-center">
-                <span className="text-gray-100">Your Name</span>
+                <span className="text-zinc-300">Your Name</span>
                 {name.length == 0 && (
                   <span
-                    className={`text-sm text-red-400
+                    className={`text-sm text-red-400/80
                     }`}
                   >
                     Name is required.
@@ -89,9 +89,9 @@ const EmailFrom = ({
             {/* Email Field */}
             <label className="block mb-6">
               <div className="flex justify-between items-center">
-                <span className="text-gray-100">Your Email</span>
+                <span className="text-zinc-300">Your Email</span>
                 {!emailRegex.test(email) && (
-                  <span className={`text-sm text-red-400`}>
+                  <span className={`text-sm text-red-400/80`}>
                     Invalid email format.
                   </span>
                 )}
@@ -108,7 +108,7 @@ const EmailFrom = ({
 
             {/* Message Field */}
             <label className="block mb-6">
-              <span className="text-gray-100">Message</span>
+              <span className="text-zinc-300">Message</span>
               <textarea
                 name="message"
                 value={message}
@@ -121,7 +121,7 @@ const EmailFrom = ({
 
             {/* Submit Button */}
             <div className="mb-6 w-full flex justify-end">
-              <CyberButton type="submit">Contact Mitch</CyberButton>
+              <Button type="submit">Contact Mitch</Button>
             </div>
           </form>
         </div>

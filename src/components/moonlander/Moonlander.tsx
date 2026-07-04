@@ -10,12 +10,12 @@ const Moonlander = () => {
   };
 
   return (
-    <div className="w-[80%] overflow-hidden flex flex-col items-center justify-center">
-      <div className="relative min-h-[100px]  sm:min-h-[300px]  md:min-h-[555px] xl:min-h-[800px] bg-black w-full overflow-hidden">
+    <div className="flex w-full flex-col items-center justify-center overflow-hidden">
+      <div className="relative min-h-[100px] w-full overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950 sm:min-h-[300px] md:min-h-[555px] xl:min-h-[800px]">
         <iframe
           title="Moonlander Configuration"
           src="https://configure.zsa.io/embed/moonlander/layouts/gdxrX/latest/0?theme=dark"
-          className="absolute top-0 left-0 w-full h-full border-0 bg-black hidden lg:block"
+          className="absolute top-0 left-0 hidden h-full w-full border-0 bg-black lg:block"
           id="iFrameContainer"
           scrolling="no"
           style={{
@@ -26,18 +26,23 @@ const Moonlander = () => {
         ></iframe>
         <div
           onClick={handleClick}
-          className="block lg:hidden flex flex-col justify-center items-center h-full w-full p-4"
+          className="flex h-full w-full flex-col items-center justify-center p-4 lg:hidden"
         >
           <div
-            className={`p-3 mb-3 rounded w-full text-center ${
+            className={`mb-3 w-full rounded-md border p-3 text-center text-sm transition-colors ${
               userClickedStaticImage
-                ? "text-purple-950 bg-purple-600"
-                : "text-purple-500 bg-purple-950"
-            } `}
+                ? "border-zinc-500 bg-zinc-800 text-zinc-100"
+                : "border-zinc-800 bg-zinc-900/60 text-zinc-400"
+            }`}
           >
             View on larger screen for an interactive experience.
           </div>
-          <img src="/DvorakLayout.webp" alt="Dvorak Keyboard Layout" loading="lazy" className="w-full max-w-[300px] sm:max-w-full border border-purple-500" />
+          <img
+            src="/DvorakLayout.webp"
+            alt="Dvorak Keyboard Layout"
+            loading="lazy"
+            className="w-full max-w-[300px] rounded-md border border-zinc-800 sm:max-w-full"
+          />
         </div>
       </div>
     </div>

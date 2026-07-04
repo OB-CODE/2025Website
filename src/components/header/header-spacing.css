@@ -1,4 +1,0 @@
-/* Header spacing class for containers that need padding from fixed header */
-.header-padding-top {
-  padding-top: 64px; /* Same as header height in space-header.css */
-}

@@ -35,7 +35,7 @@ export const knownLanguagesToMap: ILanguages[] = [
     internalStackCode: "React",
     logo: "/logos/react-original.svg", //"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
     alt: "React Logo",
-    additionalClassname: "logoRotate",
+    additionalClassname: "",
     slug: "react",
   },
   {

@@ -1,49 +1,31 @@
-import { useState } from "react";
 import { Tooltip } from "react-tooltip";
 import Heading2 from "../ui/Heading2";
-import ShinyButton from "../ui/ShinnyButton";
-import { IconCloudIndex } from "./IconCloudIndx";
 import { knownLanguagesToMap } from "./ProgrammingLanguagesHelper";
 
 const ProgrammingLanguages = () => {
-  const [isAnimated, setIsAnimated] = useState(false);
-
   return (
-    <div className="min-h-[25rem] pt-[10vh] md:min-h-[35rem] flex flex-col justify-center items-center h-full w-full pb-[2vh]">
-      <Heading2 inputString="Languages / Tools" align="center" />
-      <div className="pt-5">
-        {/* <TestButton></TestButton> */}
-        <ShinyButton onClick={() => setIsAnimated((state) => !state)}>
-          {isAnimated ? "Normal List" : "Animate List"}
-        </ShinyButton>
-      </div>
-      <div className="min-h-[25rem]">
-        {isAnimated ? (
-          <IconCloudIndex />
-        ) : (
-          <div className="flex w-full justify-center pt-8">
-            <div className="flex max-w-[85%] md:max-w-[70%] flex-row flex-wrap justify-center gap-4 md:gap-6">
-              {knownLanguagesToMap.map((language, index) => {
-                return (
-                  <div
-                    className="group flex h-20 w-20 md:h-24 md:w-24 items-center justify-center rounded-2xl border border-white/10 bg-white/[.04] backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-nebula/50 hover:bg-white/[.08] hover:shadow-[0_0_18px_rgba(76,97,255,0.25)]"
-                    data-testid="language-item"
-                    data-tooltip-id="language-tooltip"
-                    data-tooltip-content={language.language}
-                    data-tooltip-place="top"
-                    key={index}
-                  >
-                    <img
-                      src={language.logo}
-                      alt={language.alt}
-                      className={`rounded-xl p-2 logo ${language.additionalClassname}`}
-                    />
-                  </div>
-                );
-              })}
+    <div className="mx-auto flex w-full max-w-5xl flex-col px-6">
+      <Heading2 inputString="Languages / Tools" />
+      <div className="mt-8 flex flex-row flex-wrap gap-3">
+        {knownLanguagesToMap.map((language, index) => {
+          return (
+            <div
+              className="flex h-16 w-16 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900/40 transition-colors duration-200 hover:border-zinc-600 hover:bg-zinc-900 md:h-20 md:w-20"
+              data-testid="language-item"
+              data-tooltip-id="language-tooltip"
+              data-tooltip-content={language.language}
+              data-tooltip-place="top"
+              key={index}
+            >
+              <img
+                src={language.logo}
+                alt={language.alt}
+                loading="lazy"
+                className={`h-full w-full rounded-lg p-3 ${language.additionalClassname}`}
+              />
             </div>
-          </div>
-        )}
+          );
+        })}
       </div>
       <Tooltip id="language-tooltip" />
     </div>

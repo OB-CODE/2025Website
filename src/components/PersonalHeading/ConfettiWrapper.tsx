@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { IConfettiWrapper } from "../Confetticomponent";
+import Button from "../ui/Button";
 import { leftFacingRocket, rightFacingRocket } from "./headerSVGs";
 
 const ConfettiWrapper = ({
@@ -27,20 +28,16 @@ const ConfettiWrapper = ({
   return (
     <div
       onClick={() => setshowConfetti((prev) => !prev)}
-      className="text-3xl md:text-6xl cursor-pointer flex justify-center items-center gap-2"
+      className="flex cursor-pointer items-center justify-center gap-3 text-3xl md:text-4xl"
       data-testid="rocket"
     >
       {rightFacingRocket}
-
-      <span className="text-xl cursor-pointer w-fit flex">
-        <button
-          className={`${
-            showConfetti ? "text-red-400" : "text-purple-400"
-          } w-[200px] flex justify-center items-center border-2 border-white rounded-lg hover:bg-white/10 transition-colors duration-300 p-2`}
-        >
-          {showConfetti ? "Stop" : "Start"} party ({countdown}s)
-        </button>
-      </span>
+      <Button
+        variant="outline"
+        className={showConfetti ? "text-red-400" : undefined}
+      >
+        {showConfetti ? "Stop" : "Start"} party ({countdown}s)
+      </Button>
       {leftFacingRocket}
     </div>
   );

@@ -61,16 +61,16 @@ export const RetroTerminal = ({
 
   return (
     <div
-      className={`font-mono p-4 rounded bg-black/80 border border-[#4c61ff] ${className}`}
+      className={`overflow-hidden rounded-lg border border-zinc-800 bg-zinc-950 font-mono text-sm ${className}`}
     >
-      <div className="flex items-center mb-2 border-b border-[#4c61ff]/30 pb-1">
-        <div className="w-3 h-3 rounded-full bg-red-500 mr-2"></div>
-        <div className="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
-        <div className="w-3 h-3 rounded-full bg-green-500"></div>
-        <div className="ml-auto text-xs text-[#4c61ff]">terminal@user:~</div>
+      <div className="flex items-center gap-1.5 border-b border-zinc-800 bg-zinc-900/60 px-4 py-2.5">
+        <div className="h-2.5 w-2.5 rounded-full bg-red-500/80"></div>
+        <div className="h-2.5 w-2.5 rounded-full bg-yellow-500/80"></div>
+        <div className="h-2.5 w-2.5 rounded-full bg-green-500/80"></div>
+        <div className="ml-auto text-xs text-zinc-500">terminal@user:~</div>
       </div>
-      <div className="text-[#4c61ff]">
-        <span className="text-[#ba71ff]">$ </span>
+      <div className="whitespace-pre-wrap p-4 text-left text-zinc-300">
+        <span className="text-emerald-400">$ </span>
         {displayedText}
         {(isTyping || showCursor) && <span className="animate-pulse">|</span>}
       </div>

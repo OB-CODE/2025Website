@@ -1,7 +1,7 @@
 # mitch-obrien.com
 
-Personal portfolio site for Mitch O'Brien — Software Engineer. A space-themed
-single page covering skills, projects, and contact details.
+Personal portfolio site for Mitch O'Brien — Software Engineer. A clean,
+dark single page covering skills, projects, experience, and contact details.
 
 **Live site:** [www.mitch-obrien.com](https://www.mitch-obrien.com/)
 
@@ -49,12 +49,12 @@ For deployed builds, set the same variable in the Amplify console under
 public/           Static assets (images, favicon, og-image, robots.txt)
 src/
   components/     Feature components (header, projects, about, contact, ...)
-    magicui/      Canvas/visual effect components
-    ui/           Reusable UI primitives (buttons, cards, headings)
+    magicui/      Visual effect components (terminal)
+    ui/           Reusable UI primitives (Button, Heading2)
   lib/            Shared utilities
 ```
 
 ## Accessibility
 
 Ambient animation is kept intentionally light, and the remaining effects
-(cosmic background, terminal typing) respect `prefers-reduced-motion`.
+(terminal typing) respect `prefers-reduced-motion`.

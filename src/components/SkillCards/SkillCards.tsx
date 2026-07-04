@@ -3,30 +3,30 @@ import { objsToMap } from "./cardsToMap";
 
 const SkillCards = () => {
   return (
-    <div className="flex flex-wrap justify-center gap-4 px-4 max-w-7xl mx-auto">
+    <div className="mx-auto grid w-full max-w-5xl gap-4 px-6 sm:grid-cols-2 lg:grid-cols-3">
       {objsToMap.map((obj, index) => {
         return (
           <figure
             className={cn(
-              "relative h-44 w-56 md:h-40 md:w-84 overflow-hidden rounded-xl border p-4 backdrop-blur-sm transition-all duration-300",
-              "border-white/10 bg-white/[.06] hover:border-aurora/40 hover:bg-white/[.12] hover:shadow-[0_0_20px_rgba(186,113,255,0.15)]"
+              "relative flex flex-col rounded-xl border border-zinc-800 bg-zinc-900/40 p-5 transition-colors duration-200",
+              "hover:border-zinc-700 hover:bg-zinc-900/70"
             )}
             key={index}
           >
-            <div className="flex flex-row w-full justify-between items-center gap-2">
+            <div className="flex w-full flex-row items-center justify-between gap-2">
               <div data-testid="skillCard" className="flex flex-col">
                 <figcaption
                   data-testid="cardTitle"
-                  className="text-sm font-medium text-white text-left"
+                  className="text-left text-sm font-medium text-zinc-50"
                 >
                   {obj.title}
                 </figcaption>
               </div>
-              <div className="rounded-full text-aurora/80 w-[30px] h-[30px] shrink-0 flex items-center justify-center">
+              <div className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full text-zinc-500">
                 {obj.logo}
               </div>
             </div>
-            <blockquote className="mt-2 text-sm text-gray-300 text-left">
+            <blockquote className="mt-2 text-left text-sm text-zinc-400">
               {obj.description}
             </blockquote>
           </figure>

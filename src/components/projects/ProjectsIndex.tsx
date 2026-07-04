@@ -71,28 +71,34 @@ const ProjectsIndex = () => {
   return (
     <div
       data-testid="PortfolioHeader"
-      className="flex items-start w-[80%] flex-col"
+      className="mx-auto flex w-full max-w-5xl flex-col px-6"
     >
       <Heading2 inputString="Portfolio" />
-      <div className="flex flex-col w-full md:w-[70%] gap-2 items-start pt-4 text-left">
+      <div className="mt-4 flex flex-col gap-1">
         {projectsMessage.map((message, index) => (
-          <div key={index} className={`${index != 0 ? "text-gray-400" : "text-white"}`}>
+          <p
+            key={index}
+            className={`text-sm ${index !== 0 ? "text-zinc-400" : "text-zinc-200"}`}
+          >
             {message}
-          </div>
+          </p>
         ))}
       </div>
-      <div className="pt-[3vh] w-full">
-        <ProjectCards projectsToMap={projectsToMap}/>
+      <div className="mt-10 w-full">
+        <ProjectCards projectsToMap={projectsToMap} />
       </div>
-      <div className="flex flex-col w-[100%] gap-2 items-end pt-8 pb-3 text-right">
+      <div className="mt-16 flex flex-col gap-1">
         {phoneProjectsMessage.map((message, index) => (
-          <div key={index} className={`${index != 0 ? "text-gray-400" : "text-white"}`}>
+          <p
+            key={index}
+            className={`text-sm ${index !== 0 ? "text-zinc-400" : "text-zinc-200 font-medium"}`}
+          >
             {message}
-          </div>
+          </p>
         ))}
       </div>
-      <div className="pt-[3vh] w-full">
-        <ProjectCards projectsToMap={phoneProjectsToMap} isTallCard={true}/>
+      <div className="mt-10 w-full">
+        <ProjectCards projectsToMap={phoneProjectsToMap} isTallCard={true} />
       </div>
     </div>
   );

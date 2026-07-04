@@ -9,33 +9,29 @@ const aboutMeBlurb = [
 
 const AboutMe = () => {
   return (
-    <div className="w-[80%] flex justify-center flex-col pb-20 items-center relative">
-      <div className="w-full flex justify-end z-content">
-        <Heading2 inputString="About Me" align="right" />
-      </div>
+    <div className="mx-auto flex w-full max-w-5xl flex-col px-6">
+      <Heading2 inputString="About Me" />
 
-      <div className="flex flex-col md:flex-row items-center justify-between w-full pt-6 gap-6 z-content">
-        <div className="w-full md:w-1/3">
-          <RetroTerminal typingSpeed={20} className="hover-pulse">
-            {`> Loading developer profile...
+      <div className="mt-8 grid items-start gap-8 md:grid-cols-[2fr_3fr]">
+        <RetroTerminal typingSpeed={20}>
+          {`> Loading developer profile...
 > Name: Mitchell O'Brien
 > Occupation: Software Engineer
 > Status: Coding in progress
 > Advanced Projects:
  > Access denied... NDA Restricted...`}
-          </RetroTerminal>
-        </div>
+        </RetroTerminal>
 
-        <div className="flex flex-col w-full md:w-[60%] gap-3 items-end text-right">
+        <div className="flex flex-col gap-4">
           {aboutMeBlurb.map((message, index) => (
-            <div
+            <p
               key={index}
-              className={`${
-                index !== 0 ? "text-gray-300" : "text-white"
-              } content-box backdrop-blur-md text-enhanced rounded-lg border border-white/10 border-r-2 border-r-aurora/60 bg-white/[.03]`}
+              className={`text-sm leading-relaxed md:text-base ${
+                index !== 0 ? "text-zinc-400" : "text-zinc-100"
+              }`}
             >
               {message}
-            </div>
+            </p>
           ))}
         </div>
       </div>
