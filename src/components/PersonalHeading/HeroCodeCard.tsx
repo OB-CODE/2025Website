@@ -46,37 +46,50 @@ const HeroCodeCard = () => {
         </span>
       </div>
 
-      <pre className="overflow-x-auto px-5 py-5 font-mono text-xs leading-relaxed sm:text-sm">
+      <pre className="px-5 py-5 font-mono text-xs leading-relaxed sm:text-sm">
         <code>
-          <span className="text-purple-400">const</span>{" "}
-          <span className="text-sky-300">
-            {personalDetails.nickname.toLowerCase()}
-          </span>
-          <span className="text-zinc-500">: </span>
-          <span className="text-yellow-200">Engineer</span>
-          <span className="text-zinc-500"> = {"{"}</span>
-          {"\n  "}
-          <Key name="role" />
-          <Str value={personalDetails.roleShort} />
-          <span className="text-zinc-500">,</span>
-          {"\n  "}
-          <Key name="company" />
-          <Str value={personalDetails.company} />
-          <span className="text-zinc-500">,</span>
-          {"\n  "}
-          <Key name="stack" />
-          <StrList values={personalDetails.stack} />
-          <span className="text-zinc-500">,</span>
-          {"\n  "}
-          <Key name="offClock" />
-          <StrList values={personalDetails.offClock} />
-          <span className="text-zinc-500">,</span>
-          {"\n  "}
-          <Key name="shipping" />
-          <span className="text-orange-300">true</span>
-          <span className="text-zinc-500">,</span>
-          {"\n"}
-          <span className="text-zinc-500">{"}"}</span>
+          <div>
+            <span className="text-purple-400">const</span>{" "}
+            <span className="text-sky-300">
+              {personalDetails.nickname.toLowerCase()}
+            </span>
+            <span className="text-zinc-500">: </span>
+            <span className="text-yellow-200">Engineer</span>
+            <span className="text-zinc-500"> = {"{"}</span>
+          </div>
+          <div className="whitespace-pre-wrap break-words pl-4">
+            <Key name="role" />
+            <Str value={personalDetails.roleShort} />
+            <span className="text-zinc-500">,</span>
+          </div>
+          <div className="whitespace-pre-wrap break-words pl-4">
+            <Key name="company" />
+            <Str value={personalDetails.company} />
+            <span className="text-zinc-500">,</span>
+          </div>
+          <div className="whitespace-pre-wrap break-words pl-4">
+            <Key name="companyDescription" />
+            <Str value={personalDetails.companyDescription} />
+            <span className="text-zinc-500">,</span>
+          </div>
+          <div className="whitespace-pre-wrap break-words pl-4">
+            <Key name="stack" />
+            <StrList values={personalDetails.stack} />
+            <span className="text-zinc-500">,</span>
+          </div>
+          <div className="whitespace-pre-wrap break-words pl-4">
+            <Key name="offClock" />
+            <StrList values={personalDetails.offClock} />
+            <span className="text-zinc-500">,</span>
+          </div>
+          <div className="whitespace-pre-wrap break-words pl-4">
+            <Key name="shipping" />
+            <span className="text-orange-300">true</span>
+            <span className="text-zinc-500">,</span>
+          </div>
+          <div>
+            <span className="text-zinc-500">{"}"}</span>
+          </div>
         </code>
       </pre>
     </div>

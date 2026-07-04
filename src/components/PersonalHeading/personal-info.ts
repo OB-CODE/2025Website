@@ -5,6 +5,7 @@ interface IPersonalDetails {
   jobTitle: string;
   tagline: string;
   company: string;
+  companyDescription: string;
   role: string;
   roleShort: string;
   stack: string[];
@@ -17,8 +18,9 @@ export const personalDetails: IPersonalDetails = {
   lastName: "O'Brien",
   jobTitle: "Software Engineer",
   tagline:
-    "Software engineer building products end-to-end — from database to pixel.",
+    "Software engineer building products end-to-end. From database to pixel.",
   company: "Liquidity Cube",
+  companyDescription: "OTC trading platform for fixed income assets",
   role: "Principal, Strategy & Developer",
   roleShort: "Principal, Strategy & Dev",
   stack: ["TypeScript", "Next.js", ".NET", "SQL"],
