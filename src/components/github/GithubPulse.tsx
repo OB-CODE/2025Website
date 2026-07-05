@@ -93,7 +93,7 @@ const fetchLatestPush = async (): Promise<LatestPush | null> => {
   // fall back to repo + time if that call fails.
   try {
     const commitResponse = await fetch(
-      `https://api.github.com/repos/${push.repo.name}/commits/${push.payload.head}`
+      `https://api.github.com/repos/${push.repo.name}/commits/${push.payload.head}`,
     );
     if (commitResponse.ok) {
       const commit: { commit: { message: string } } =
@@ -149,12 +149,21 @@ const GithubPulse = () => {
   const weeks = contributions ? buildWeeks(contributions.contributions) : [];
 
   return (
-    <section aria-label="Recent GitHub activity" className="border-t border-zinc-800/80">
+    <section
+      aria-label="Recent GitHub activity"
+      className="border-t border-zinc-800/80"
+    >
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-6 py-10">
         <div className="flex items-baseline justify-between gap-4">
-          <span className="text-xs uppercase tracking-[0.2em] text-zinc-500">
-            Recent activity
-          </span>
+          <div className="flex flex-col gap-1">
+            <span className="text-xs uppercase tracking-[0.2em] text-zinc-500">
+              Recent activity
+            </span>
+            <p className="text-xs text-zinc-600">
+              All personal projects, built off the clock. My day-to-day work at
+              Liquidity Cube lives in Azure DevOps.
+            </p>
+          </div>
           <a
             href={PROFILE_URL}
             target="_blank"
@@ -191,20 +200,22 @@ const GithubPulse = () => {
                 aria-label={`GitHub contribution heatmap: ${contributions.total.lastYear} contributions in the last year`}
                 className="grid w-max grid-flow-col grid-rows-7 gap-[2px]"
               >
-                {weeks.flat().map((day, index) =>
-                  day ? (
-                    <div
-                      key={day.date}
-                      data-tooltip-id="github-pulse-tooltip"
-                      data-tooltip-content={`${day.count} contribution${
-                        day.count === 1 ? "" : "s"
-                      } · ${prettyDate(day.date)}`}
-                      className={`h-2.5 w-2.5 rounded-[2px] ${LEVEL_CLASSES[day.level]}`}
-                    />
-                  ) : (
-                    <div key={`pad-${index}`} className="h-2.5 w-2.5" />
-                  )
-                )}
+                {weeks
+                  .flat()
+                  .map((day, index) =>
+                    day ? (
+                      <div
+                        key={day.date}
+                        data-tooltip-id="github-pulse-tooltip"
+                        data-tooltip-content={`${day.count} contribution${
+                          day.count === 1 ? "" : "s"
+                        } · ${prettyDate(day.date)}`}
+                        className={`h-2.5 w-2.5 rounded-[2px] ${LEVEL_CLASSES[day.level]}`}
+                      />
+                    ) : (
+                      <div key={`pad-${index}`} className="h-2.5 w-2.5" />
+                    ),
+                  )}
               </div>
             </div>
 
