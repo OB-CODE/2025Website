@@ -5,8 +5,8 @@ import Confetticomponent from "./components/Confetticomponent";
 import ExperienceSection from "./components/experience/ExperienceSection";
 import FooterIndex from "./components/footer/FooterIndex";
 import SiteHeader from "./components/header/SiteHeader";
+import GithubPulse from "./components/github/GithubPulse";
 import Moonlander from "./components/moonlander/Moonlander";
-import NowSection from "./components/now/NowSection";
 import PersonalHeading from "./components/PersonalHeading/PersonalHeading";
 import ProgrammingLanguages from "./components/ProgrammingIcons/ProgrammingLanguages";
 import ProjectsIndex from "./components/projects/ProjectsIndex";
@@ -22,8 +22,8 @@ function App() {
           <PersonalHeading />
         </div>
 
-        {/* Placeholder: a short "what's happening now" strip */}
-        <NowSection />
+        {/* Live GitHub activity: contribution heatmap + latest push */}
+        <GithubPulse />
 
         <section className="border-t border-zinc-800/80 py-20 md:py-24">
           <SkillCards />
