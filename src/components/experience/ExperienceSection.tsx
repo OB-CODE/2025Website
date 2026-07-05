@@ -1,21 +1,17 @@
 import Heading2 from "../ui/Heading2";
 
-/**
- * Placeholder section — replace these entries with real roles.
- * One line per role is enough; the projects below do the talking.
- */
 const experience = [
   {
     role: "Software Engineer",
-    company: "Company name",
+    company: "Liquidity Cube",
     period: "2024 — Present",
-    note: "One line on what you build and ship here.",
+    note: "Developing for OTC fixed-income markets at Liquidity Cube. Product and company strategy development.",
   },
   {
     role: "Previous role",
-    company: "Company name",
-    period: "2022 — 2024",
-    note: "One line on the impact you had.",
+    company: "Teacher / Educator",
+    period: "2012 — 2024",
+    note: "Educational leadership and welfare background. Sport coordinator, coach and outdoor education specialist.",
   },
 ];
 
