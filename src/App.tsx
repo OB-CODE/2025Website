@@ -29,7 +29,7 @@ function App() {
           <SkillCards />
         </section>
 
-        <section className="border-t border-zinc-800/80 py-20 md:py-24">
+        <section className="border-t border-zinc-800/80 bg-zinc-900/30 py-20 md:py-24">
           <ProgrammingLanguages />
         </section>
 
@@ -43,7 +43,7 @@ function App() {
         {/* Placeholder: professional history */}
         <section
           id="experienceSection"
-          className="border-t border-zinc-800/80 py-20 md:py-24"
+          className="border-t border-zinc-800/80 bg-zinc-900/30 py-20 md:py-24"
         >
           <ExperienceSection />
         </section>

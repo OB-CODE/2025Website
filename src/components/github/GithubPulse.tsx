@@ -151,7 +151,7 @@ const GithubPulse = () => {
   return (
     <section
       aria-label="Recent GitHub activity"
-      className="border-t border-zinc-800/80"
+      className="border-t border-zinc-800/80 bg-zinc-900/30"
     >
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-6 py-10">
         <div className="flex items-baseline justify-between gap-4">

@@ -26,7 +26,7 @@ const FooterIndex = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-zinc-800/80">
+    <footer className="border-t border-zinc-800/80 bg-zinc-900/30">
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 py-12 sm:flex-row sm:items-center sm:justify-between">
         <div id="socials" className="flex flex-row gap-6 sm:flex-col sm:gap-2">
           {socials.map((social) => (

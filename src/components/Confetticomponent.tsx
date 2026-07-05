@@ -59,11 +59,15 @@ const Confetticomponent = () => {
           onClick={() => setShowConfetti((prev) => !prev)}
           aria-label="You found it"
           data-testid="confetti-egg"
-          className={`flex h-10 w-10 items-center justify-center rounded-full border border-zinc-800 bg-zinc-950/80 text-base backdrop-blur-sm transition-colors hover:border-zinc-600 ${
-            showConfetti ? "border-zinc-600" : "animate-egg-shake"
-          }`}
+          className="group flex h-8 w-8 items-center justify-center"
         >
-          🎉
+          {showConfetti ? (
+            <span className="animate-egg-pop text-base">🎉</span>
+          ) : (
+            /* Disguised as one more dot from the hero's dot-grid; grows and
+               brightens on hover as the only hint it's interactive. */
+            <span className="h-[3px] w-[3px] rounded-full bg-white/20 transition-all duration-300 group-hover:h-2 group-hover:w-2 group-hover:bg-white/70" />
+          )}
         </button>
       </div>
 
