@@ -66,7 +66,7 @@ const Confetticomponent = () => {
           ) : (
             /* Disguised as one more dot from the hero's dot-grid; grows and
                brightens on hover as the only hint it's interactive. */
-            <span className="h-[3px] w-[3px] rounded-full bg-white/20 transition-all duration-300 group-hover:h-2 group-hover:w-2 group-hover:bg-white/70" />
+            <span className="h-1.5 w-1.5 rounded-full bg-white/40 transition-all duration-300 group-hover:h-2.5 group-hover:w-2.5 group-hover:bg-white/80" />
           )}
         </button>
       </div>

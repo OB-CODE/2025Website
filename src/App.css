@@ -30,37 +30,22 @@
   background-size: 26px 26px;
 }
 
-/* Periodic wiggle to draw the eye to the hidden confetti button.
-   Mostly at rest, with a quick shake every cycle. */
-@keyframes egg-shake {
-  0%, 92%, 100% {
-    transform: rotate(0deg);
+/* Confetti easter egg: the trigger hides as a faint dot; once found,
+   the 🎉 springs in as the reward. */
+@keyframes egg-pop {
+  0% {
+    transform: scale(0) rotate(-30deg);
   }
-  93% {
-    transform: rotate(-12deg);
+  70% {
+    transform: scale(1.4) rotate(8deg);
   }
-  94% {
-    transform: rotate(10deg);
-  }
-  95% {
-    transform: rotate(-8deg);
-  }
-  96% {
-    transform: rotate(6deg);
-  }
-  97% {
-    transform: rotate(-4deg);
-  }
-  98% {
-    transform: rotate(2deg);
-  }
-  99% {
-    transform: rotate(0deg);
+  100% {
+    transform: scale(1) rotate(0deg);
   }
 }
 
-.animate-egg-shake {
-  animation: egg-shake 4s ease-in-out infinite;
+.animate-egg-pop {
+  animation: egg-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* Site is dark-only: the shadcn variables default to the dark palette. */
