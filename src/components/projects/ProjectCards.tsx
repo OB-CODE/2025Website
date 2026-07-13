@@ -9,6 +9,8 @@ export interface IprojectsToMap {
   mainImage?: string;
   images?: string[];
   github?: string;
+  /** Tooltip shown on the disabled GitHub badge, e.g. for confidential company repos. */
+  githubNote?: string;
   website?: string;
   techStack?: string[];
 }
@@ -68,7 +70,11 @@ const ProjectCards = ({
                 {project.name}
               </div>
               <div data-testid="projectHeaderTray">
-                <ProjectLinks website={project.website} github={project.github} />
+                <ProjectLinks
+                  website={project.website}
+                  github={project.github}
+                  githubNote={project.githubNote}
+                />
               </div>
             </div>
 

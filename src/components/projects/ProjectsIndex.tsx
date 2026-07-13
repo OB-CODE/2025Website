@@ -11,62 +11,74 @@ const ProjectsIndex = () => {
   const phoneProjectsMessage = [
     "App First Design",
     "Trying my hand at a React Native Android/iOS app.",
-    "Made for learning and personal use, not a public store."
-  ]
+    "Made for learning and personal use, not a public store.",
+  ];
 
-    const projectsToMap: IprojectsToMap[] = [
-      {
-        name: "indigo",
-        description: "The best drinks company ever? IYKYK.",
-        mainImage: "/IndigoMainImage.webp",
-        website: "https://drinkindigo.com.au/",
-        techStack: ["Liquid", "Shopify", "css3", "JavaScript"],
-      },
-      {
-        name: "Pokemon Remastered",
-        description:
-          "A Pokemon battle simulator - Redo from an old project with some new features and a different stack. How quick can you catch the 151?",
-        mainImage: "/PokemonRemasteredMainImage.webp",
-        website: "https://poke-battles-remastered.vercel.app/",
-        github: "https://github.com/OB-CODE/PokeBattlesRemastered",
-        techStack: [
-          "React",
-          "Nodejs",
-          "Nextjs",
-          "TypeScript",
-          "TailwindCSS",
-          "DynamoDB",
-        ],
-      },
-      {
-        name: "Home Harvest",
-        description:
-          "A weather / gardening application to show multi API consumption for an interactive user experience. Now get planting.",
-        mainImage: "/HomeHarvestMainImage.webp",
-        website: "https://mitchell-home-harvest.surge.sh/",
-        github: "https://github.com/OB-CODE/Home-Harvest",
-        techStack: ["React", "Nodejs", "surge", "css3"],
-      },
-      {
-        name: "Original Website",
-        description: "My original website - showcasing some older projects.",
-        mainImage: "/OldWebsiteMainImage.webp",
-        website: "https://www.old.mitch-obrien.com/",
-        github: "https://github.com/OB-CODE/Personal-Website",
-        techStack: ["React", "Nodejs", "AWS Amplify"],
-      },
-    ];
+  const projectsToMap: IprojectsToMap[] = [
+    {
+      name: "Liquidity Cube",
+      description:
+        "My company's website - designed and built by me - a founding builder of the new platform's front end. The trading platform itself sits behind an NDA.",
+      mainImage: "/LiquidityCubeMainImage.webp",
+      images: [
+        "/LiquidityCubeMainImage.webp",
+        "/LiquidityCubeBlotter.webp",
+        "/LiquidityCubeWorkspace.webp",
+        "/LiquidityCubeCoverage.webp",
+      ],
+      website: "https://www.liquiditycube.com/",
+      githubNote: "Company code - confidential.",
+      techStack: ["React", "TypeScript", "Vite", "AWS Amplify"],
+    },
+    {
+      name: "indigo",
+      description: "The best drinks company ever? IYKYK.",
+      mainImage: "/IndigoMainImage.webp",
+      website: "https://drinkindigo.com.au/",
+      techStack: ["Liquid", "Shopify", "css3", "JavaScript"],
+    },
+    {
+      name: "Pokemon Remastered",
+      description:
+        "A Pokemon battle simulator - Redo from an old project with some new features and a different stack. How quick can you catch the 151?",
+      mainImage: "/PokemonRemasteredMainImage.webp",
+      website: "https://poke-battles-remastered.vercel.app/",
+      github: "https://github.com/OB-CODE/PokeBattlesRemastered",
+      techStack: [
+        "React",
+        "Nodejs",
+        "Nextjs",
+        "TypeScript",
+        "TailwindCSS",
+        "DynamoDB",
+      ],
+    },
+    {
+      name: "Home Harvest",
+      description:
+        "A weather / gardening application to show multi API consumption for an interactive user experience. Now get planting.",
+      mainImage: "/HomeHarvestMainImage.webp",
+      website: "https://mitchell-home-harvest.surge.sh/",
+      github: "https://github.com/OB-CODE/Home-Harvest",
+      techStack: ["React", "Nodejs", "surge", "css3"],
+    },
+  ];
 
-     const phoneProjectsToMap: IprojectsToMap[] = [
-         {
-          name: "Planner",
-          description: "A simple meal / routine planner. To prove a simple task that could have been achieved with paper can be made more complicated.",
-          mainImage: "/PlannerMain.webp",
-          images: ["/PlannerMain.webp", "/PlannerCreate.webp", "/PlannerShopping.webp"],
-          website: "",
-          techStack: ["React", "TypeScript", "css3", "JavaScript"],
-        },
-      ]
+  const phoneProjectsToMap: IprojectsToMap[] = [
+    {
+      name: "Planner",
+      description:
+        "A simple meal / routine planner. To prove a simple task that could have been achieved with paper can be made more complicated.",
+      mainImage: "/PlannerMain.webp",
+      images: [
+        "/PlannerMain.webp",
+        "/PlannerCreate.webp",
+        "/PlannerShopping.webp",
+      ],
+      website: "",
+      techStack: ["React", "TypeScript", "css3", "JavaScript"],
+    },
+  ];
 
   return (
     <div
