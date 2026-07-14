@@ -69,7 +69,9 @@ const SiteHeader: React.FC = () => {
     };
   }, [mobileMenuOpen]);
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = (id: string, e?: React.MouseEvent) => {
+    e?.preventDefault();
+
     if (mobileMenuOpen) {
       setMobileMenuOpen(false);
     }
@@ -106,25 +108,27 @@ const SiteHeader: React.FC = () => {
     >
       <div className="mx-auto flex h-full max-w-5xl items-center justify-between px-6">
         {/* Logo/Brand */}
-        <button
-          onClick={() => scrollToSection('personalHeading')}
+        <a
+          href="#personalHeading"
+          onClick={(e) => scrollToSection('personalHeading', e)}
           className="flex items-baseline gap-1 text-sm font-semibold tracking-tight text-zinc-50"
         >
           Mitch O'Brien
           <span className="text-zinc-500">.</span>
-        </button>
+        </a>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:block">
           <ul className="flex items-center gap-1">
             {navLinks.map((link) => (
               <li key={link.id}>
-                <button
-                  onClick={() => scrollToSection(link.id)}
+                <a
+                  href={`#${link.id}`}
+                  onClick={(e) => scrollToSection(link.id, e)}
                   className="rounded-md px-3 py-2 text-sm text-zinc-400 transition-colors hover:bg-zinc-900 hover:text-zinc-50"
                 >
                   {link.label}
-                </button>
+                </a>
               </li>
             ))}
           </ul>
@@ -153,14 +157,15 @@ const SiteHeader: React.FC = () => {
         >
           <div className="mobile-menu-content space-y-1 px-4 py-6">
             {navLinks.map((link) => (
-              <button
+              <a
                 key={link.id}
-                onClick={() => scrollToSection(link.id)}
+                href={`#${link.id}`}
+                onClick={(e) => scrollToSection(link.id, e)}
                 className="block w-full rounded-md px-4 py-3 text-left text-base text-zinc-300 transition-colors hover:bg-zinc-900 hover:text-zinc-50"
                 aria-label={`Navigate to ${link.label} section`}
               >
                 {link.label}
-              </button>
+              </a>
             ))}
           </div>
         </div>,
