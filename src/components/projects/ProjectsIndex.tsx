@@ -34,6 +34,12 @@ const ProjectsIndex = () => {
       name: "indigo",
       description: "The best drinks company ever? IYKYK.",
       mainImage: "/IndigoMainImage.webp",
+      images: [
+        "/IndigoMainImage.webp",
+        "/IndigoProducts.webp",
+        "/IndigoProductPear.webp",
+        "/IndigoProductRaspberry.webp",
+      ],
       website: "https://drinkindigo.com.au/",
       techStack: ["Liquid", "Shopify", "css3", "JavaScript"],
     },
