@@ -10,7 +10,7 @@ const ProjectsIndex = () => {
 
   const phoneProjectsMessage = [
     "App First Design",
-    "Trying my hand at a React Native Android/iOS app.",
+    "Built phone-first - a React Native Android/iOS app and a self-hosted PWA.",
     "Made for learning and personal use, not a public store.",
   ];
 
@@ -83,6 +83,21 @@ const ProjectsIndex = () => {
       ],
       website: "",
       techStack: ["React", "TypeScript", "css3", "JavaScript"],
+    },
+    {
+      name: "Personal Board",
+      description:
+        "A self-hosted task board that lives on my phone. Drag between Now / Next / Someday, tag and filter inline, and the pixel blacksmith swings his hammer every time a task lands.",
+      mainImage: "/PersonalBoardMain.webp",
+      images: [
+        "/PersonalBoardMain.webp",
+        "/PersonalBoardAdd.webp",
+        "/PersonalBoardFilter.webp",
+        "/PersonalBoardDone.webp",
+      ],
+      website: "",
+      githubNote: "Runs on my own network - not public.",
+      techStack: ["HTML", "css3", "JavaScript", "PWA"],
     },
   ];
 

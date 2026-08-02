@@ -20,14 +20,15 @@ test.describe("portfolio section", () => {
 
   test("renders a card for every project", async ({ page }) => {
     const cards = page.getByTestId("projectContainer");
-    await expect(cards).toHaveCount(5);
+    await expect(cards).toHaveCount(6);
 
     for (const name of [
+      "Liquidity Cube",
       "indigo",
       "Pokemon Remastered",
       "Home Harvest",
-      "Original Website",
       "Planner",
+      "Personal Board",
     ]) {
       await expect(cards.filter({ hasText: name })).toBeVisible();
     }
@@ -56,11 +57,15 @@ test.describe("portfolio section", () => {
   test("the Planner card carousel cycles through its images", async ({
     page,
   }) => {
-    const plannerImage = page.getByAltText("Planner preview");
+    // Several cards carry carousels, so the arrows have to be scoped to this one.
+    const plannerCard = page
+      .locator("div", { has: page.getByAltText("Planner preview") })
+      .last();
+    const plannerImage = plannerCard.getByAltText("Planner preview");
     await plannerImage.scrollIntoViewIfNeeded();
     await expect(plannerImage).toHaveAttribute("src", "/PlannerMain.webp");
 
-    const next = page.getByRole("button", { name: "Next image" });
+    const next = plannerCard.getByRole("button", { name: "Next image" });
     await next.click();
     await expect(plannerImage).toHaveAttribute("src", "/PlannerCreate.webp");
 
@@ -72,7 +77,7 @@ test.describe("portfolio section", () => {
     await expect(plannerImage).toHaveAttribute("src", "/PlannerMain.webp");
 
     // Previous wraps backwards too
-    await page.getByRole("button", { name: "Previous image" }).click();
+    await plannerCard.getByRole("button", { name: "Previous image" }).click();
     await expect(plannerImage).toHaveAttribute("src", "/PlannerShopping.webp");
   });
 });
