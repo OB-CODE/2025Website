@@ -23,6 +23,6 @@ export const personalDetails: IPersonalDetails = {
   companyDescription: "OTC trading platform for fixed income assets",
   role: "Principal, Strategy & Developer",
   roleShort: "Principal, Strategy & Dev",
-  stack: ["TypeScript", "Next.js", ".NET", "SQL"],
+  stack: ["TypeScript", "Next.js", "Vite", ".NET", "SQL"],
   offClock: ["surf", "coffee", "gym"],
 };
