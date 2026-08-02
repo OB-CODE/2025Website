@@ -1,5 +1,6 @@
 import { FiChevronDown } from "react-icons/fi";
 import HeroCodeCard from "./HeroCodeCard";
+import PixelWalker from "./PixelWalker";
 import { personalDetails } from "./personal-info";
 
 interface PersonalHeadingProps {
@@ -42,8 +43,11 @@ const PersonalHeading = ({ id }: PersonalHeadingProps) => {
           </div>
         </div>
 
-        {/* Right: terminal-style code card */}
-        <HeroCodeCard />
+        {/* Right: pixel walker pacing above the terminal-style code card */}
+        <div className="flex min-w-0 flex-col">
+          <PixelWalker />
+          <HeroCodeCard />
+        </div>
       </div>
 
       {/* Scroll cue */}
