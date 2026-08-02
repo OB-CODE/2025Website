@@ -16,9 +16,9 @@ const surfDetailsObject = {
 };
 const frontEndDetailsObject = {
   logo: frontEndSVG,
-  title: "Front End Development",
+  title: "Software Development",
   description:
-    "Three years of industry experience in React, Next.js, and TypeScript.",
+    "Industry experience in React, TS, .NET, SQL, Playwright, AWS, Claude and MCP.",
 };
 const keyboardDetailsObject = {
   logo: moonlanderSVG,
