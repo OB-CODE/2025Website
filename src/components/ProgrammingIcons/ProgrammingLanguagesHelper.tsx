@@ -46,6 +46,13 @@ export const knownLanguagesToMap: ILanguages[] = [
     slug: "jest",
   },
   {
+    language: "Playwright",
+    internalStackCode: "Playwright",
+    logo: "/logos/playwright.svg",
+    alt: "Playwright Logo",
+    slug: "playwright",
+  },
+  {
     language: "Postman",
     internalStackCode: "Postman",
     logo: "/logos/postman-original.svg", // "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg",
