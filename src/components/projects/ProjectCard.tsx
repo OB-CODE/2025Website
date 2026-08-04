@@ -33,6 +33,13 @@ const ProjectCard = ({
     setImageIndex((current) => (current + step + images.length) % images.length);
   };
 
+  // In the deck these arrows sit alongside a labelled Prev/Next that swaps the whole
+  // card. They step screenshots, which is the smaller job, so they're toned down to say
+  // so. In the grid there's nothing to be quieter than.
+  const arrowTone = isTallCard
+    ? "border-zinc-800 bg-zinc-900/60 text-zinc-500"
+    : "border-zinc-700 bg-zinc-950/70 text-zinc-400";
+
   return (
     <div
       className={`flex w-full flex-col overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900/40 transition-colors duration-200 hover:border-zinc-700 ${
@@ -42,7 +49,10 @@ const ProjectCard = ({
       {/* Header */}
       <div
         data-testid="projectContainer"
-        className="flex w-full flex-wrap items-center justify-between gap-2 border-b border-zinc-800/80 px-5 py-3"
+        className={`flex w-full flex-wrap items-center justify-between gap-2 border-b border-zinc-800/80 px-5 py-3 ${
+          // The deck's cards get a name plate rather than a header that blends away.
+          isTallCard ? "bg-zinc-900/70" : ""
+        }`}
       >
         <div className="text-base font-medium text-zinc-50">{project.name}</div>
         <div data-testid="projectHeaderTray">
@@ -70,7 +80,7 @@ const ProjectCard = ({
                 e.stopPropagation();
                 stepImage(-1);
               }}
-              className="absolute left-3 z-20 rounded-full border border-zinc-700 bg-zinc-950/70 p-2 text-zinc-400 backdrop-blur-sm transition-colors hover:border-zinc-500 hover:text-zinc-50"
+              className={`absolute left-3 z-20 rounded-full border p-2 backdrop-blur-sm transition-colors hover:border-zinc-500 hover:text-zinc-50 ${arrowTone}`}
               aria-label="Previous image"
             >
               <FiArrowLeft size={16} />
@@ -92,7 +102,7 @@ const ProjectCard = ({
                 e.stopPropagation();
                 stepImage(1);
               }}
-              className="absolute right-3 z-20 rounded-full border border-zinc-700 bg-zinc-950/70 p-2 text-zinc-400 backdrop-blur-sm transition-colors hover:border-zinc-500 hover:text-zinc-50"
+              className={`absolute right-3 z-20 rounded-full border p-2 backdrop-blur-sm transition-colors hover:border-zinc-500 hover:text-zinc-50 ${arrowTone}`}
               aria-label="Next image"
             >
               <FiArrowRight size={16} />

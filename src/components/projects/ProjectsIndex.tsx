@@ -12,7 +12,7 @@ const ProjectsIndex = () => {
 
   const phoneProjectsMessage = [
     "App First Design",
-    "Built phone-first - a React Native Android/iOS app and a self-hosted PWA.",
+    "Designed for a phone screen first, not squeezed down from a desktop layout.",
     "Made for learning and personal use, not a public store.",
   ];
 
@@ -100,7 +100,7 @@ const ProjectsIndex = () => {
         "/PlannerShopping.webp",
       ],
       website: "",
-      techStack: ["React", "TypeScript", "css3", "JavaScript"],
+      techStack: ["React Native", "TypeScript", "css3", "JavaScript"],
     },
   ];
 

@@ -37,18 +37,19 @@ const ProjectCarousel = ({
           <>
             <div
               aria-hidden="true"
-              className="absolute inset-x-8 -bottom-6 top-6 z-0 rounded-xl border border-zinc-800 bg-zinc-900/40"
+              className="absolute inset-x-8 -bottom-6 top-6 z-0 rounded-2xl border border-zinc-800 bg-zinc-900/40"
             />
             <div
               aria-hidden="true"
-              className="absolute inset-x-4 -bottom-3 top-4 z-0 rounded-xl border border-zinc-700/70 bg-zinc-900/60"
+              className="absolute inset-x-4 -bottom-3 top-4 z-0 rounded-2xl border border-zinc-700/70 bg-zinc-900/60"
             />
           </>
         )}
 
-        {/* The card's own background is translucent, so it needs the page colour laid
-            solid underneath it - otherwise the deck shows straight through the top card. */}
-        <div className="relative z-10 rounded-xl bg-zinc-950">
+        {/* The trading-card frame: a band of card stock around the artwork, lit along the
+            top edge. Its gradient has to stay opaque - the card inside is translucent, and
+            anything less lets the deck underneath show straight through. */}
+        <div className="relative z-10 rounded-2xl border border-zinc-700 bg-gradient-to-b from-zinc-800 via-zinc-900 to-zinc-950 p-2.5 shadow-2xl shadow-black/60 ring-1 ring-inset ring-white/5">
           <ProjectCard
             key={activeProject.name}
             project={activeProject}
@@ -57,18 +58,22 @@ const ProjectCarousel = ({
         </div>
       </div>
 
+      {/* Deliberately louder than the arrows sitting over the screenshot: those step
+          through one card's screens, these swap the card itself. Same shape at the same
+          size would read as the same control. */}
       {hasDeck && (
-        <div className="mt-8 flex items-center justify-center gap-4">
+        <div className="mt-9 flex items-center gap-3 rounded-full border border-zinc-700 bg-zinc-900 px-3 py-2 shadow-lg shadow-black/40">
           <button
             type="button"
             onClick={() => stepProject(-1)}
             aria-label="Previous project"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-700 bg-zinc-950/70 text-zinc-400 transition-colors hover:border-zinc-500 hover:text-zinc-50"
+            className="flex items-center gap-1 rounded-full bg-zinc-800 py-2 pl-3 pr-4 text-sm font-medium text-zinc-100 transition-colors hover:bg-zinc-700"
           >
             <FiChevronLeft size={18} />
+            Prev
           </button>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 px-1">
             {projectsToMap.map((project, index) => (
               <button
                 key={project.name}
@@ -76,10 +81,10 @@ const ProjectCarousel = ({
                 onClick={() => setActiveIndex(index)}
                 aria-label={`Show ${project.name}`}
                 aria-current={index === activeIndex}
-                className={`h-2 w-2 rounded-full transition-colors duration-200 ${
+                className={`h-2.5 w-2.5 rounded-full transition-colors duration-200 ${
                   index === activeIndex
-                    ? "bg-zinc-200"
-                    : "bg-zinc-700 hover:bg-zinc-500"
+                    ? "bg-zinc-100"
+                    : "bg-zinc-600 hover:bg-zinc-400"
                 }`}
               />
             ))}
@@ -89,8 +94,9 @@ const ProjectCarousel = ({
             type="button"
             onClick={() => stepProject(1)}
             aria-label="Next project"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-700 bg-zinc-950/70 text-zinc-400 transition-colors hover:border-zinc-500 hover:text-zinc-50"
+            className="flex items-center gap-1 rounded-full bg-zinc-800 py-2 pl-4 pr-3 text-sm font-medium text-zinc-100 transition-colors hover:bg-zinc-700"
           >
+            Next
             <FiChevronRight size={18} />
           </button>
         </div>
