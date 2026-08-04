@@ -34,10 +34,10 @@ const HeroCodeCard = () => {
   return (
     <div
       aria-hidden="true"
-      className="w-full min-w-0 rounded-xl border border-zinc-800 bg-zinc-950/80 shadow-2xl shadow-black/40"
+      className="w-full min-w-0 rounded-xl border border-zinc-700 bg-zinc-950/80 shadow-2xl shadow-black/40"
     >
       {/* Title bar */}
-      <div className="flex items-center gap-1.5 border-b border-zinc-800/80 px-4 py-3">
+      <div className="flex items-center gap-1.5 border-b border-zinc-700/80 px-4 py-3">
         <span className="h-2.5 w-2.5 rounded-full bg-red-500/90" />
         <span className="h-2.5 w-2.5 rounded-full bg-amber-400/90" />
         <span className="h-2.5 w-2.5 rounded-full bg-green-500/90" />
