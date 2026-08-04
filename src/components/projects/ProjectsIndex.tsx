@@ -1,5 +1,7 @@
+import { Tooltip } from "react-tooltip";
 import Heading2 from "../ui/Heading2";
 import ProjectCards, { IprojectsToMap } from "./ProjectCards";
+import ProjectCarousel from "./ProjectCarousel";
 
 const ProjectsIndex = () => {
   const projectsMessage = [
@@ -70,7 +72,23 @@ const ProjectsIndex = () => {
     },
   ];
 
+  // The first entry is the card the deck opens on.
   const phoneProjectsToMap: IprojectsToMap[] = [
+    {
+      name: "Personal Board",
+      description:
+        "A self-hosted task board that lives on a VM, syncing my phone, laptop and work computer. Task style dragging, SSE syncing and pixel animations of action.",
+      mainImage: "/PersonalBoardMain.webp",
+      images: [
+        "/PersonalBoardMain.webp",
+        "/PersonalBoardAdd.webp",
+        "/PersonalBoardFilter.webp",
+        "/PersonalBoardDone.webp",
+      ],
+      website: "",
+      githubNote: "Runs on my own network - not public.",
+      techStack: ["HTML", "css3", "JavaScript", "SSE", "PWA"],
+    },
     {
       name: "Planner",
       description:
@@ -83,21 +101,6 @@ const ProjectsIndex = () => {
       ],
       website: "",
       techStack: ["React", "TypeScript", "css3", "JavaScript"],
-    },
-    {
-      name: "Personal Board",
-      description:
-        "A self-hosted task board that lives on my phone. Drag between Now / Next / Someday, tag and filter inline, and the pixel blacksmith swings his hammer every time a task lands.",
-      mainImage: "/PersonalBoardMain.webp",
-      images: [
-        "/PersonalBoardMain.webp",
-        "/PersonalBoardAdd.webp",
-        "/PersonalBoardFilter.webp",
-        "/PersonalBoardDone.webp",
-      ],
-      website: "",
-      githubNote: "Runs on my own network - not public.",
-      techStack: ["HTML", "css3", "JavaScript", "PWA"],
     },
   ];
 
@@ -131,8 +134,9 @@ const ProjectsIndex = () => {
         ))}
       </div>
       <div className="mt-10 w-full">
-        <ProjectCards projectsToMap={phoneProjectsToMap} isTallCard={true} />
+        <ProjectCarousel projectsToMap={phoneProjectsToMap} />
       </div>
+      <Tooltip id="my-tooltip" />
     </div>
   );
 };

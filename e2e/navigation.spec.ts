@@ -10,7 +10,7 @@ test.describe("desktop navigation", () => {
   test("header shows the brand and all nav links", async ({ page }) => {
     const header = page.locator("header");
     await expect(
-      header.getByRole("button", { name: "Mitch O'Brien" })
+      header.getByRole("link", { name: "Mitch O'Brien" })
     ).toBeVisible();
 
     for (const label of [
@@ -21,7 +21,7 @@ test.describe("desktop navigation", () => {
       "Contact",
     ]) {
       await expect(
-        header.getByRole("button", { name: label, exact: true })
+        header.getByRole("link", { name: label, exact: true })
       ).toBeVisible();
     }
   });
@@ -29,7 +29,7 @@ test.describe("desktop navigation", () => {
   test("clicking a nav link scrolls to that section", async ({ page }) => {
     await page
       .locator("header")
-      .getByRole("button", { name: "Projects", exact: true })
+      .getByRole("link", { name: "Projects", exact: true })
       .click();
 
     await expect(page.locator("#projectsIndexContainer")).toBeInViewport();
@@ -41,13 +41,13 @@ test.describe("desktop navigation", () => {
   test("brand button scrolls back to the top", async ({ page }) => {
     await page
       .locator("header")
-      .getByRole("button", { name: "Contact", exact: true })
+      .getByRole("link", { name: "Contact", exact: true })
       .click();
     await expect(page.locator("#contactSection")).toBeInViewport();
 
     await page
       .locator("header")
-      .getByRole("button", { name: "Mitch O'Brien" })
+      .getByRole("link", { name: "Mitch O'Brien" })
       .click();
     await expect(page.locator("#personalHeading")).toBeInViewport();
   });
@@ -61,18 +61,18 @@ test.describe("mobile navigation", () => {
   }) => {
     // Desktop nav is hidden on small screens
     await expect(
-      page.locator("header nav").getByRole("button", { name: "Home" })
+      page.locator("header nav").getByRole("link", { name: "Home" })
     ).toBeHidden();
 
     await page.getByRole("button", { name: "Open menu" }).click();
 
     const menu = page.locator("#mobile-menu-portal");
     await expect(
-      menu.getByRole("button", { name: "Navigate to Projects section" })
+      menu.getByRole("link", { name: "Navigate to Projects section" })
     ).toBeVisible();
 
     await menu
-      .getByRole("button", { name: "Navigate to Projects section" })
+      .getByRole("link", { name: "Navigate to Projects section" })
       .click();
 
     await expect(menu.locator("div").first()).toBeHidden();
@@ -86,14 +86,14 @@ test.describe("mobile navigation", () => {
     await expect(
       page
         .locator("#mobile-menu-portal")
-        .getByRole("button", { name: "Navigate to Home section" })
+        .getByRole("link", { name: "Navigate to Home section" })
     ).toBeVisible();
 
     await page.getByRole("button", { name: "Close menu" }).click();
     await expect(
       page
         .locator("#mobile-menu-portal")
-        .getByRole("button", { name: "Navigate to Home section" })
+        .getByRole("link", { name: "Navigate to Home section" })
     ).toBeHidden();
   });
 });

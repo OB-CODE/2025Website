@@ -19,19 +19,43 @@ test.describe("portfolio section", () => {
   });
 
   test("renders a card for every project", async ({ page }) => {
+    // The web projects are a grid; the phone projects are a deck showing one card at a
+    // time, so only the top of that deck is mounted alongside them.
     const cards = page.getByTestId("projectContainer");
-    await expect(cards).toHaveCount(6);
+    await expect(cards).toHaveCount(5);
 
     for (const name of [
       "Liquidity Cube",
       "indigo",
       "Pokemon Remastered",
       "Home Harvest",
-      "Planner",
       "Personal Board",
     ]) {
       await expect(cards.filter({ hasText: name })).toBeVisible();
     }
+  });
+
+  test("the phone deck opens on Personal Board and rotates between projects", async ({
+    page,
+  }) => {
+    const deck = page.getByTestId("projectCarousel");
+    await deck.scrollIntoViewIfNeeded();
+
+    // Only ever one card on top of the deck, and it names itself in its header.
+    const cardName = deck.getByTestId("projectContainer");
+    await expect(cardName).toHaveCount(1);
+    await expect(cardName).toContainText("Personal Board");
+
+    await deck.getByRole("button", { name: "Next project" }).click();
+    await expect(cardName).toContainText("Planner");
+
+    // Wraps back around to the first card
+    await deck.getByRole("button", { name: "Next project" }).click();
+    await expect(cardName).toContainText("Personal Board");
+
+    // The dots jump straight to a card
+    await deck.getByRole("button", { name: "Show Planner" }).click();
+    await expect(cardName).toContainText("Planner");
   });
 
   test("project links point to the live sites and open in a new tab", async ({
@@ -57,12 +81,12 @@ test.describe("portfolio section", () => {
   test("the Planner card carousel cycles through its images", async ({
     page,
   }) => {
-    // Several cards carry carousels, so the arrows have to be scoped to this one.
-    const plannerCard = page
-      .locator("div", { has: page.getByAltText("Planner preview") })
-      .last();
+    // Planner sits behind Personal Board in the deck, so rotate to it first.
+    const plannerCard = page.getByTestId("projectCarousel");
+    await plannerCard.scrollIntoViewIfNeeded();
+    await plannerCard.getByRole("button", { name: "Show Planner" }).click();
+
     const plannerImage = plannerCard.getByAltText("Planner preview");
-    await plannerImage.scrollIntoViewIfNeeded();
     await expect(plannerImage).toHaveAttribute("src", "/PlannerMain.webp");
 
     const next = plannerCard.getByRole("button", { name: "Next image" });
